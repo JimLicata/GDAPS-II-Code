@@ -1,0 +1,9 @@
+D:\Profiles\jxl2489\OneDrive\Game Design 1 Projects\GDAPS II\Home Sweet Hell\Home Sweet Hell\Home Sweet Hell\bin\DesktopGL\x86\Debug\OpenTK.dll.config
+D:\Profiles\jxl2489\OneDrive\Game Design 1 Projects\GDAPS II\Home Sweet Hell\Home Sweet Hell\Home Sweet Hell\bin\DesktopGL\x86\Debug\Home Sweet Hell.exe
+D:\Profiles\jxl2489\OneDrive\Game Design 1 Projects\GDAPS II\Home Sweet Hell\Home Sweet Hell\Home Sweet Hell\bin\DesktopGL\x86\Debug\Home Sweet Hell.pdb
+D:\Profiles\jxl2489\OneDrive\Game Design 1 Projects\GDAPS II\Home Sweet Hell\Home Sweet Hell\Home Sweet Hell\bin\DesktopGL\x86\Debug\MonoGame.Framework.dll
+D:\Profiles\jxl2489\OneDrive\Game Design 1 Projects\GDAPS II\Home Sweet Hell\Home Sweet Hell\Home Sweet Hell\bin\DesktopGL\x86\Debug\NVorbis.dll
+D:\Profiles\jxl2489\OneDrive\Game Design 1 Projects\GDAPS II\Home Sweet Hell\Home Sweet Hell\Home Sweet Hell\bin\DesktopGL\x86\Debug\OpenTK.dll
+D:\Profiles\jxl2489\OneDrive\Game Design 1 Projects\GDAPS II\Home Sweet Hell\Home Sweet Hell\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.csprojResolveAssemblyReference.cache
+D:\Profiles\jxl2489\OneDrive\Game Design 1 Projects\GDAPS II\Home Sweet Hell\Home Sweet Hell\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.exe
+D:\Profiles\jxl2489\OneDrive\Game Design 1 Projects\GDAPS II\Home Sweet Hell\Home Sweet Hell\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.pdb
