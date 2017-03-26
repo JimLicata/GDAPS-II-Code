@@ -40,11 +40,11 @@
   <ItemGroup>
     <Compile Include="Enemy.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="GUI_Anim.cs" />
+    <Compile Include="GUI_Graphics.cs" />
+    <Compile Include="GUI_StatGraphics.cs" />
     <Compile Include="Knight%28Bad%29.cs" />
     <Compile Include="Knight%28Good%29.cs" />
-    <Compile Include="Level1.cs" />
-    <Compile Include="Map.cs" />
-    <Compile Include="Map1.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,7 +66,19 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
-    <Content Include="Content\BunexFjIQAEWSKp.png">
+    <Content Include="Content\enemyplaceholder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\mapassets3type.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\storebackplaceholder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\storelistingplaceholder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\towerplaceholder.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="OpenTK.dll.config">
@@ -78,6 +90,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\mainFont.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Arial.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
