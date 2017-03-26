@@ -133,6 +133,7 @@ namespace Home_Sweet_Hell
             string line;
             int tileRow = 0;
             int tileColumn = 0;
+            tiles = new int[15, 10];
             while ((line = load.ReadLine()) != null)
             {
                 if (line == "")//ignores the \n commands to split up rows in the array
