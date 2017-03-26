@@ -61,8 +61,9 @@ namespace Home_Sweet_Hell
             graphics.PreferredBackBufferWidth = map.Width * txtWidth;
             graphics.PreferredBackBufferHeight = map.Height * txtHeight;
             graphics.ApplyChanges();
-            IsMouseVisible = true;
             */
+            IsMouseVisible = true;
+            
         }
 
         /// <summary>
@@ -133,7 +134,8 @@ namespace Home_Sweet_Hell
             string line;
             int tileRow = 0;
             int tileColumn = 0;
-            tiles = new int[15, 10];
+            tiles = new int[10, 15];
+            mapTile = new Tile[10, 15];
             while ((line = load.ReadLine()) != null)
             {
                 if (line == "")//ignores the \n commands to split up rows in the array
@@ -216,7 +218,7 @@ namespace Home_Sweet_Hell
                     // values for first stage
                     if (level == 1) 
                     {
-                        enemyNum = 10;
+                        enemyNum = 1;
                         money = 1000;
 
                         // adds enemyNum enemy knights to the enemies list
@@ -249,6 +251,7 @@ namespace Home_Sweet_Hell
                     {
                         enemy.Move(mapTile, tiles);
                         enemy.Breach(player, mapTile, tiles);
+                        enemyGraph.Update(gameTime);
 
                         // checks if each enemy is in range of each tower
                         foreach (var tower in towers)
@@ -327,7 +330,6 @@ namespace Home_Sweet_Hell
                     listing2.StaticImage(1, .66f, spriteBatch);                                                           //
                     listing3.StaticImage(1, .66f, spriteBatch);
 
-                    //////////////////////////
                     spriteBatch.DrawString(font, "Knight \n Price: " + gKnight.Cost,
                         new Vector2(465, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);               
                     spriteBatch.DrawString(font, "Tower Name \n Price: " + 150, //replace with price variable later       //
