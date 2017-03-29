@@ -40,6 +40,11 @@ namespace Home_Sweet_Hell
             set { tileValue = value; }
         }
 
+        public Tile[] Neighbors
+        {
+            get { return neighbors; }
+        }
+
         //checks to see if the tile is part of the enemy path
         public bool IsWalkable()
         {
@@ -54,5 +59,46 @@ namespace Home_Sweet_Hell
                 return false;
             }
         }
+
+        //checks to see if the tile is the next one in the enemy path
+        public bool IsNext(Tile obj)
+        {
+            
+                if (obj.tileValue == tileValue + 1)
+                {
+                    return true;
+                }
+                else
+                if (obj.tileValue == 5 && tileValue == 3)
+                {
+                    return true;
+                }
+                else
+                if (obj.tileValue == 6 && tileValue > 2)
+                {
+                    return true;
+                }
+                else { return false; }
+            
+        }
+
+        //gets adjacent tiles
+        //neighbor[0] = up
+        //neighbor[1] = down 
+        //neighbor[2] = left
+        //neighbor[3] = right
+        public Tile[] GetNeighbors(Tile[,] map, int x, int y)
+        {
+            Tile space = map[x, y];
+            neighbors = new Tile[] 
+            {
+                map[x,y+1],
+                map[x,y-1],
+                map[x-1,y],
+                map[x+1,y]
+            };
+            return neighbors;
+        }
+        
     }
 }
