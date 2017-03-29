@@ -227,95 +227,104 @@ namespace HomeSweetHellMapEditor
             DialogResult result = mapFileSelection.ShowDialog(); // Show the dialog.
             if (result == DialogResult.OK) // Test result.
             {
-                string mapFile = mapFileSelection.FileName;
-                loadMap = new StreamReader(mapFile);
-                string line;
-                int tileRow = 0;
-                int tileColumn = 0;
-                //read in the array line-by-line and attach each number to its associated position in the tiles in array
-                while ((line = loadMap.ReadLine()) != null)
+                //attempt to read in the chosen text file for array creation
+                try 
                 {
-                    if (line == "")//ignores the \n commands to split up rows in the array
+                    string mapFile = mapFileSelection.FileName;
+                    loadMap = new StreamReader(mapFile);
+                    string line;
+                    int tileRow = 0;
+                    int tileColumn = 0;
+                    //read in the array line-by-line and attach each number to its associated position in the tiles in array
+                    while ((line = loadMap.ReadLine()) != null)
                     {
-                        continue;
+                        if (line == "")//ignores the \n commands to split up rows in the array
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            char[] rowTiles = line.ToCharArray();
+                            foreach (char tile in rowTiles)
+                            {
+                                int type = 0;
+                                string tileStr = tile.ToString();
+                                int.TryParse(tileStr, out type);
+                                tiles[tileRow, tileColumn] = type;
+                                tileColumn++;
+                            }
+                            tileRow++;
+                            if (tileRow > 9) //autobreaks if the loop exceeds number of rows in array
+                            {
+                                break;
+                            }
+                            tileColumn = 0;
+                        }
                     }
-                    else
+                    loadMap.Close();
+                    //create the visual component of the editor based on the tiles array that was just formatted
+                    mapButton.Visible = false;
+                    mapGrid = new PictureBox[10, 15];
+                    for (int row = 0; row < 10; row++)
                     {
-                        char[] rowTiles = line.ToCharArray();
-                        foreach (char tile in rowTiles)
+                        for (int column = 0; column < 15; column++)
                         {
-                            int type = 0;
-                            string tileStr = tile.ToString();
-                            int.TryParse(tileStr, out type);
-                            tiles[tileRow, tileColumn] = type;
-                            tileColumn++;
+                            mapGrid[row, column] = new PictureBox();
+                            mapGrid[row, column].Location = new Point(column * 50 + 12, row * 50 + 12);
+                            mapGrid[row, column].Width = 50;
+                            mapGrid[row, column].Height = 50;
+                            mapGrid[row, column].Visible = true;
+                            mapGrid[row, column].BorderStyle = BorderStyle.FixedSingle;
+                            mapGrid[row, column].BringToFront();
+                            mapGrid[row, column].MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
+                            this.Controls.Add(mapGrid[row, column]);
+                            switch (tiles[row, column])
+                            {
+                                case 0:
+                                    mapGrid[row, column].Image = null;
+                                    mapGrid[row, column].BackColor = Color.Gray;
+                                    mapGrid[row, column].Image = backgroundPic;
+                                    break;
+                                case 1:
+                                    mapGrid[row, column].Image = null;
+                                    mapGrid[row, column].BackColor = Color.DarkRed;
+                                    mapGrid[row, column].Image = towerPlacablePic;
+                                    break;
+                                case 2:
+                                    mapGrid[row, column].Image = null;
+                                    mapGrid[row, column].BackColor = Color.Tan;
+                                    mapGrid[row, column].Image = enemyPathPic;
+                                    break;
+                                case 3:
+                                    mapGrid[row, column].Image = null;
+                                    mapGrid[row, column].BackColor = Color.Tan;
+                                    mapGrid[row, column].Image = enemyPathPic;
+                                    break;
+                                case 4:
+                                    mapGrid[row, column].Image = null;
+                                    mapGrid[row, column].BackColor = Color.Tan;
+                                    mapGrid[row, column].Image = enemyPathPic;
+                                    break;
+                                case 5:
+                                    mapGrid[row, column].Image = null;
+                                    mapGrid[row, column].BackColor = Color.Tan;
+                                    mapGrid[row, column].Image = enemyPathPic;
+                                    break;
+                                case 6:
+                                    mapGrid[row, column].Image = null;
+                                    mapGrid[row, column].BackColor = Color.Tan;
+                                    mapGrid[row, column].Image = enemyPathPic;
+                                    break;
+                                default:
+                                    break;
+                            }
                         }
-                        tileRow++;
-                        if (tileRow > 9) //autobreaks if the loop exceeds number of rows in array
-                        {
-                            break;
-                        }
-                        tileColumn = 0;
                     }
                 }
-                loadMap.Close();
-                //create the visual component of the editor based on the tiles array that was just formatted
-                mapButton.Visible = false;
-                mapGrid = new PictureBox[10, 15];
-                for (int row = 0; row < 10; row++)
+                //catch all exceptions thrown when attempting to generate the arrays from a file
+                catch(Exception ex)
                 {
-                    for (int column = 0; column < 15; column++)
-                    {
-                        mapGrid[row, column] = new PictureBox();
-                        mapGrid[row, column].Location = new Point(column * 50 + 12, row * 50 + 12);
-                        mapGrid[row, column].Width = 50;
-                        mapGrid[row, column].Height = 50;
-                        mapGrid[row, column].Visible = true;
-                        mapGrid[row, column].BorderStyle = BorderStyle.FixedSingle;
-                        mapGrid[row, column].BringToFront();
-                        mapGrid[row, column].MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
-                        this.Controls.Add(mapGrid[row, column]);
-                        switch (tiles[row, column])
-                        {
-                            case 0:
-                                mapGrid[row, column].Image = null;
-                                mapGrid[row, column].BackColor = Color.Gray;
-                                mapGrid[row, column].Image = backgroundPic;
-                                break;
-                            case 1:
-                                mapGrid[row, column].Image = null;
-                                mapGrid[row, column].BackColor = Color.DarkRed;
-                                mapGrid[row, column].Image = towerPlacablePic;
-                                break;
-                            case 2:
-                                mapGrid[row, column].Image = null;
-                                mapGrid[row, column].BackColor = Color.Tan;
-                                mapGrid[row, column].Image = enemyPathPic;
-                                break;
-                            case 3:
-                                mapGrid[row, column].Image = null;
-                                mapGrid[row, column].BackColor = Color.Tan;
-                                mapGrid[row, column].Image = enemyPathPic;
-                                break;
-                            case 4:
-                                mapGrid[row, column].Image = null;
-                                mapGrid[row, column].BackColor = Color.Tan;
-                                mapGrid[row, column].Image = enemyPathPic;
-                                break;
-                            case 5:
-                                mapGrid[row, column].Image = null;
-                                mapGrid[row, column].BackColor = Color.Tan;
-                                mapGrid[row, column].Image = enemyPathPic;
-                                break;
-                            case 6:
-                                mapGrid[row, column].Image = null;
-                                mapGrid[row, column].BackColor = Color.Tan;
-                                mapGrid[row, column].Image = enemyPathPic;
-                                break;
-                            default:
-                                break;
-                        }
-                    }
+                    System.Windows.Forms.MessageBox.Show("An error occured while loading a file.  Please make sure the map file is formatted correctly!\nError message: " + ex.Message);
                 }
             }
         }

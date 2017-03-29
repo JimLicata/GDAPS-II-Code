@@ -35,3 +35,12 @@ Z:\IGMProfile\Documents\GDAPS2\HomeSweetHellMapEditor\HomeSweetHellMapEditor\obj
 Z:\IGMProfile\Documents\GDAPS2\HomeSweetHellMapEditor\HomeSweetHellMapEditor\obj\Debug\HomeSweetHellMapEditor.csproj.GenerateResource.Cache
 Z:\IGMProfile\Documents\GDAPS2\HomeSweetHellMapEditor\HomeSweetHellMapEditor\obj\Debug\HomeSweetHellMapEditor.exe
 Z:\IGMProfile\Documents\GDAPS2\HomeSweetHellMapEditor\HomeSweetHellMapEditor\obj\Debug\HomeSweetHellMapEditor.pdb
+Z:\IGMProfile\Documents\JamesLicataGDAPS-II\HomeSweetHellMapEditor\bin\Debug\HomeSweetHellMapEditor.exe.config
+Z:\IGMProfile\Documents\JamesLicataGDAPS-II\HomeSweetHellMapEditor\obj\Debug\HomeSweetHellMapEditor.exe
+Z:\IGMProfile\Documents\JamesLicataGDAPS-II\HomeSweetHellMapEditor\obj\Debug\HomeSweetHellMapEditor.pdb
+Z:\IGMProfile\Documents\JamesLicataGDAPS-II\HomeSweetHellMapEditor\bin\Debug\HomeSweetHellMapEditor.exe
+Z:\IGMProfile\Documents\JamesLicataGDAPS-II\HomeSweetHellMapEditor\bin\Debug\HomeSweetHellMapEditor.pdb
+Z:\IGMProfile\Documents\JamesLicataGDAPS-II\HomeSweetHellMapEditor\obj\Debug\HomeSweetHellMapEditor.csprojResolveAssemblyReference.cache
+Z:\IGMProfile\Documents\JamesLicataGDAPS-II\HomeSweetHellMapEditor\obj\Debug\HomeSweetHellMapEditor.Form1.resources
+Z:\IGMProfile\Documents\JamesLicataGDAPS-II\HomeSweetHellMapEditor\obj\Debug\HomeSweetHellMapEditor.Properties.Resources.resources
+Z:\IGMProfile\Documents\JamesLicataGDAPS-II\HomeSweetHellMapEditor\obj\Debug\HomeSweetHellMapEditor.csproj.GenerateResource.Cache
