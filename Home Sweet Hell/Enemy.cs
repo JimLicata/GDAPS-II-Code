@@ -23,6 +23,7 @@ namespace Home_Sweet_Hell
         private bool alive;
         private Texture2D image;
         private int score;
+        private int control = 0;
 
         //properties for attributes
         public int Health
@@ -80,6 +81,13 @@ namespace Home_Sweet_Hell
         {
             get { return score; }
         }
+
+        public bool Alive
+        {
+            get { return alive; }
+
+            set { alive = value; }
+        }
         //constructor
         public Enemy(int hp, int sp, int w, int h, int x, int y,int scr)
         {
@@ -125,92 +133,73 @@ namespace Home_Sweet_Hell
 
         public void Move(Tile[,] map, int[,] tiles)//method to cause enemies to move toward the base
         {
-
-            for (int row = 0; row < tiles.GetLength(0); row++)
-            {
-                for (int column = 0; column < tiles.GetLength(1); column++)
+            control++;
+            if (control % 60 == 0)
+            { switch (control)
                 {
-                        if (position.Intersects(map[row, column].Position) == true)
-                        {
-                        if (map[row, column].TileValue == 2)
-                        {
-                            if (map[map[row, column].Position.X - 50, map[row, column].Position.Y].TileValue == 3)//checks 1 tile to the right for the next path
-                            {
-                                position = new Rectangle(new Point(map[row, column].Position.X, map[row, column].Position.Y), new Point(sizeX, sizeY));
-                            }
-                            else if (map[map[row, column].Position.X + 50, map[row, column].Position.Y].TileValue == 3)//checks 1 tile to the left
-                            {
-                                position = new Rectangle(new Point(map[row, column].Position.X, map[row, column].Position.Y), new Point(sizeX, sizeY));
-                            }
-                            else if (map[map[row, column].Position.X, map[row, column].Position.Y + 50].TileValue == 3)//checks 1 tile up
-                            {
-                                position = new Rectangle(new Point(map[row, column].Position.X, map[row, column].Position.Y), new Point(sizeX, sizeY));
-                            }
-                            else if (map[map[row, column].Position.X, map[row, column].Position.Y + 50].TileValue == 3)//checks 1 tile down
-                            {
-                                position = new Rectangle(new Point(map[row, column].Position.X, map[row, column].Position.Y), new Point(sizeX, sizeY));
-                            }
-                        }
-                        else if (map[row, column].TileValue == 3)
-                        {
-                            if (map[map[row, column].Position.X - 50, map[row, column].Position.Y].TileValue == 4)//checks 1 tile to the right for the next path
-                            {
-                                position = new Rectangle(new Point(map[row, column].Position.X, map[row, column].Position.Y), new Point(sizeX, sizeY));
-                            }
-                            else if (map[map[row, column].Position.X + 50, map[row, column].Position.Y].TileValue == 4)//checks 1 tile to the left
-                            {
-                                position = new Rectangle(new Point(map[row, column].Position.X, map[row, column].Position.Y), new Point(sizeX, sizeY));
-                            }
-                            else if (map[map[row, column].Position.X, map[row, column].Position.Y + 50].TileValue == 4)//checks 1 tile up
-                            {
-                                position = new Rectangle(new Point(map[row, column].Position.X, map[row, column].Position.Y), new Point(sizeX, sizeY));
-                            }
-                            else if (map[map[row, column].Position.X, map[row, column].Position.Y + 50].TileValue == 4)//checks 1 tile down
-                            {
-                                position = new Rectangle(new Point(map[row, column].Position.X, map[row, column].Position.Y), new Point(sizeX, sizeY));
-                            }
-                        }
-                        else if (map[row, column].TileValue == 4)
-                        {
-                            if (map[map[row, column].Position.X - 50, map[row, column].Position.Y].TileValue == 5)//checks 1 tile to the right for the next path
-                            {
-                                position = new Rectangle(new Point(map[row, column].Position.X, map[row, column].Position.Y), new Point(sizeX, sizeY));
-                            }
-                            else if (map[map[row, column].Position.X + 50, map[row, column].Position.Y].TileValue == 5)//checks 1 tile to the left
-                            {
-                                position = new Rectangle(new Point(map[row, column].Position.X, map[row, column].Position.Y), new Point(sizeX, sizeY));
-                            }
-                            else if (map[map[row, column].Position.X, map[row, column].Position.Y + 50].TileValue == 5)//checks 1 tile up
-                            {
-                                position = new Rectangle(new Point(map[row, column].Position.X, map[row, column].Position.Y), new Point(sizeX, sizeY));
-                            }
-                            else if (map[map[row, column].Position.X, map[row, column].Position.Y + 50].TileValue == 5)//checks 1 tile down
-                            {
-                                position = new Rectangle(new Point(map[row, column].Position.X, map[row, column].Position.Y), new Point(sizeX, sizeY));
-                            }
-                        }
-                        else if (map[row, column].TileValue == 5)
-                        {
-                            if (map[map[row, column].Position.X - 50, map[row, column].Position.Y].TileValue == 6)//checks 1 tile to the right for the next path
-                            {
-                                position = new Rectangle(new Point(map[row, column].Position.X, map[row, column].Position.Y), new Point(sizeX, sizeY));
-                            }
-                            else if (map[map[row, column].Position.X + 50, map[row, column].Position.Y].TileValue == 6)//checks 1 tile to the left
-                            {
-                                position = new Rectangle(new Point(map[row, column].Position.X, map[row, column].Position.Y), new Point(sizeX, sizeY));
-                            }
-                            else if (map[map[row, column].Position.X, map[row, column].Position.Y + 50].TileValue == 6)//checks 1 tile up
-                            {
-                                position = new Rectangle(new Point(map[row, column].Position.X, map[row, column].Position.Y), new Point(sizeX, sizeY));
-                            }
-                            else if (map[map[row, column].Position.X, map[row, column].Position.Y + 50].TileValue == 6)//checks 1 tile down
-                            {
-                                position = new Rectangle(new Point(map[row, column].Position.X, map[row, column].Position.Y), new Point(sizeX, sizeY));
-                            }
-                        }
-                    }
+                    case 0: position = new Rectangle(new Point(position.X+50,position.Y), new Point(sizeX, sizeY));
+                        break;
+                    case 60:
+                        position = new Rectangle(new Point(position.X + 50, position.Y), new Point(sizeX, sizeY));
+                        break;
+                    case 120:
+                        position = new Rectangle(new Point(position.X + 50, position.Y+50), new Point(sizeX, sizeY));
+                        break;
+                    case 180:
+                        position = new Rectangle(new Point(position.X + 50, position.Y + 50), new Point(sizeX, sizeY));
+                        break;
+                    case 240:
+                        position = new Rectangle(new Point(position.X + 50, position.Y), new Point(sizeX, sizeY));
+                        break;
+                    case 300:
+                        position = new Rectangle(new Point(position.X + 50, position.Y), new Point(sizeX, sizeY));
+                        break;
+                    case 360:
+                        position = new Rectangle(new Point(position.X + 50, position.Y + 50), new Point(sizeX, sizeY));
+                        break;
+                    case 420:
+                        position = new Rectangle(new Point(position.X - 50, position.Y + 50), new Point(sizeX, sizeY));
+                        break;
+                    case 480:
+                        position = new Rectangle(new Point(position.X - 50, position.Y), new Point(sizeX, sizeY));
+                        break;
+                    case 540:
+                        position = new Rectangle(new Point(position.X - 50, position.Y), new Point(sizeX, sizeY));
+                        break;
+                    case 600:
+                        position = new Rectangle(new Point(position.X - 50, position.Y + 50), new Point(sizeX, sizeY));
+                        break;
+                    case 660:
+                        position = new Rectangle(new Point(position.X - 50, position.Y + 50), new Point(sizeX, sizeY));
+                        break;
+                    case 720:
+                        position = new Rectangle(new Point(position.X - 50, position.Y + 50), new Point(sizeX, sizeY));
+                        break;
+                    case 780:
+                        position = new Rectangle(new Point(position.X - 50, position.Y ), new Point(sizeX, sizeY));
+                        break;
+                    case 840:
+                        position = new Rectangle(new Point(position.X - 50, position.Y), new Point(sizeX, sizeY));
+                        break;
+                    case 900:
+                        position = new Rectangle(new Point(position.X - 50, position.Y + 50), new Point(sizeX, sizeY));
+                        break;
+                    case 960:
+                        position = new Rectangle(new Point(position.X + 50, position.Y + 50), new Point(sizeX, sizeY));
+                        break;
+                    case 1020:
+                        position = new Rectangle(new Point(position.X + 50, position.Y), new Point(sizeX, sizeY));
+                        break;
+                    case 1080:
+                        position = new Rectangle(new Point(position.X + 50, position.Y), new Point(sizeX, sizeY));
+                        break;
+                    case 1140:
+                        position = new Rectangle(new Point(position.X + 50, position.Y + 50), new Point(sizeX, sizeY));
+                        break;
+                    
                 }
             }
+            
         }
 
         public void Breach(Player p1,Tile[,] map, int[,] tiles)//if the enemy isn't killed in time it damages the player

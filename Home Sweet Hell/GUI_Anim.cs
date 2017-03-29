@@ -32,6 +32,18 @@ namespace Home_Sweet_Hell
             currentFrame.X = 0;
             currentFrame.Y = 0;
         }
+        //-constructor
+        public GUI_Anim(Texture2D img, Point pSpriteSize, int pNumSprites, int pRows, int pCols, int msPerFrame)
+        {
+            image = img;
+            spriteSize = pSpriteSize;
+            numSprites = pNumSprites;
+            rows = pRows;
+            cols = pCols;
+            millisecondsPerFrame = msPerFrame;
+            currentFrame.X = 0;
+            currentFrame.Y = 0;
+        }
 
         //methods
         //update
@@ -70,8 +82,9 @@ namespace Home_Sweet_Hell
         }
 
         //draw
-        public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        public void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 pPos)
         {
+            position = pPos;
             spriteBatch.Draw(image, position, new Rectangle(currentFrame.X, currentFrame.Y, (spriteSize.X / cols), (spriteSize.Y / rows)), // draws image based on given size and frame num
                 Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 1);
 

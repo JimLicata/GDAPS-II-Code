@@ -31,6 +31,7 @@ namespace Home_Sweet_Hell
         private bool alive;
         private Texture2D image;
         private int cost;
+        private int control = 0;
 
         //properties for attributes
         public int SizeX
@@ -108,23 +109,17 @@ namespace Home_Sweet_Hell
         //attack method - returns damage dealt as an int
         public int Attack(Rectangle enemyPos)
         {
-            if (range.Intersects(enemyPos) == true)
+            //if (range.Intersects(enemyPos) == true)
+            //{
+            //provides a period of time in between attacks
+            if (control % 60 == 0)
             {
-                //provides a period of time in between attacks
-                Timer time = new Timer();
-                time.Start();
-                if (time.ToString() == "500")
-                {
-                    time.Stop();
-                    time.Dispose();
-                }
-
+                control++;
                 return damage;
-
-                
             }
             else
             {
+                control++;
                 return 0;
             }
         }

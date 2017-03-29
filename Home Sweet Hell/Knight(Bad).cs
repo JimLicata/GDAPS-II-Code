@@ -14,7 +14,7 @@ namespace Home_Sweet_Hell
     {
 
         //constructor
-        public Knight_Bad_() : base(100, 5, 50, 50, 110, 110, 100)
+        public Knight_Bad_() : base(100, 5, 50, 50, 200, 0, 100)
         {
 
         }
