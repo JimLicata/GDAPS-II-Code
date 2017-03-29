@@ -71,3 +71,19 @@ Z:\IGMProfile\Documents\GDAPS-II-Code\Home Sweet Hell\bin\DesktopGL\x86\Debug\Op
 Z:\IGMProfile\Documents\GDAPS-II-Code\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.csprojResolveAssemblyReference.cache
 Z:\IGMProfile\Documents\GDAPS-II-Code\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.exe
 Z:\IGMProfile\Documents\GDAPS-II-Code\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.pdb
+Z:\IGMProfile\GDAPS II\Home Sweet Hell Working\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.exe
+Z:\IGMProfile\GDAPS II\Home Sweet Hell Working\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.pdb
+Z:\IGMProfile\GDAPS II\Home Sweet Hell Working\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\enemyplaceholder.png
+Z:\IGMProfile\GDAPS II\Home Sweet Hell Working\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\mapassets3type.png
+Z:\IGMProfile\GDAPS II\Home Sweet Hell Working\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\storebackplaceholder.png
+Z:\IGMProfile\GDAPS II\Home Sweet Hell Working\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\storelistingplaceholder.png
+Z:\IGMProfile\GDAPS II\Home Sweet Hell Working\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\towerplaceholder.png
+Z:\IGMProfile\GDAPS II\Home Sweet Hell Working\Home Sweet Hell\bin\DesktopGL\x86\Debug\OpenTK.dll.config
+Z:\IGMProfile\GDAPS II\Home Sweet Hell Working\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\mainFont.xnb
+Z:\IGMProfile\GDAPS II\Home Sweet Hell Working\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\Arial.xnb
+Z:\IGMProfile\GDAPS II\Home Sweet Hell Working\Home Sweet Hell\bin\DesktopGL\x86\Debug\Home Sweet Hell.exe
+Z:\IGMProfile\GDAPS II\Home Sweet Hell Working\Home Sweet Hell\bin\DesktopGL\x86\Debug\Home Sweet Hell.pdb
+Z:\IGMProfile\GDAPS II\Home Sweet Hell Working\Home Sweet Hell\bin\DesktopGL\x86\Debug\MonoGame.Framework.dll
+Z:\IGMProfile\GDAPS II\Home Sweet Hell Working\Home Sweet Hell\bin\DesktopGL\x86\Debug\NVorbis.dll
+Z:\IGMProfile\GDAPS II\Home Sweet Hell Working\Home Sweet Hell\bin\DesktopGL\x86\Debug\OpenTK.dll
+Z:\IGMProfile\GDAPS II\Home Sweet Hell Working\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.csprojResolveAssemblyReference.cache

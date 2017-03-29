@@ -231,7 +231,7 @@ namespace Home_Sweet_Hell
                     {
                         // additional if statement here checking if mouse is within the coordinates of a clickable object
                         // if mouseclick on tower in shop
-                        if (currentMouseState.X == 0 && currentMouseState.Y == 0) // compares mouseposition to the position of the new tower button
+                        if (currentMouseState.X >= 460 && currentMouseState.X <= 537 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590) // compares mouseposition to the position of the new tower button
                         {
                             // checks if you have enough money
                             if (money >= towers[0].Cost)
@@ -240,7 +240,24 @@ namespace Home_Sweet_Hell
                                 money -= towers[0].Cost;
                             }
                         }
-                        
+
+                        if (currentMouseState.X >= 562 && currentMouseState.X <= 637 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590)
+                        {
+                            if (money >= towers[1].Cost)
+                            {
+                                towers.Add(towers[1]);
+                                money -= towers[1].Cost;
+                            }
+                        }
+
+                        if (currentMouseState.X >= 661 && currentMouseState.X <= 736 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590)
+                        {
+                            if (money >= towers[2].Cost)
+                            {
+                                towers.Add(towers[2]);
+                                money -= towers[2].Cost;
+                            }
+                        }
                     }
 
                     // runs all enemy methods for each enemy
@@ -292,6 +309,7 @@ namespace Home_Sweet_Hell
             if (currentMouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released)
             {
                 // additional if statement here checking if mouse is within the coordinates of a button
+
             }
             
             base.Update(gameTime);
@@ -317,9 +335,11 @@ namespace Home_Sweet_Hell
                     break;
 
                 case GameState.Game:
+                    spriteBatch.DrawString(font, "Position: " + currentMouseState.X + ", " + currentMouseState.Y, new Vector2(800, 0), Color.Black); // displays current mouse position
+                    spriteBatch.DrawString(font, "Towers: " + towers.Count, new Vector2(800, 50), Color.Black); // displays current number of towers
+                    spriteBatch.DrawString(font, "Enemies: " + enemies.Count, new Vector2(800, 100), Color.Black); // displays current number of enemies
 
-                                                                                              //
-                                                                                                                          //map drawing                                                                                         //
+                    //map drawing                                                                                         
                     mapGraph.MapDraw(spriteBatch);                                                                             //
 
                     //enemies+towers drawing  
