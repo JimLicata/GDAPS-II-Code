@@ -115,29 +115,29 @@ namespace Home_Sweet_Hell
             //font
             font = Content.Load<SpriteFont>("Arial"); //TEMP FONT
 
-            //map                                                                                          //
-            Texture2D mapImage = Content.Load<Texture2D>("GUI_Assets/mapassets3type.png");                 //
-            mapGraph = new GUI_StatGraphics(mapImage, new Point(150, 50), 3, 1, 3, "ExampleMap1.txt");          //
-                                                                                                           //
-                                                                                                           //tower                                                                                        //
-            Texture2D towerImage = Content.Load<Texture2D>("GUI_Assets/towerplaceholder");                 //
-            //tower position vector should be tower position property from tower class                     //
-            towerGraph = new GUI_Anim(towerImage, new Point(150, 50), 3, 1, 3, 1000);     //
-                                                                                                           //
-                                                                                                           //enemy                                                                                        //
-            Texture2D enemyImage = Content.Load<Texture2D>("GUI_Assets/enemyplaceholder");                 //
-            //enemy position vector should be enemy position property from enemy class                     //
-            enemyGraph = new GUI_Anim(enemyImage, new Point(150, 50), 3, 1, 3, 1000);     //
+            //map                                                                                          
+            Texture2D mapImage = Content.Load<Texture2D>("GUI_Assets/mapassets3type.png");                 
+            mapGraph = new GUI_StatGraphics(mapImage, new Point(150, 50), 3, 1, 3, "ExampleMap1.txt");         
+                                                                                                           
+            //tower                                                                                        
+            Texture2D towerImage = Content.Load<Texture2D>("GUI_Assets/towerplaceholder");                 
+            //tower position vector should be tower position property from tower class                     
+            towerGraph = new GUI_Anim(towerImage, new Point(150, 50), 3, 1, 3, 1000);     
+                                                                                                           
+            //enemy                                                                                        
+            Texture2D enemyImage = Content.Load<Texture2D>("GUI_Assets/enemyplaceholder");                 
+            //enemy position vector should be enemy position property from enemy class                     
+            enemyGraph = new GUI_Anim(enemyImage, new Point(150, 50), 3, 1, 3, 1000);     
 
 
-            //listing                                                                                     //
-            Texture2D listingImage = Content.Load<Texture2D>("GUI_Assets/storelistingplaceholder");        //
-            listing1 = new GUI_StatGraphics(listingImage, new Point(150, 150), 1, 1, 1, new Vector2(450, 500)); //   
-            listing2 = new GUI_StatGraphics(listingImage, new Point(150, 150), 1, 1, 1, new Vector2(550, 500)); //  
-            listing3 = new GUI_StatGraphics(listingImage, new Point(150, 150), 1, 1, 1, new Vector2(650, 500)); //           
-            //store                                                                                        //
-            Texture2D backStoreImage = Content.Load<Texture2D>("GUI_Assets/storebackplaceholder");         //
-            storeBack = new GUI_StatGraphics(backStoreImage, new Point(750, 100), 1, 1, 1, new Vector2(0, 500));//
+            //listing                                                                                     
+            Texture2D listingImage = Content.Load<Texture2D>("GUI_Assets/storelistingplaceholder");        
+            listing1 = new GUI_StatGraphics(listingImage, new Point(150, 150), 1, 1, 1, new Vector2(450, 500)); 
+            listing2 = new GUI_StatGraphics(listingImage, new Point(150, 150), 1, 1, 1, new Vector2(550, 500)); 
+            listing3 = new GUI_StatGraphics(listingImage, new Point(150, 150), 1, 1, 1, new Vector2(650, 500));        
+            //store                                                                                        
+            Texture2D backStoreImage = Content.Load<Texture2D>("GUI_Assets/storebackplaceholder");         
+            storeBack = new GUI_StatGraphics(backStoreImage, new Point(750, 100), 1, 1, 1, new Vector2(0, 500));
 
             StreamReader load = new StreamReader("ExampleMap1.txt");
             string line;
@@ -279,12 +279,12 @@ namespace Home_Sweet_Hell
                     }                                 
                     
                     // beat the level
-                    if (enemyNum == 0) 
+                    /*if (enemyNum == 0) 
                     {
                         gameState = GameState.Results;
                         Nextlevel();
                     }
-
+                    */
                     // you lose
                     if (player.Health <= 0) 
                     {
@@ -340,34 +340,34 @@ namespace Home_Sweet_Hell
                     spriteBatch.DrawString(font, "Enemies: " + enemies.Count, new Vector2(800, 100), Color.Black); // displays current number of enemies
 
                     //map drawing                                                                                         
-                    mapGraph.MapDraw(spriteBatch);                                                                             //
+                    mapGraph.MapDraw(spriteBatch);                                                                             
 
                     //enemies+towers drawing  
                     if (enemies[0].Alive == true)
                     {
                         enemyGraph.Draw(gameTime, spriteBatch, new Vector2(enemies[0].Position.X, enemies[0].Position.Y));
                     }
-                    towerGraph.Draw(gameTime, spriteBatch, new Vector2(towers[0].Position.X, towers[0].Position.Y));                                                                    //
-                                                                                      //
-                                                                                                                          //
-                                                                                                                          //storedrawing                                                                                        //
-                    storeBack.StaticImage(0, 1f, spriteBatch);                                                            //
-                    listing1.StaticImage(1, .66f, spriteBatch);                                                           //
-                    listing2.StaticImage(1, .66f, spriteBatch);                                                           //
+                    towerGraph.Draw(gameTime, spriteBatch, new Vector2(towers[0].Position.X, towers[0].Position.Y));                                                                    
+                                                                                      
+                                                                                                                          
+                    //storedrawing                                                                                        
+                    storeBack.StaticImage(0, 1f, spriteBatch);                                                            
+                    listing1.StaticImage(1, .66f, spriteBatch);                                                           
+                    listing2.StaticImage(1, .66f, spriteBatch);                                                           
                     listing3.StaticImage(1, .66f, spriteBatch);
 
                     spriteBatch.DrawString(font, "Knight \n Price: " + towers[0].Cost,
                         new Vector2(465, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);               
-                    spriteBatch.DrawString(font, "Tower Name \n Price: " + 150, //replace with price variable later       //
-                        new Vector2(565, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);               //
-                    spriteBatch.DrawString(font, "Tower Name \n Price: " + 100, //replace with price variable later       //
-                        new Vector2(665, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);               //
-                                                                                                                          //
+                    spriteBatch.DrawString(font, "Tower Name \n Price: " + 150, //replace with price variable later       
+                        new Vector2(565, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);               
+                    spriteBatch.DrawString(font, "Tower Name \n Price: " + 100, //replace with price variable later       
+                        new Vector2(665, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);               
+                                                                                                                          
                     spriteBatch.DrawString(font, "Level: " + level,
-                        new Vector2(665, 15), Color.White, 0, Vector2.Zero, 0.7f, SpriteEffects.None, 1);                 //
-                    spriteBatch.DrawString(font, "Funds available: " + money, //replace with money variable later           //
-                        new Vector2(10, 510), Color.Black, 0, Vector2.Zero, 0.7f, SpriteEffects.None, 1);                 //
-                    spriteBatch.DrawString(font, "Score: " + player.Points, //replace with score variable                           //
+                        new Vector2(665, 15), Color.White, 0, Vector2.Zero, 0.7f, SpriteEffects.None, 1);                 
+                    spriteBatch.DrawString(font, "Funds available: " + money,         
+                        new Vector2(10, 510), Color.Black, 0, Vector2.Zero, 0.7f, SpriteEffects.None, 1);                 
+                    spriteBatch.DrawString(font, "Score: " + player.Points,                       
                         new Vector2(10, 535), Color.Black, 0, Vector2.Zero, 0.7f, SpriteEffects.None, 1);
 
                     break;
