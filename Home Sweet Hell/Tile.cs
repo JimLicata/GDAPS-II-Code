@@ -15,6 +15,8 @@ namespace Home_Sweet_Hell
         //needed attributes
         Rectangle position;
         int tileValue;
+        bool walkable;
+        public Tile[] neighbors;
 
         //constructor
         public Tile(int posX, int posY, int sizeX, int sizeY, int value)
@@ -36,6 +38,21 @@ namespace Home_Sweet_Hell
             get { return tileValue; }
 
             set { tileValue = value; }
+        }
+
+        //checks to see if the tile is part of the enemy path
+        public bool IsWalkable()
+        {
+            if (tileValue > 1 && tileValue < 6)
+            {
+                walkable = true;
+                return true;
+            }
+            else
+            {
+                walkable = false;
+                return false;
+            }
         }
     }
 }
