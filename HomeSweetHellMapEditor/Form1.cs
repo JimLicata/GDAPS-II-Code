@@ -93,23 +93,7 @@ namespace HomeSweetHellMapEditor
         //generates a map grid to edit if one hasn't been loaded in
         private void mapButton_Click(object sender, EventArgs e)
         {
-            mapButton.Visible = false;
-            mapGrid = new PictureBox[10, 15];
-            for (int row = 0; row < 10; row++)
-            {
-                for (int column = 0; column < 15; column++)
-                {
-                    mapGrid[row, column] = new PictureBox();
-                    mapGrid[row, column].Location = new Point(column * 50 + 12, row * 50 + 12);
-                    mapGrid[row, column].Width = 50;
-                    mapGrid[row, column].Height = 50;
-                    mapGrid[row, column].Visible = true;
-                    mapGrid[row, column].BorderStyle = BorderStyle.FixedSingle;
-                    mapGrid[row, column].BringToFront();
-                    mapGrid[row, column].MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick); //allows event handling for when a tile on the grid is clicked
-                    this.Controls.Add(mapGrid[row, column]);
-                }
-            }
+            mapGenerator();
         }
         //edit the map grid
         private void Form1_MouseClick(object sender, MouseEventArgs e)
@@ -263,21 +247,14 @@ namespace HomeSweetHellMapEditor
                     }
                     loadMap.Close();
                     //create the visual component of the editor based on the tiles array that was just formatted
-                    mapButton.Visible = false;
-                    mapGrid = new PictureBox[10, 15];
+                    if(mapGrid == null)
+                    {
+                        mapGenerator();
+                    }
                     for (int row = 0; row < 10; row++)
                     {
                         for (int column = 0; column < 15; column++)
                         {
-                            mapGrid[row, column] = new PictureBox();
-                            mapGrid[row, column].Location = new Point(column * 50 + 12, row * 50 + 12);
-                            mapGrid[row, column].Width = 50;
-                            mapGrid[row, column].Height = 50;
-                            mapGrid[row, column].Visible = true;
-                            mapGrid[row, column].BorderStyle = BorderStyle.FixedSingle;
-                            mapGrid[row, column].BringToFront();
-                            mapGrid[row, column].MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
-                            this.Controls.Add(mapGrid[row, column]);
                             switch (tiles[row, column])
                             {
                                 case 0:
@@ -397,6 +374,27 @@ namespace HomeSweetHellMapEditor
                             mapGrid[row, column].Image = enemyPathPic;
                         }
                     }
+                }
+            }
+        }
+        //map generation helper
+        public void mapGenerator()
+        {
+            mapButton.Visible = false;
+            mapGrid = new PictureBox[10, 15];
+            for (int row = 0; row < 10; row++)
+            {
+                for (int column = 0; column < 15; column++)
+                {
+                    mapGrid[row, column] = new PictureBox();
+                    mapGrid[row, column].Location = new Point(column * 50 + 12, row * 50 + 12);
+                    mapGrid[row, column].Width = 50;
+                    mapGrid[row, column].Height = 50;
+                    mapGrid[row, column].Visible = true;
+                    mapGrid[row, column].BorderStyle = BorderStyle.FixedSingle;
+                    mapGrid[row, column].BringToFront();
+                    mapGrid[row, column].MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
+                    this.Controls.Add(mapGrid[row, column]);
                 }
             }
         }
