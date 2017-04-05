@@ -43,8 +43,10 @@
     <Compile Include="GUI_Anim.cs" />
     <Compile Include="GUI_Graphics.cs" />
     <Compile Include="GUI_StatGraphics.cs" />
+    <Compile Include="IStack.cs" />
     <Compile Include="Knight%28Bad%29.cs" />
     <Compile Include="Knight%28Good%29.cs" />
+    <Compile Include="MoveStack.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

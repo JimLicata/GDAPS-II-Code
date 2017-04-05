@@ -87,16 +87,45 @@ namespace Home_Sweet_Hell
         //neighbor[1] = down 
         //neighbor[2] = left
         //neighbor[3] = right
-        public Tile[] GetNeighbors(Tile[,] map, int x, int y)
+        public Tile[] GetNeighbors(Tile[,] map)
         {
-            Tile space = map[x, y];
-            neighbors = new Tile[] 
+            List<Tile> nList = new List<Tile>();
+            try
             {
-                map[x,y+1],
-                map[x,y-1],
-                map[x-1,y],
-                map[x+1,y]
-            };
+                nList.Add(map[position.X / 50, position.Y / 50 + 50]);
+            }
+            catch (IndexOutOfRangeException)
+            {
+
+            }
+
+            try
+            {
+                nList.Add(map[position.X / 50, position.Y / 50 - 50]);
+            }
+            catch (IndexOutOfRangeException)
+            {
+
+            }
+
+            try
+            {
+                nList.Add(map[position.X / 50 + 50, position.Y / 50]);
+            }
+            catch (IndexOutOfRangeException)
+            {
+
+            }
+
+            try
+            {
+                nList.Add(map[position.X / 50 - 50, position.Y / 50]);
+            }
+            catch (IndexOutOfRangeException)
+            {
+
+            }
+            neighbors = nList.ToArray();
             return neighbors;
         }
         

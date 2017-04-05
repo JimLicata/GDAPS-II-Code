@@ -33,6 +33,8 @@ namespace Home_Sweet_Hell
         Player player = new Player(); // create player object
         //Enemy enemies[0]; // create enemy knight
         //Tower towers[0]; // create tower knight
+        MoveStack mStack = new MoveStack(); //makes stack of tiles for the enemies to move on
+        
 
         private GUI_StatGraphics mapGraph;
         private GUI_Anim towerGraph;
@@ -180,6 +182,7 @@ namespace Home_Sweet_Hell
                     mapTile[row, column] = new Tile(row, column, 50, 50, tiles[row, column]);
                 }
             }
+
         }
 
         /// <summary>
@@ -263,8 +266,8 @@ namespace Home_Sweet_Hell
                     // runs all enemy methods for each enemy
                     foreach (var enemy in enemies)
                     {
-                        //enemy.Move(mapTile, tiles);
-                        //enemy.Breach(player, mapTile, tiles);
+                       enemy.Move(mapTile);
+                       // enemy.Breach(player, mapTile, tiles);
                         enemyGraph.Update(gameTime);
 
                         // checks if each enemy is in range of each tower
@@ -272,7 +275,7 @@ namespace Home_Sweet_Hell
                         {
                             if(enemy.Alive == true)
                             {
-                                enemy.TakeDamage(tower.Attack(enemy.Position), player);
+                                //enemy.TakeDamage(tower.Attack(enemy.Position), player);
                             }
                             
                         }

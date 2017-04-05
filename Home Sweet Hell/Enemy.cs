@@ -131,19 +131,27 @@ namespace Home_Sweet_Hell
             }
         }
 
-        public void Move(Tile space, int[,] tiles)//method to cause enemies to move toward the base
+        public void Move(Tile[,] map)//method to cause enemies to move toward the base
         {
+            Tile start = new Tile(0,0,50,50,2);
+            foreach (Tile obj in map)
+            {
+                if (obj.TileValue == 2)
+                {
+                    start = obj;
+                }
+            }
             control++;
             if (control % 60 == 0)
             {
-                foreach (Tile obj in space.neighbors)
+                start.GetNeighbors(map);
+                foreach (Tile obj in start.Neighbors)
                 {
-                    if (space.IsNext(obj) == true && obj.IsWalkable() == true)
+                    if (obj.IsWalkable() == true)
                     {
                         position = obj.Position;
                     }
-                }    
-                
+                }
             }
             
         }
