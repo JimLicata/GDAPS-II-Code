@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{CEBBF12D-D5C7-45C9-AE8D-7469CA56DA46}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HomeSweetHellMapEditor</RootNamespace>
     <AssemblyName>HomeSweetHellMapEditor</AssemblyName>
