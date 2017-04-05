@@ -275,7 +275,7 @@ namespace Home_Sweet_Hell
                         {
                             if(enemy.Alive == true)
                             {
-                                //enemy.TakeDamage(tower.Attack(enemy.Position), player);
+                                enemy.TakeDamage(tower.Attack(enemy.Position), player);
                             }
                             
                         }
