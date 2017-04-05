@@ -112,7 +112,7 @@ namespace Home_Sweet_Hell
             //if (range.Intersects(enemyPos) == true)
             //{
             //provides a period of time in between attacks
-            if (control % 60 == 0)
+            if (control % 30 == 0)
             {
                 control++;
                 return damage;
@@ -122,6 +122,7 @@ namespace Home_Sweet_Hell
                 control++;
                 return 0;
             }
+            //}
         }
     }
 }

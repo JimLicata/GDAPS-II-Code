@@ -131,72 +131,26 @@ namespace Home_Sweet_Hell
             }
         }
 
-        public void Move(Tile[,] map, int[,] tiles)//method to cause enemies to move toward the base
+        public void Move(Tile[,] map)//method to cause enemies to move toward the base
         {
+            Tile start = new Tile(0,0,50,50,2);
+            foreach (Tile obj in map)
+            {
+                if (obj.TileValue == 2)
+                {
+                    start = obj;
+                }
+            }
             control++;
             if (control % 60 == 0)
-            { switch (control)
+            {
+                start.GetNeighbors(map);
+                foreach (Tile obj in start.Neighbors)
                 {
-                    case 0: position = new Rectangle(new Point(position.X+50,position.Y), new Point(sizeX, sizeY));
-                        break;
-                    case 60:
-                        position = new Rectangle(new Point(position.X + 50, position.Y), new Point(sizeX, sizeY));
-                        break;
-                    case 120:
-                        position = new Rectangle(new Point(position.X + 50, position.Y+50), new Point(sizeX, sizeY));
-                        break;
-                    case 180:
-                        position = new Rectangle(new Point(position.X + 50, position.Y + 50), new Point(sizeX, sizeY));
-                        break;
-                    case 240:
-                        position = new Rectangle(new Point(position.X + 50, position.Y), new Point(sizeX, sizeY));
-                        break;
-                    case 300:
-                        position = new Rectangle(new Point(position.X + 50, position.Y), new Point(sizeX, sizeY));
-                        break;
-                    case 360:
-                        position = new Rectangle(new Point(position.X + 50, position.Y + 50), new Point(sizeX, sizeY));
-                        break;
-                    case 420:
-                        position = new Rectangle(new Point(position.X - 50, position.Y + 50), new Point(sizeX, sizeY));
-                        break;
-                    case 480:
-                        position = new Rectangle(new Point(position.X - 50, position.Y), new Point(sizeX, sizeY));
-                        break;
-                    case 540:
-                        position = new Rectangle(new Point(position.X - 50, position.Y), new Point(sizeX, sizeY));
-                        break;
-                    case 600:
-                        position = new Rectangle(new Point(position.X - 50, position.Y + 50), new Point(sizeX, sizeY));
-                        break;
-                    case 660:
-                        position = new Rectangle(new Point(position.X - 50, position.Y + 50), new Point(sizeX, sizeY));
-                        break;
-                    case 720:
-                        position = new Rectangle(new Point(position.X - 50, position.Y + 50), new Point(sizeX, sizeY));
-                        break;
-                    case 780:
-                        position = new Rectangle(new Point(position.X - 50, position.Y ), new Point(sizeX, sizeY));
-                        break;
-                    case 840:
-                        position = new Rectangle(new Point(position.X - 50, position.Y), new Point(sizeX, sizeY));
-                        break;
-                    case 900:
-                        position = new Rectangle(new Point(position.X - 50, position.Y + 50), new Point(sizeX, sizeY));
-                        break;
-                    case 960:
-                        position = new Rectangle(new Point(position.X + 50, position.Y + 50), new Point(sizeX, sizeY));
-                        break;
-                    case 1020:
-                        position = new Rectangle(new Point(position.X + 50, position.Y), new Point(sizeX, sizeY));
-                        break;
-                    case 1080:
-                        position = new Rectangle(new Point(position.X + 50, position.Y), new Point(sizeX, sizeY));
-                        break;
-                    case 1140:
-                        position = new Rectangle(new Point(position.X + 50, position.Y + 50), new Point(sizeX, sizeY));
-                        break;
-                    
+                    if (obj.IsWalkable() == true)
+                    {
+                        position = obj.Position;
+                    }
                 }
             }
             
