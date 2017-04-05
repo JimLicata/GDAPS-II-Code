@@ -118,14 +118,8 @@ namespace HomeSweetHellMapEditor
                     case "Enemy Path Start":
                         tileType = 2;
                         break;
-                    case "Enemy Path Step 1":
+                    case "Enemy Path Step":
                         tileType = 3;
-                        break;
-                    case "Enemy Path Step 2":
-                        tileType = 4;
-                        break;
-                    case "Enemy Path Step 3":
-                        tileType = 5;
                         break;
                     case "Enemy Path End":
                         tileType = 6;
@@ -153,16 +147,6 @@ namespace HomeSweetHellMapEditor
                         mapGrid[tileRow, tileColumn].Image = enemyPathPic;
                         break;
                     case 3:
-                        mapGrid[tileRow, tileColumn].Image = null;
-                        mapGrid[tileRow, tileColumn].BackColor = Color.Tan;
-                        mapGrid[tileRow, tileColumn].Image = enemyPathPic;
-                        break;
-                    case 4:
-                        mapGrid[tileRow, tileColumn].Image = null;
-                        mapGrid[tileRow, tileColumn].BackColor = Color.Tan;
-                        mapGrid[tileRow, tileColumn].Image = enemyPathPic;
-                        break;
-                    case 5:
                         mapGrid[tileRow, tileColumn].Image = null;
                         mapGrid[tileRow, tileColumn].BackColor = Color.Tan;
                         mapGrid[tileRow, tileColumn].Image = enemyPathPic;
@@ -273,16 +257,6 @@ namespace HomeSweetHellMapEditor
                                     mapGrid[row, column].Image = enemyPathPic;
                                     break;
                                 case 3:
-                                    mapGrid[row, column].Image = null;
-                                    mapGrid[row, column].BackColor = Color.Tan;
-                                    mapGrid[row, column].Image = enemyPathPic;
-                                    break;
-                                case 4:
-                                    mapGrid[row, column].Image = null;
-                                    mapGrid[row, column].BackColor = Color.Tan;
-                                    mapGrid[row, column].Image = enemyPathPic;
-                                    break;
-                                case 5:
                                     mapGrid[row, column].Image = null;
                                     mapGrid[row, column].BackColor = Color.Tan;
                                     mapGrid[row, column].Image = enemyPathPic;
