@@ -124,11 +124,11 @@
     <value>323, 3</value>
   </metadata>
   <data name="tileTypeSelectionBox.ToolTip" xml:space="preserve">
-    <value>Background: No towers can be placed on these spaces
-Tower Placeable: places where the player can place a tower
-Enemy Path Start: Where the enemies will spawn in (place ONE of these)
-Enemy Path Step: the tiles the enemy will walk on, can't be placed diagonal to its neighbors
-Enemy Path End: Where the enemies will despawn (place ONE oft these)</value>
+    <value>(0)Background: No towers can be placed on these spaces
+(1)Tower Placeable: places where the player can place a tower
+(2)Enemy Path Start: Where the enemies will spawn in (place ONE of these)
+(3)Enemy Path Step: the tiles the enemy will walk on, can't be placed diagonal to its neighbors
+(6)Enemy Path End: Where the enemies will despawn (place ONE oft these)</value>
   </data>
   <metadata name="backgroundPictureToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>444, 3</value>
