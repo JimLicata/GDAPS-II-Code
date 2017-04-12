@@ -109,20 +109,35 @@ namespace Home_Sweet_Hell
         //attack method - returns damage dealt as an int
         public int Attack(Rectangle enemyPos)
         {
-            //if (range.Intersects(enemyPos) == true)
-            //{
-            //provides a period of time in between attacks
-            if (control % 30 == 0)
+            if (enemyPos.X <= position.X + 150 && enemyPos.Y <= position.Y + 150)
             {
-                control++;
-                return damage;
+                //provides a period of time in between attacks
+                if (control % 30 == 0)
+                {
+                    control++;
+                    return damage;
+                }
+                else
+                {
+                    control++;
+                    return 0;
+                }
             }
-            else
+            else if (enemyPos.X <= position.X - 150 && enemyPos.Y <= position.Y - 150)
             {
-                control++;
-                return 0;
+                //provides a period of time in between attacks
+                if (control % 30 == 0)
+                {
+                    control++;
+                    return damage;
+                }
+                else
+                {
+                    control++;
+                    return 0;
+                }
             }
-            //}
+            else { return 0; }
         }
     }
 }

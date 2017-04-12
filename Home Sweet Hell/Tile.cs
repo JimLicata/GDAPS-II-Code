@@ -23,6 +23,14 @@ namespace Home_Sweet_Hell
         {
             position = new Rectangle(new Point(posX, posY), new Point(sizeX, sizeY));
             tileValue = value;
+            if (tileValue > 1 && tileValue <= 6)
+            {
+                walkable = true;
+            }
+            else
+            {
+                walkable = false;
+            }
         }
 
         //properties
@@ -45,18 +53,23 @@ namespace Home_Sweet_Hell
             get { return neighbors; }
         }
 
-        //checks to see if the tile is part of the enemy path
-        public bool IsWalkable()
+        public bool Walkable
         {
-            if (tileValue > 1 && tileValue < 6)
+            get { return walkable; }
+
+            set { walkable = value; }
+        }
+
+        //checks to see if the tile is part of the enemy path
+        public void IsWalkable()
+        {
+            if (tileValue > 1 && tileValue <= 6)
             {
                 walkable = true;
-                return true;
             }
             else
             {
                 walkable = false;
-                return false;
             }
         }
 
@@ -92,38 +105,38 @@ namespace Home_Sweet_Hell
             List<Tile> nList = new List<Tile>();
             try
             {
-                nList.Add(map[position.X / 50, position.Y / 50 + 50]);
+                nList.Add(map[position.X , position.Y +1]);
             }
             catch (IndexOutOfRangeException)
             {
-
+                nList.Add(null);
             }
 
             try
             {
-                nList.Add(map[position.X / 50, position.Y / 50 - 50]);
+                nList.Add(map[position.X , position.Y -1]);
             }
             catch (IndexOutOfRangeException)
             {
-
+                nList.Add(null);
             }
 
             try
             {
-                nList.Add(map[position.X / 50 + 50, position.Y / 50]);
+                nList.Add(map[position.X =1, position.Y ]);
             }
             catch (IndexOutOfRangeException)
             {
-
+                nList.Add(null);
             }
 
             try
             {
-                nList.Add(map[position.X / 50 - 50, position.Y / 50]);
+                nList.Add(map[position.X -1, position.Y ]);
             }
             catch (IndexOutOfRangeException)
             {
-
+                nList.Add(null);
             }
             neighbors = nList.ToArray();
             return neighbors;

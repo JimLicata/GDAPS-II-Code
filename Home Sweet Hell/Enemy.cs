@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace Home_Sweet_Hell
-    //Stephen Rhodenizer
+//Stephen Rhodenizer
 {
     class Enemy
     {
@@ -89,7 +89,7 @@ namespace Home_Sweet_Hell
             set { alive = value; }
         }
         //constructor
-        public Enemy(int hp, int sp, int w, int h, int x, int y,int scr)
+        public Enemy(int hp, int sp, int w, int h, int x, int y, int scr)
         {
             health = hp;
             speed = sp;
@@ -133,30 +133,39 @@ namespace Home_Sweet_Hell
 
         public void Move(Tile[,] map)//method to cause enemies to move toward the base
         {
-            Tile start = new Tile(0,0,50,50,2);
-            foreach (Tile obj in map)
-            {
-                if (obj.TileValue == 2)
-                {
-                    start = obj;
-                }
-            }
             control++;
+
             if (control % 60 == 0)
             {
-                start.GetNeighbors(map);
-                foreach (Tile obj in start.Neighbors)
+                foreach (Tile obj in map)
                 {
-                    if (obj.IsWalkable() == true)
+
+                    if (position.X == obj.Position.Y * 50 && position.Y == obj.Position.X * 50)
                     {
-                        position = obj.Position;
+                        obj.GetNeighbors(map);
+
+
+
+                        foreach (Tile next in obj.Neighbors)
+                        {
+                            if (next != null)
+                            {
+                                if (next.Walkable == true)
+                                {
+                                    position = new Rectangle(new Point(next.Position.Y * 50, next.Position.X * 50), new Point(50, 50));
+                                    obj.Walkable = false;
+                                }
+                            }
+
+                        }
+
                     }
                 }
+
             }
-            
         }
 
-        public void Breach(Player p1,Tile[,] map, int[,] tiles)//if the enemy isn't killed in time it damages the player
+        public void Breach(Player p1, Tile[,] map, int[,] tiles)//if the enemy isn't killed in time it damages the player
         {
             for (int row = 0; row < tiles.GetLength(0); row++)
             {

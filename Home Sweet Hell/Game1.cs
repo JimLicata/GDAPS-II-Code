@@ -179,7 +179,7 @@ namespace Home_Sweet_Hell
             {
                 for (int column = 0; column < tiles.GetLength(1); column++)
                 {
-                    mapTile[row, column] = new Tile(row, column, 50, 50, tiles[row, column]);
+                    mapTile[row,column] = new Tile(row, column, 50, 50, tiles[row,column]);
                 }
             }
 
@@ -275,7 +275,7 @@ namespace Home_Sweet_Hell
                         {
                             if(enemy.Alive == true)
                             {
-                                enemy.TakeDamage(tower.Attack(enemy.Position), player);
+                                //enemy.TakeDamage(tower.Attack(enemy.Position), player);
                             }
                             
                         }
