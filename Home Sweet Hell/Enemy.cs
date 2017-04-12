@@ -143,9 +143,7 @@ namespace Home_Sweet_Hell
                     if (position.X == obj.Position.Y * 50 && position.Y == obj.Position.X * 50)
                     {
                         obj.GetNeighbors(map);
-
-
-
+                        
                         foreach (Tile next in obj.Neighbors)
                         {
                             if (next != null)
