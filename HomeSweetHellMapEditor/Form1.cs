@@ -30,7 +30,6 @@ namespace HomeSweetHellMapEditor
         private StreamReader loadMap;
         private Random rng = new Random();
 
-
         public Form1()
         {
             InitializeComponent();
@@ -170,7 +169,8 @@ namespace HomeSweetHellMapEditor
             }
             else //if no file name was put in, give a random string of numbers for a name
             {
-                saveMap = new StreamWriter(rng.Next() + ".txt");
+                string randomFileName = rng.Next().ToString();
+                saveMap = new StreamWriter(randomFileName + ".txt");
             }
             //streamwrite the tiles int array
             for (int row = 0; row < tiles.GetLength(0); row++)
@@ -186,17 +186,16 @@ namespace HomeSweetHellMapEditor
         //load an array of tiles
         private void loadButton_Click(object sender, EventArgs e)
         {
-            //browse for a file to load
+            //browse for a file to load within the directory 
             OpenFileDialog mapFileSelection = new OpenFileDialog();
             mapFileSelection.Title = "Load Map";
-            //REPLACE THIS INITIAL DIRECTORY PATH WITH THE CORRECT VERSION FOR YOUR DEV SETUP
-            mapFileSelection.InitialDirectory = "C:\\Users\\merca\\Desktop\\GDAPS 2\\GitHub Work\\HomeSweetHellMapEditor\\HomeSweetHellMapEditor\\bin\\Debug";
+            mapFileSelection.InitialDirectory = Application.StartupPath;
             mapFileSelection.Filter = "Text Files (*.txt)|*.txt";
             DialogResult result = mapFileSelection.ShowDialog(); // Show the dialog.
             if (result == DialogResult.OK) // Test result.
             {
                 //attempt to read in the chosen text file for array creation
-                try 
+                try
                 {
                     string mapFile = mapFileSelection.FileName;
                     loadMap = new StreamReader(mapFile);
@@ -231,7 +230,7 @@ namespace HomeSweetHellMapEditor
                     }
                     loadMap.Close();
                     //create the visual component of the editor based on the tiles array that was just formatted
-                    if(mapGrid == null)
+                    if (mapGrid == null)
                     {
                         mapGenerator();
                     }
@@ -273,7 +272,7 @@ namespace HomeSweetHellMapEditor
                     }
                 }
                 //catch all exceptions thrown when attempting to generate the arrays from a file
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     System.Windows.Forms.MessageBox.Show("An error occured while loading a file.  Please make sure the map file is formatted correctly!\nError message: " + ex.Message);
                 }
@@ -295,7 +294,7 @@ namespace HomeSweetHellMapEditor
                 {
                     for (int column = 0; column < 15; column++)
                     {
-                        if(tiles[row,column] == 0)
+                        if (tiles[row, column] == 0)
                         {
                             mapGrid[row, column].Image = backgroundPic;
                         }
