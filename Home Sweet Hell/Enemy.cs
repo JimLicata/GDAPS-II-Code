@@ -131,7 +131,7 @@ namespace Home_Sweet_Hell
             }
         }
 
-        public void Move(Tile[,] map)//method to cause enemies to move toward the base
+        public void Move(Tile[,] map, Player p1)//method to cause enemies to move toward the base
         {
             control++;
 
@@ -152,10 +152,14 @@ namespace Home_Sweet_Hell
                                 {
                                     position = new Rectangle(new Point(next.Position.Y * 50, next.Position.X * 50), new Point(50, 50));
 
+                                    if (next.TileValue == 6)
+                                    {
+                                        alive = false;
+                                        p1.Health = p1.Health - 1;
+                                    }
+
                                     next.Walkable = false;
-
                                     obj.Walkable = false;
-
                                     return;
                                 }
                             }
@@ -165,25 +169,6 @@ namespace Home_Sweet_Hell
                     }
                 }
 
-            }
-        }
-
-        public void Breach(Player p1, Tile[,] map, int[,] tiles)//if the enemy isn't killed in time it damages the player
-        {
-            for (int row = 0; row < tiles.GetLength(0); row++)
-            {
-                for (int column = 0; column < tiles.GetLength(1); column++)
-                {
-                    if (position.Intersects(map[row, column].Position) == true)
-                    {
-                        if (map[row, column].TileValue == 6)
-                        {
-                            alive = false;
-                            p1.Health = p1.Health - 1;
-
-                        }
-                    }
-                }
             }
         }
     }
