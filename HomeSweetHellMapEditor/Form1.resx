@@ -148,6 +148,23 @@
   <metadata name="fileNameToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>990, 2</value>
   </metadata>
+  <data name="instructionsLabel.Text" xml:space="preserve">
+    <value>ATTENTION!
+This map editor reads and writes a 2D array of integers, 
+which are formatted in a particular way.  To make sure
+your file loads properly, make sure it's formatted in
+this style:
+002000000000000
+013113333311110
+013333111311110
+011111111311110
+011111111311110
+011133333311110
+011131111111110
+011133311111110
+011111311111110
+000000600000000</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>29</value>
   </metadata>
