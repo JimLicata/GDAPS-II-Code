@@ -142,6 +142,11 @@ namespace Home_Sweet_Hell
 
                     if (position.X == obj.Position.Y * 50 && position.Y == obj.Position.X * 50)
                     {
+                        if (obj.TileValue == 6)
+                        {
+                            alive = false;
+                            p1.Health = p1.Health - 1;
+                        }
                         obj.GetNeighbors(map);
                         
                         foreach (Tile next in obj.Neighbors)
@@ -151,12 +156,6 @@ namespace Home_Sweet_Hell
                                 if (next.Walkable == true)
                                 {
                                     position = new Rectangle(new Point(next.Position.Y * 50, next.Position.X * 50), new Point(50, 50));
-
-                                    if (next.TileValue == 6)
-                                    {
-                                        alive = false;
-                                        p1.Health = p1.Health - 1;
-                                    }
 
                                     next.Walkable = false;
                                     obj.Walkable = false;
