@@ -151,11 +151,11 @@ namespace Home_Sweet_Hell
                                 if (next.Walkable == true)
                                 {
                                     position = new Rectangle(new Point(next.Position.Y * 50, next.Position.X * 50), new Point(50, 50));
-<<<<<<< HEAD
+
                                     next.Walkable = false;
-=======
+
                                     obj.Walkable = false;
->>>>>>> 0819d9c991ac0455a130c727d9d022ad08af6891
+
                                     return;
                                 }
                             }

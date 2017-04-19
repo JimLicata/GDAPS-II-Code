@@ -89,7 +89,6 @@ Z:\IGMProfile\GDAPS II\Home Sweet Hell Working\Home Sweet Hell\bin\DesktopGL\x86
 Z:\IGMProfile\GDAPS II\Home Sweet Hell Working\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.csprojResolveAssemblyReference.cache
 Z:\IGMProfile\Documents\JamesLicataGDAPS-II\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.exe
 Z:\IGMProfile\Documents\JamesLicataGDAPS-II\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.pdb
-<<<<<<< HEAD
 Z:\IGMProfile\Documents\JamesLicataGDAPS-II\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\enemyplaceholder.png
 Z:\IGMProfile\Documents\JamesLicataGDAPS-II\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\mapassets3type.png
 Z:\IGMProfile\Documents\JamesLicataGDAPS-II\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\storebackplaceholder.png
@@ -107,4 +106,3 @@ Z:\IGMProfile\Documents\JamesLicataGDAPS-II\Home Sweet Hell\obj\x86\Debug\Home S
 =======
 Z:\IGMProfile\Documents\HSH Laptop\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.exe
 Z:\IGMProfile\Documents\HSH Laptop\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.pdb
->>>>>>> 882029b24f13039b82f58dfb7f32dcd6a4f2ad53
