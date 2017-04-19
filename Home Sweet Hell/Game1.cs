@@ -266,8 +266,7 @@ namespace Home_Sweet_Hell
                     // runs all enemy methods for each enemy
                     foreach (var enemy in enemies)
                     {
-                       enemy.Move(mapTile);
-                       // enemy.Breach(player, mapTile, tiles);
+                       enemy.Move(mapTile,player);
                         enemyGraph.Update(gameTime);
 
                         // checks if each enemy is in range of each tower
