@@ -15,6 +15,13 @@ namespace Home_Sweet_Hell
     {
         //attributes
         string mapPath;
+        int[] mapInts;
+
+        // properties
+        public int[] MapInts
+        {
+            get { return mapInts; }
+        }
 
         //constructor
         /// <summary>

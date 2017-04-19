@@ -89,3 +89,5 @@ Z:\IGMProfile\GDAPS II\Home Sweet Hell Working\Home Sweet Hell\bin\DesktopGL\x86
 Z:\IGMProfile\GDAPS II\Home Sweet Hell Working\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.csprojResolveAssemblyReference.cache
 Z:\IGMProfile\Documents\JamesLicataGDAPS-II\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.exe
 Z:\IGMProfile\Documents\JamesLicataGDAPS-II\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.pdb
+Z:\IGMProfile\Documents\HSH Laptop\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.exe
+Z:\IGMProfile\Documents\HSH Laptop\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.pdb
