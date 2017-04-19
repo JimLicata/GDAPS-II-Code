@@ -119,7 +119,7 @@ namespace Home_Sweet_Hell
 
             //map                                                                                          
             Texture2D mapImage = Content.Load<Texture2D>("GUI_Assets/mapassets3type.png");                 
-            mapGraph = new GUI_StatGraphics(mapImage, new Point(150, 50), 3, 1, 3, "ExampleMap1.txt");         
+            mapGraph = new GUI_StatGraphics(mapImage, new Point(150, 50), 3, 1, 3, "newExampleMap1.txt");         
                                                                                                            
             //tower                                                                                        
             Texture2D towerImage = Content.Load<Texture2D>("GUI_Assets/towerplaceholder");                 
@@ -129,7 +129,7 @@ namespace Home_Sweet_Hell
             //enemy                                                                                        
             Texture2D enemyImage = Content.Load<Texture2D>("GUI_Assets/enemyplaceholder");                 
             //enemy position vector should be enemy position property from enemy class                     
-            enemyGraph = new GUI_Anim(enemyImage, new Point(150, 50), 3, 1, 3, 1000);     
+            enemyGraph = new GUI_Anim(enemyImage, new Point(150, 50), 1, 1, 3, 1000);     
 
 
             //listing                                                                                     
@@ -141,7 +141,7 @@ namespace Home_Sweet_Hell
             Texture2D backStoreImage = Content.Load<Texture2D>("GUI_Assets/storebackplaceholder");         
             storeBack = new GUI_StatGraphics(backStoreImage, new Point(750, 100), 1, 1, 1, new Vector2(0, 500));
 
-            StreamReader load = new StreamReader("ExampleMap1.txt");
+            StreamReader load = new StreamReader("newExampleMap1.txt");
             string line;
             int tileRow = 0;
             int tileColumn = 0;

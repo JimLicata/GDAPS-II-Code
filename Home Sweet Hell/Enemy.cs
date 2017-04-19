@@ -151,7 +151,8 @@ namespace Home_Sweet_Hell
                                 if (next.Walkable == true)
                                 {
                                     position = new Rectangle(new Point(next.Position.Y * 50, next.Position.X * 50), new Point(50, 50));
-                                    obj.Walkable = false;
+                                    next.Walkable = false;
+                                    return;
                                 }
                             }
 
