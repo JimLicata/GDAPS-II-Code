@@ -354,6 +354,7 @@ namespace HomeSweetHellMapEditor
         public void mapGenerator()
         {
             mapButton.Visible = false;
+            instructionsLabel.Visible = false;
             mapGrid = new PictureBox[10, 15];
             for (int row = 0; row < 10; row++)
             {

@@ -47,6 +47,7 @@
             this.towerPlacablePictureToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.enemyPathPictureToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.saveMapToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.instructionsLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // saveButton
@@ -89,7 +90,7 @@
             // 
             // mapButton
             // 
-            this.mapButton.Location = new System.Drawing.Point(333, 286);
+            this.mapButton.Location = new System.Drawing.Point(325, 312);
             this.mapButton.Name = "mapButton";
             this.mapButton.Size = new System.Drawing.Size(120, 23);
             this.mapButton.TabIndex = 160;
@@ -148,11 +149,23 @@
             this.fileNameLabel.TabIndex = 165;
             this.fileNameLabel.Text = "File Name:";
             // 
+            // instructionsLabel
+            // 
+            this.instructionsLabel.AutoSize = true;
+            this.instructionsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instructionsLabel.Location = new System.Drawing.Point(184, 9);
+            this.instructionsLabel.Name = "instructionsLabel";
+            this.instructionsLabel.Size = new System.Drawing.Size(401, 300);
+            this.instructionsLabel.TabIndex = 166;
+            this.instructionsLabel.Text = resources.GetString("instructionsLabel.Text");
+            this.instructionsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(770, 579);
+            this.Controls.Add(this.instructionsLabel);
             this.Controls.Add(this.fileNameLabel);
             this.Controls.Add(this.fileNameTextBox);
             this.Controls.Add(this.enemyPathPictureSelectionButton);
@@ -187,6 +200,7 @@
         private System.Windows.Forms.ToolTip towerPlacablePictureToolTip;
         private System.Windows.Forms.ToolTip enemyPathPictureToolTip;
         private System.Windows.Forms.ToolTip fileNameToolTip;
+        private System.Windows.Forms.Label instructionsLabel;
     }
 }
 
