@@ -122,3 +122,5 @@ Z:\IGMProfile\HOME SWEET HELL\Home Sweet Hell\bin\DesktopGL\x86\Debug\MonoGame.F
 Z:\IGMProfile\HOME SWEET HELL\Home Sweet Hell\bin\DesktopGL\x86\Debug\NVorbis.dll
 Z:\IGMProfile\HOME SWEET HELL\Home Sweet Hell\bin\DesktopGL\x86\Debug\OpenTK.dll
 Z:\IGMProfile\HOME SWEET HELL\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.csprojResolveAssemblyReference.cache
+Z:\IGMProfile\Documents\This will be the final one\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.exe
+Z:\IGMProfile\Documents\This will be the final one\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.pdb

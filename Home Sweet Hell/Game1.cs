@@ -33,6 +33,7 @@ namespace Home_Sweet_Hell
         Player player = new Player(); // create player object
         private Tile startTile = null;//the tile that enemies spawn on
         int control = 0;//control variable to help enemy spawning
+        bool isBought = false; // checks whether a tower is waiting to be placed or not
 
 
         private GUI_StatGraphics mapGraph;
