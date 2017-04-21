@@ -35,15 +35,14 @@ namespace Home_Sweet_Hell
         private TowerPlacement tp;
         int control = 0;//control variable to help enemy spawning
         bool isBought = false; // checks whether a tower is waiting to be placed or not
-<<<<<<< HEAD
-        bool isThisPushing = false;
+
         private int mX; // mouse x position
         private int mY; // mouse y position
         private Tower towerTemp;
-=======
+
         bool isThisPushing = true; //checks to see if sourceTree was being cooperative
 
->>>>>>> 3d80ad602935c17ae795ae3bdf80a88955e69261
+
 
         private GUI_StatGraphics mapGraph;
         private GUI_Anim towerGraph;
