@@ -21,7 +21,6 @@ namespace Home_Sweet_Hell
         private int positionY;
         private Rectangle position;
         private bool alive;
-        private Texture2D image;
         private int score;
         private int control = 0;
         private int spawnRate = 0;

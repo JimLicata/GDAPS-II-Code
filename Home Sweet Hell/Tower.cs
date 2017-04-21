@@ -28,8 +28,6 @@ namespace Home_Sweet_Hell
         private int rangeY;
         private Rectangle range;
         private int damage;
-        private bool alive;
-        private Texture2D image;
         private int cost;
         private int control = 0;
 
