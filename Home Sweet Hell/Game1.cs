@@ -32,7 +32,9 @@ namespace Home_Sweet_Hell
         List<Tower> towers = new List<Tower>(); // list of all towers
         Player player = new Player(); // create player object
         private Tile startTile = null;//the tile that enemies spawn on
+        private TowerPlacement tp;
         int control = 0;//control variable to help enemy spawning
+        bool isBought = false; // checks whether a tower is waiting to be placed or not
 
 
         private GUI_StatGraphics mapGraph;
@@ -241,17 +243,18 @@ namespace Home_Sweet_Hell
                     {
                         // additional if statement here checking if mouse is within the coordinates of a clickable object
                         // if mouseclick on tower in shop
-                        if (currentMouseState.X >= 460 && currentMouseState.X <= 537 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590) // compares mouseposition to the position of the new tower button
+                        if (currentMouseState.X >= 460 && currentMouseState.X <= 537 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590 && isBought == false) // compares mouseposition to the position of the new tower button
                         {
                             // checks if you have enough money
                             if (money >= towers[0].Cost)
                             {
                                 towers.Add(towers[0]);
                                 money -= towers[0].Cost;
+                                isBought = true;
                             }
                         }
 
-                        if (currentMouseState.X >= 562 && currentMouseState.X <= 637 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590)
+                        if (currentMouseState.X >= 562 && currentMouseState.X <= 637 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590 && isBought == false)
                         {
                             if (money >= towers[1].Cost)
                             {
@@ -260,13 +263,22 @@ namespace Home_Sweet_Hell
                             }
                         }
 
-                        if (currentMouseState.X >= 661 && currentMouseState.X <= 736 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590)
+                        if (currentMouseState.X >= 661 && currentMouseState.X <= 736 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590 && isBought == false)
                         {
                             if (money >= towers[2].Cost)
                             {
                                 towers.Add(towers[2]);
                                 money -= towers[2].Cost;
                             }
+                        }
+
+                        if (isBought == true)
+                        {
+                            tp = new TowerPlacement(currentMouseState.X, currentMouseState.Y, mapGraph);
+                            tp.Done = tp.checkPosition();
+
+                            if (tp.Done == true) // if player clicks on proper tile, breaks out of loop
+                                isBought = false;
                         }
                     }
 
@@ -375,7 +387,7 @@ namespace Home_Sweet_Hell
                     spriteBatch.DrawString(font, "Towers: " + towers.Count, new Vector2(800, 50), Color.Black); // displays current number of towers
                     spriteBatch.DrawString(font, "Enemies: " + enemies.Count, new Vector2(800, 100), Color.Black); // displays current number of enemies
                     spriteBatch.DrawString(font, "Health: " + player.Health, new Vector2(800, 150), Color.Black);//displays Current Health
-
+                    spriteBatch.DrawString(font, "Bought: " + isBought, new Vector2(800, 200), Color.Black); 
                     //map drawing                                                                                         
                     mapGraph.MapDraw(spriteBatch);
 
