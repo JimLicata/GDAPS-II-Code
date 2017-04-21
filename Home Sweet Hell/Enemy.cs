@@ -126,19 +126,6 @@ namespace Home_Sweet_Hell
 
         }
 
-        //override draw method so it only draws alive enemies
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            if (alive == true)
-            {
-                spriteBatch.Draw(image);
-            }
-            else if (alive == false)
-            {
-
-            }
-        }
-
         public void Move(Tile[,] map, Player p1)//method to cause enemies to move toward the base
         {
             control++;
