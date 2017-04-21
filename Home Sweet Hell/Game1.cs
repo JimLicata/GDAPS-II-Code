@@ -73,7 +73,7 @@ namespace Home_Sweet_Hell
         {
             // TODO: Add your initialization logic here
             // initialize each enemy and tower
-            towers.Add(new Knight_Good_());
+            towers.Add(new Knight_Good_(300,100));
             level = 1;
 
             gameState = GameState.Title;
