@@ -112,7 +112,7 @@ namespace Home_Sweet_Hell
             if (enemyPos.X <= position.X + 150 && enemyPos.Y <= position.Y + 150)
             {
                 //provides a period of time in between attacks
-                if (control % 30 == 0)
+                if (control % 60 == 0)
                 {
                     control++;
                     return damage;
@@ -126,7 +126,7 @@ namespace Home_Sweet_Hell
             else if (enemyPos.X <= position.X - 150 && enemyPos.Y <= position.Y - 150)
             {
                 //provides a period of time in between attacks
-                if (control % 30 == 0)
+                if (control % 60 == 0)
                 {
                     control++;
                     return damage;

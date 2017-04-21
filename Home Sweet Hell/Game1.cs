@@ -23,7 +23,7 @@ namespace Home_Sweet_Hell
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         SpriteFont font;
-        enum GameState { Title, Game, Results, GameOver}
+        enum GameState { Title, Game, Results, GameOver }
         GameState gameState;
         int enemyNum; // current number of enemies      
         int level;
@@ -31,10 +31,9 @@ namespace Home_Sweet_Hell
         List<Enemy> enemies = new List<Enemy>(); // list of all enemies
         List<Tower> towers = new List<Tower>(); // list of all towers
         Player player = new Player(); // create player object
-        //Enemy enemies[0]; // create enemy knight
-        //Tower towers[0]; // create tower knight
-        MoveStack mStack = new MoveStack(); //makes stack of tiles for the enemies to move on
-        
+        private Tile startTile = null;//the tile that enemies spawn on
+        int control = 0;//control variable to help enemy spawning
+
 
         private GUI_StatGraphics mapGraph;
         private GUI_Anim towerGraph;
@@ -56,12 +55,12 @@ namespace Home_Sweet_Hell
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-            graphics.PreferredBackBufferWidth = 1050;                    
-            graphics.PreferredBackBufferHeight = 750;                    
+            graphics.PreferredBackBufferWidth = 1050;
+            graphics.PreferredBackBufferHeight = 750;
             graphics.ApplyChanges();
 
             IsMouseVisible = true;
-            
+
         }
 
         /// <summary>
@@ -74,26 +73,12 @@ namespace Home_Sweet_Hell
         {
             // TODO: Add your initialization logic here
             // initialize each enemy and tower
-            towers.Add( new Knight_Good_());
+            towers.Add(new Knight_Good_());
             level = 1;
-
-            // values for first stage
-            if (level == 1)
-            {
-                enemyNum = 1;
-                money = 1000;
-
-                // adds enemyNum enemy knights to the enemies list
-                for (int i = 0; i < enemyNum; i++)
-                {
-                    enemies.Add(new Knight_Bad_());
-                }
-
-            }
 
             gameState = GameState.Title;
 
-           
+
             base.Initialize();
         }
 
@@ -118,27 +103,27 @@ namespace Home_Sweet_Hell
             font = Content.Load<SpriteFont>("Arial"); //TEMP FONT
 
             //map                                                                                          
-            Texture2D mapImage = Content.Load<Texture2D>("GUI_Assets/mapassets3type.png");                 
-            mapGraph = new GUI_StatGraphics(mapImage, new Point(150, 50), 3, 1, 3, "newExampleMap1.txt");         
-                                                                                                           
+            Texture2D mapImage = Content.Load<Texture2D>("GUI_Assets/mapassets3type.png");
+            mapGraph = new GUI_StatGraphics(mapImage, new Point(150, 50), 3, 1, 3, "newExampleMap1.txt");
+
             //tower                                                                                        
-            Texture2D towerImage = Content.Load<Texture2D>("GUI_Assets/towerplaceholder");                 
+            Texture2D towerImage = Content.Load<Texture2D>("GUI_Assets/towerplaceholder");
             //tower position vector should be tower position property from tower class                     
-            towerGraph = new GUI_Anim(towerImage, new Point(150, 50), 3, 1, 3, 1000);     
-                                                                                                           
+            towerGraph = new GUI_Anim(towerImage, new Point(150, 50), 3, 1, 3, 1000);
+
             //enemy                                                                                        
-            Texture2D enemyImage = Content.Load<Texture2D>("GUI_Assets/enemyplaceholder");                 
+            Texture2D enemyImage = Content.Load<Texture2D>("GUI_Assets/enemyplaceholder");
             //enemy position vector should be enemy position property from enemy class                     
-            enemyGraph = new GUI_Anim(enemyImage, new Point(150, 50), 1, 1, 3, 1000);     
+            enemyGraph = new GUI_Anim(enemyImage, new Point(150, 50), 1, 1, 3, 1000);
 
 
             //listing                                                                                     
-            Texture2D listingImage = Content.Load<Texture2D>("GUI_Assets/storelistingplaceholder");        
-            listing1 = new GUI_StatGraphics(listingImage, new Point(150, 150), 1, 1, 1, new Vector2(450, 500)); 
-            listing2 = new GUI_StatGraphics(listingImage, new Point(150, 150), 1, 1, 1, new Vector2(550, 500)); 
-            listing3 = new GUI_StatGraphics(listingImage, new Point(150, 150), 1, 1, 1, new Vector2(650, 500));        
+            Texture2D listingImage = Content.Load<Texture2D>("GUI_Assets/storelistingplaceholder");
+            listing1 = new GUI_StatGraphics(listingImage, new Point(150, 150), 1, 1, 1, new Vector2(450, 500));
+            listing2 = new GUI_StatGraphics(listingImage, new Point(150, 150), 1, 1, 1, new Vector2(550, 500));
+            listing3 = new GUI_StatGraphics(listingImage, new Point(150, 150), 1, 1, 1, new Vector2(650, 500));
             //store                                                                                        
-            Texture2D backStoreImage = Content.Load<Texture2D>("GUI_Assets/storebackplaceholder");         
+            Texture2D backStoreImage = Content.Load<Texture2D>("GUI_Assets/storebackplaceholder");
             storeBack = new GUI_StatGraphics(backStoreImage, new Point(750, 100), 1, 1, 1, new Vector2(0, 500));
 
             StreamReader load = new StreamReader("newExampleMap1.txt");
@@ -179,8 +164,32 @@ namespace Home_Sweet_Hell
             {
                 for (int column = 0; column < tiles.GetLength(1); column++)
                 {
-                    mapTile[row,column] = new Tile(row, column, 50, 50, tiles[row,column]);
+                    mapTile[row, column] = new Tile(row, column, 50, 50, tiles[row, column]);
                 }
+            }
+
+            //finds the start tile for the enemies 
+            foreach (Tile obj in mapTile)
+            {
+                if (obj.TileValue == 2)
+                {
+                    startTile = obj;
+                }
+            }
+
+
+            // values for first stage
+            if (level == 1)
+            {
+                enemyNum = (level + 1) * 10 / 2;
+                money = 1000;
+
+                // adds enemyNum enemy knights to the enemies list
+                for (int i = 0; i < enemyNum; i++)
+                {
+                    enemies.Add(new Knight_Bad_(startTile.Position.Y * 50, startTile.Position.X * 50));
+                }
+
             }
 
         }
@@ -211,7 +220,7 @@ namespace Home_Sweet_Hell
             previousMouseState = currentMouseState;
             currentMouseState = Mouse.GetState();
 
-            
+
             switch (gameState)
             {
                 // code for initial screen
@@ -224,10 +233,8 @@ namespace Home_Sweet_Hell
                     }
                     break;
 
- // code for main game -------------------------------------------------------------------
+                // code for main game -------------------------------------------------------------------
                 case GameState.Game:
-
-                   
 
                     // mouse coordinate code
                     if (currentMouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released)
@@ -263,23 +270,50 @@ namespace Home_Sweet_Hell
                         }
                     }
 
-                    // runs all enemy methods for each enemy
-                    foreach (var enemy in enemies)
-                    {
-                       enemy.Move(mapTile,player);
-                        enemyGraph.Update(gameTime);
+                    //spawns enemies
+                    /* if (control % 60 == 0)
+                     {
+                         // adds enemyNum enemy knights to the enemies list
+                         if (enemyCount < enemyNum)
+                         {
+                             enemies.Add(new Knight_Bad_(startTile.Position.Y * 50, startTile.Position.X * 50));
+                             enemyCount++;
+                             return;
+                         }
+                     }*/
 
-                        // checks if each enemy is in range of each tower
-                        foreach (var tower in towers)
+
+
+                    // runs all enemy methods for each enemy
+                    try
+                    {
+                        foreach (var enemy in enemies)
                         {
-                            if(enemy.Alive == true)
+                            enemy.Move(mapTile, player);
+                            enemyGraph.Update(gameTime);
+
+                            // checks if each enemy is in range of each tower
+                            foreach (var tower in towers)
                             {
-                                //enemy.TakeDamage(tower.Attack(enemy.Position), player);
+                                if (enemy.Alive == true)
+                                {
+                                    enemy.TakeDamage(tower.Attack(enemy.Position), player);
+                                }
+                                else
+                                {
+                                    enemies.Remove(enemy);
+                                    enemyNum--;
+                                }
+
                             }
-                            
                         }
-                    }                                 
+                    }
+                    catch (Exception)
+                    {
+                        //does nothing when there aren't enemies in the enemy list
+                    }
                     
+
                     // beat the level
                     /*if (enemyNum == 0) 
                     {
@@ -288,12 +322,12 @@ namespace Home_Sweet_Hell
                     }
                     */
                     // you lose
-                    if (player.Health <= 0) 
+                    if (player.Health <= 0)
                     {
                         gameState = GameState.GameOver;
                     }
                     break;
- // ---------------------------------------------------------------------------------------
+                // ---------------------------------------------------------------------------------------
 
                 // code for Results screen after successful level completion
                 case GameState.Results:
@@ -313,7 +347,7 @@ namespace Home_Sweet_Hell
                 // additional if statement here checking if mouse is within the coordinates of a button
 
             }
-            
+
             base.Update(gameTime);
         }
 
@@ -329,7 +363,7 @@ namespace Home_Sweet_Hell
             spriteBatch.Begin();
             spriteBatch.DrawString(font, "Position: " + currentMouseState.X + ", " + currentMouseState.Y, new Vector2(0, 0), Color.Black);
 
-            switch(gameState)
+            switch (gameState)
             {
                 case GameState.Title:
 
@@ -340,41 +374,47 @@ namespace Home_Sweet_Hell
                     spriteBatch.DrawString(font, "Position: " + currentMouseState.X + ", " + currentMouseState.Y, new Vector2(800, 0), Color.Black); // displays current mouse position
                     spriteBatch.DrawString(font, "Towers: " + towers.Count, new Vector2(800, 50), Color.Black); // displays current number of towers
                     spriteBatch.DrawString(font, "Enemies: " + enemies.Count, new Vector2(800, 100), Color.Black); // displays current number of enemies
+                    spriteBatch.DrawString(font, "Health: " + player.Health, new Vector2(800, 150), Color.Black);//displays Current Health
 
                     //map drawing                                                                                         
-                    mapGraph.MapDraw(spriteBatch);                                                                             
+                    mapGraph.MapDraw(spriteBatch);
 
                     //enemies+towers drawing  
-                    if (enemies[0].Alive == true)
+                    if (enemies.Count != 0)
                     {
-                        enemyGraph.Draw(gameTime, spriteBatch, new Vector2(enemies[0].Position.X, enemies[0].Position.Y));
+                        if (enemies[0].Alive == true)
+                        {
+                            enemyGraph.Draw(gameTime, spriteBatch, new Vector2(enemies[0].Position.X, enemies[0].Position.Y));
+                        }
                     }
-                    towerGraph.Draw(gameTime, spriteBatch, new Vector2(towers[0].Position.X, towers[0].Position.Y));                                                                    
-                                                                                      
-                                                                                                                          
+                   
+
+                    towerGraph.Draw(gameTime, spriteBatch, new Vector2(towers[0].Position.X, towers[0].Position.Y));
+
+
                     //storedrawing                                                                                        
-                    storeBack.StaticImage(0, 1f, spriteBatch);                                                            
-                    listing1.StaticImage(1, .66f, spriteBatch);                                                           
-                    listing2.StaticImage(1, .66f, spriteBatch);                                                           
+                    storeBack.StaticImage(0, 1f, spriteBatch);
+                    listing1.StaticImage(1, .66f, spriteBatch);
+                    listing2.StaticImage(1, .66f, spriteBatch);
                     listing3.StaticImage(1, .66f, spriteBatch);
 
                     spriteBatch.DrawString(font, "Knight \n Price: " + towers[0].Cost,
-                        new Vector2(465, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);               
+                        new Vector2(465, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);
                     spriteBatch.DrawString(font, "Tower Name \n Price: " + 150, //replace with price variable later       
-                        new Vector2(565, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);               
+                        new Vector2(565, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);
                     spriteBatch.DrawString(font, "Tower Name \n Price: " + 100, //replace with price variable later       
-                        new Vector2(665, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);               
-                                                                                                                          
+                        new Vector2(665, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);
+
                     spriteBatch.DrawString(font, "Level: " + level,
-                        new Vector2(665, 15), Color.White, 0, Vector2.Zero, 0.7f, SpriteEffects.None, 1);                 
-                    spriteBatch.DrawString(font, "Funds available: " + money,         
-                        new Vector2(10, 510), Color.Black, 0, Vector2.Zero, 0.7f, SpriteEffects.None, 1);                 
-                    spriteBatch.DrawString(font, "Score: " + player.Points,                       
+                        new Vector2(665, 15), Color.White, 0, Vector2.Zero, 0.7f, SpriteEffects.None, 1);
+                    spriteBatch.DrawString(font, "Funds available: " + money,
+                        new Vector2(10, 510), Color.Black, 0, Vector2.Zero, 0.7f, SpriteEffects.None, 1);
+                    spriteBatch.DrawString(font, "Score: " + player.Points,
                         new Vector2(10, 535), Color.Black, 0, Vector2.Zero, 0.7f, SpriteEffects.None, 1);
 
                     break;
             }
-                
+
 
             spriteBatch.End();
             base.Draw(gameTime);
@@ -384,11 +424,11 @@ namespace Home_Sweet_Hell
         public void Nextlevel()
         {
             level++; // increments level
-            // enemyNum = some number
+                     // enemyNum = some number
 
-            
+
         }
 
-        
+
     }
 }

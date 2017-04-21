@@ -12,11 +12,11 @@ namespace Home_Sweet_Hell
 {
     class Knight_Bad_ : Enemy
     {
+      
 
         //constructor
-        public Knight_Bad_() : base(100, 5, 50, 50, 100, 0, 100)
+        public Knight_Bad_(int x, int y) : base(100, 5, 50, 50, x, y, 100)
         {
-
         }
 
         //where you put enemy specific code

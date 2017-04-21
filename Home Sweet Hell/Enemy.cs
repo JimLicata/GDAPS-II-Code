@@ -24,6 +24,8 @@ namespace Home_Sweet_Hell
         private Texture2D image;
         private int score;
         private int control = 0;
+        private int spawnRate = 0;
+
 
         //properties for attributes
         public int Health
@@ -88,6 +90,13 @@ namespace Home_Sweet_Hell
 
             set { alive = value; }
         }
+
+        public int SpawnRate
+        {
+            get { return spawnRate; }
+        }
+
+
         //constructor
         public Enemy(int hp, int sp, int w, int h, int x, int y, int scr)
         {
@@ -148,7 +157,7 @@ namespace Home_Sweet_Hell
                             p1.Health = p1.Health - 1;
                         }
                         obj.GetNeighbors(map);
-                        
+
                         foreach (Tile next in obj.Neighbors)
                         {
                             if (next != null)
@@ -170,5 +179,7 @@ namespace Home_Sweet_Hell
 
             }
         }
+
     }
+
 }
