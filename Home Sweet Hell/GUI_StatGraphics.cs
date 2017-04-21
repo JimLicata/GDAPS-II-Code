@@ -21,6 +21,7 @@ namespace Home_Sweet_Hell
         public int[] MapInts
         {
             get { return mapInts; }
+            set { mapInts = value; }
         }
 
         //constructor

@@ -29,14 +29,27 @@ namespace Home_Sweet_Hell
             mapInts = map.MapInts;
         }
 
-        public bool checkPosition()
+        public int MX
+        {
+            set { mX = value; }
+        }
+
+        public int MY
+        {
+            set { mY = value; }
+        }
+
+       /*
+        * public bool checkPosition()
         {
             if(mX >= 50 && mX < 100)
             {
                 if (mY >= 50 && mY < 100)
                 {
                     if (mapInts[16] == 1)
+                    {
                         return true;
+                    }
                     else return false;
                 }
 
@@ -95,6 +108,28 @@ namespace Home_Sweet_Hell
 
                     else return false;
                 }
+            }
+            return false;
+        }
+        */
+
+        public bool checkPosition(Tile[,] map, List<Tower> towers, int mX, int mY)
+        {
+            foreach (var tile in map)
+            {
+                if (tile.TileValue == 1)
+                {
+                    foreach (var tower in towers)
+                    {
+                        if (tower.Position.X == mX && tower.Position.Y == mY)
+                        {
+                            return false;
+                        }
+                        else return true;
+                    }
+                    return true;
+                }
+                else return false;
             }
             return false;
         }

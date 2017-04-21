@@ -36,7 +36,9 @@ namespace Home_Sweet_Hell
         int control = 0;//control variable to help enemy spawning
         bool isBought = false; // checks whether a tower is waiting to be placed or not
         bool isThisPushing = false;
-
+        private int mX; // mouse x position
+        private int mY; // mouse y position
+        private Tower towerTemp;
 
         private GUI_StatGraphics mapGraph;
         private GUI_Anim towerGraph;
@@ -48,6 +50,7 @@ namespace Home_Sweet_Hell
 
         public int[,] tiles;
         Tile[,] mapTile;
+
 
         // Mouse states used to track Mouse button press
         MouseState currentMouseState;
@@ -65,6 +68,8 @@ namespace Home_Sweet_Hell
             IsMouseVisible = true;
 
         }
+
+
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -243,19 +248,33 @@ namespace Home_Sweet_Hell
                     if (currentMouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released)
                     {
                         // additional if statement here checking if mouse is within the coordinates of a clickable object
+
+                        if (isBought == true)
+                        {
+                            // JAMES LEFT OFF HERE. PLEASE CONTINUE FROM HERE BEFORE YOU FORGET YOU GOON
+                            tp = new TowerPlacement(currentMouseState.X, currentMouseState.Y, mapGraph);
+                            towers.Add(new Knight_Good_(currentMouseState.X, currentMouseState.Y));
+                            tp.Done = tp.checkPosition(mapTile, towers, currentMouseState.X, currentMouseState.Y);
+
+                            if (tp.Done == true) // if player clicks on proper tile, breaks out of loop
+                                isBought = false;
+                        }
                         // if mouseclick on tower in shop
                         if (currentMouseState.X >= 460 && currentMouseState.X <= 537 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590 && isBought == false) // compares mouseposition to the position of the new tower button
                         {
                             // checks if you have enough money
                             if (money >= towers[0].Cost)
                             {
-                                towers.Add(towers[0]);
+                                mX = currentMouseState.X;
+                                mY = currentMouseState.Y;
+                               // towerTemp = new Knight_Good_(mX, mY);
                                 money -= towers[0].Cost;
                                 isBought = true;
                             }
                         }
 
-                        if (currentMouseState.X >= 562 && currentMouseState.X <= 637 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590 && isBought == false)
+                        /*
+                         * if (currentMouseState.X >= 562 && currentMouseState.X <= 637 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590 && isBought == false)
                         {
                             if (money >= towers[1].Cost)
                             {
@@ -263,7 +282,9 @@ namespace Home_Sweet_Hell
                                 money -= towers[1].Cost;
                             }
                         }
+                        */
 
+                        /*
                         if (currentMouseState.X >= 661 && currentMouseState.X <= 736 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590 && isBought == false)
                         {
                             if (money >= towers[2].Cost)
@@ -272,15 +293,9 @@ namespace Home_Sweet_Hell
                                 money -= towers[2].Cost;
                             }
                         }
+                        */
 
-                        if (isBought == true)
-                        {
-                            tp = new TowerPlacement(currentMouseState.X, currentMouseState.Y, mapGraph);
-                            tp.Done = tp.checkPosition();
-
-                            if (tp.Done == true) // if player clicks on proper tile, breaks out of loop
-                                isBought = false;
-                        }
+                        
                     }
 
                     //spawns enemies
