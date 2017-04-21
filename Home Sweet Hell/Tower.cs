@@ -28,8 +28,6 @@ namespace Home_Sweet_Hell
         private int rangeY;
         private Rectangle range;
         private int damage;
-        private bool alive;
-        private Texture2D image;
         private int cost;
         private int control = 0;
 
@@ -105,6 +103,26 @@ namespace Home_Sweet_Hell
             damage = dmg;
             cost = cst;
         }
+
+        //finds the closest enemy 
+        public Enemy IsClosest(List<Enemy> list)
+        {
+            int closeX = 1000000000;
+            int closeY = 1000000000;
+            Enemy closest = null;
+            foreach (Enemy obj in list)
+            {
+                if (position.X - obj.Position.X < closeX && position.Y - obj.Position.Y < closeY)
+                {
+                    closeX = obj.Position.X;
+                    closeX = obj.Position.Y;
+                    closest = obj;
+                }
+            }
+            return closest;
+        }
+
+
 
         //attack method - returns damage dealt as an int
         public int Attack(Rectangle enemyPos)

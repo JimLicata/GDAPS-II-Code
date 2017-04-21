@@ -21,7 +21,6 @@ namespace Home_Sweet_Hell
         private int positionY;
         private Rectangle position;
         private bool alive;
-        private Texture2D image;
         private int score;
         private int control = 0;
         private int spawnRate = 0;
@@ -125,19 +124,6 @@ namespace Home_Sweet_Hell
                 p1.Points = p1.Points + score;
             }
 
-        }
-
-        //override draw method so it only draws alive enemies
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            if (alive == true)
-            {
-                spriteBatch.Draw(image);
-            }
-            else if (alive == false)
-            {
-
-            }
         }
 
         public void Move(Tile[,] map, Player p1)//method to cause enemies to move toward the base
