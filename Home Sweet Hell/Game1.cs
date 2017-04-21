@@ -35,6 +35,7 @@ namespace Home_Sweet_Hell
         private TowerPlacement tp;
         int control = 0;//control variable to help enemy spawning
         bool isBought = false; // checks whether a tower is waiting to be placed or not
+        bool isThisPushing = false;
 
 
         private GUI_StatGraphics mapGraph;
