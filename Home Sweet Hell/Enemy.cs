@@ -128,42 +128,50 @@ namespace Home_Sweet_Hell
 
         public void Move(Tile[,] map, Player p1)//method to cause enemies to move toward the base
         {
-            control++;
-
-            if (control % 60 == 0)
+            if (alive == true)
             {
-                foreach (Tile obj in map)
+                control++;
+
+                if (control % 60 == 0)
                 {
-
-                    if (position.X == obj.Position.Y * 50 && position.Y == obj.Position.X * 50)
+                    foreach (Tile obj in map)
                     {
-                        if (obj.TileValue == 6)
-                        {
-                            alive = false;
-                            p1.Health = p1.Health - 1;
-                        }
-                        obj.GetNeighbors(map);
 
-                        foreach (Tile next in obj.Neighbors)
+                        if (position.X == obj.Position.Y * 50 && position.Y == obj.Position.X * 50)
                         {
-                            if (next != null)
+                            if (obj.TileValue == 6)
                             {
-                                if (next.Walkable == true)
-                                {
-                                    position = new Rectangle(new Point(next.Position.Y * 50, next.Position.X * 50), new Point(50, 50));
+                                alive = false;
+                                p1.Health = p1.Health - 1;
+                            }
+                            obj.GetNeighbors(map);
 
-                                    next.Walkable = false;
-                                    obj.Walkable = false;
-                                    return;
+                            foreach (Tile next in obj.Neighbors)
+                            {
+                                if (next != null)
+                                {
+                                    if (next.Walkable == true)
+                                    {
+                                        position = new Rectangle(new Point(next.Position.Y * 50, next.Position.X * 50), new Point(50, 50));
+
+                                        next.Walkable = false;
+                                        obj.Walkable = false;
+                                        return;
+                                    }
                                 }
+
                             }
 
                         }
 
+
+
                     }
                 }
-
             }
+            
+
+
         }
 
     }

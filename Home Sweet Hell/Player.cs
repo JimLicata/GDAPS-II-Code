@@ -12,6 +12,7 @@ namespace Home_Sweet_Hell
         //attributes 
         private int health;
         private int points;
+        private int control = 0;
 
         //property
         public int Health
@@ -20,7 +21,7 @@ namespace Home_Sweet_Hell
 
             set
             {
-                if (value > 0 && value < 100)
+                if (value >= 0 && value < 100)
                 {
                     health = value;
                 }
@@ -36,8 +37,17 @@ namespace Home_Sweet_Hell
         //constructor 
         public Player()
         {
-            health = 100;
+            health = 50;
             points = 0;
+        }
+
+        public void SpawnEnemies(List<Enemy> enemies, Enemy villan)
+        {
+            control++;
+            if (control % 60 == 0)
+            {
+                enemies.Add(villan);
+            }
         }
     }
 }
