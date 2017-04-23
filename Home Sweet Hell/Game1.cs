@@ -38,10 +38,11 @@ namespace Home_Sweet_Hell
         static int enemyOnBoard = 0;
         bool isBought = false; // checks whether a tower is waiting to be placed or not
         GameTime gameTime;
+        private int enemiesKilled = 0; // counts number of enemies killed
+        private int totalEnemiesKilled = 0; // total number of killed enemies
 
         private int mX; // mouse x position
         private int mY; // mouse y position
-        private Tower towerTemp;
 
         bool isThisPushing = true; //checks to see if sourceTree was being cooperative
 
@@ -90,6 +91,12 @@ namespace Home_Sweet_Hell
             // initialize each enemy and tower
             // towers.Add(new Knight_Good_(300, 100));
             level = 1;
+            player.Health = 50;
+            player.Points = 0;
+            totalEnemiesKilled = 0;
+            enemyNum = 10;
+            enemies.Clear();
+            towers.Clear();
 
             gameState = GameState.Title;
 
@@ -200,6 +207,7 @@ namespace Home_Sweet_Hell
                 money = 1000;
             }
 
+
         }
 
         /// <summary>
@@ -250,13 +258,12 @@ namespace Home_Sweet_Hell
                         // additional if statement here checking if mouse is within the coordinates of a clickable object
 
                         if (isBought == true)
-                        {
-                            // JAMES LEFT OFF HERE. PLEASE CONTINUE FROM HERE BEFORE YOU FORGET YOU GOON
+                        {                           
                             tp = new TowerPlacement(currentMouseState.X, currentMouseState.Y, mapGraph);
                                                   
                             tp.Done = tp.checkPosition();
 
-                            if (tp.Done == true) // if player clicks on proper tile, breaks out of loop
+                            if (tp.Done == true) // if player clicks on proper tile, places tower and breaks out of loop
                             {
                                 Knight_Good_ tmpKnight = new Knight_Good_(currentMouseState.X, currentMouseState.Y);
                                 towers.Add(tmpKnight);
@@ -335,6 +342,7 @@ namespace Home_Sweet_Hell
                         {
                             enemies.Remove(enemies[i]);
                             enemyOnBoard--;
+                            enemiesKilled++;
                         }
 
                     }
@@ -342,12 +350,13 @@ namespace Home_Sweet_Hell
 
 
                     // beat the level
-                    /*if (enemyNum == 0) 
+                    if (enemiesKilled == enemyNum) 
                     {
-                        gameState = GameState.Results;
+                        totalEnemiesKilled += enemiesKilled;
+                        gameState = GameState.Results; // shows current money and score
                         Nextlevel();
                     }
-                    */
+                    
                     // you lose
                     if (player.Health <= 0)
                     {
@@ -357,13 +366,24 @@ namespace Home_Sweet_Hell
                 // ---------------------------------------------------------------------------------------
 
                 // code for Results screen after successful level completion
-                case GameState.Results:
-                    // shows player score, money
+                case GameState.Results: // commented out until level 2 is completed
+                    /*
+                    if (currentMouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released)
+                    {
+                        gameState = GameState.Game;
+                    }
+                    */
                     break;
 
                 // code for Game Over
                 case GameState.GameOver:
-                    // 
+
+                    if (currentMouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released)
+                    {
+                        player.Health = 50;
+                        enemyNum = 10;
+                        gameState = GameState.Title;
+                    }
                     break;
 
             }
@@ -388,17 +408,18 @@ namespace Home_Sweet_Hell
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
-            spriteBatch.DrawString(font, "Position: " + currentMouseState.X + ", " + currentMouseState.Y, new Vector2(0, 0), Color.Black);
+            //spriteBatch.DrawString(font, "Position: " + currentMouseState.X + ", " + currentMouseState.Y, new Vector2(0, 0), Color.Black);
 
             switch (gameState)
             {
                 case GameState.Title:
 
-                    spriteBatch.DrawString(font, "Titlescreen", new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2), Color.Red);
+                    spriteBatch.DrawString(font, "Home Sweet Hell\nClick anywhere to start", new Vector2(GraphicsDevice.Viewport.Width / 2 - 100, GraphicsDevice.Viewport.Height / 2), Color.Red);
                     break;
 
                 case GameState.Game:
-                    spriteBatch.DrawString(font, "Position: " + currentMouseState.X + ", " + currentMouseState.Y, new Vector2(800, 0), Color.Black); // displays current mouse position
+
+                    //spriteBatch.DrawString(font, "Position: " + currentMouseState.X + ", " + currentMouseState.Y, new Vector2(800, 0), Color.Black); // displays current mouse position
                     spriteBatch.DrawString(font, "Towers: " + towers.Count, new Vector2(800, 50), Color.Black); // displays current number of towers
                     spriteBatch.DrawString(font, "Enemies: " + enemies.Count, new Vector2(800, 100), Color.Black); // displays current number of enemies
                     spriteBatch.DrawString(font, "Health: " + player.Health, new Vector2(800, 150), Color.Black);//displays Current Health
@@ -442,6 +463,20 @@ namespace Home_Sweet_Hell
                         new Vector2(10, 535), Color.Black, 0, Vector2.Zero, 0.7f, SpriteEffects.None, 1);
 
                     break;
+
+                case GameState.GameOver:
+
+                    spriteBatch.DrawString(font, "Game Over", new Vector2(GraphicsDevice.Viewport.Width / 2 - 100, GraphicsDevice.Viewport.Height / 2), Color.Black);
+                    break;
+
+                case GameState.Results:
+
+                    spriteBatch.DrawString(font, "Results:", new Vector2(GraphicsDevice.Viewport.Width / 2 - 100, 100), Color.Black);
+                    spriteBatch.DrawString(font, "Total Enemies Killed: " + totalEnemiesKilled, new Vector2(GraphicsDevice.Viewport.Width / 2 - 100, 150), Color.Black);
+                    spriteBatch.DrawString(font, "Total Points: " + player.Points, new Vector2(GraphicsDevice.Viewport.Width / 2 - 100, 200), Color.Black);
+                    spriteBatch.DrawString(font, "Current Money: " + money, new Vector2(GraphicsDevice.Viewport.Width / 2 - 100, 250), Color.Black);
+                    spriteBatch.DrawString(font, "Level 2 Coming Soon!", new Vector2(GraphicsDevice.Viewport.Width / 2 - 100, 500), Color.Black);
+                    break;
             }
 
 
@@ -453,9 +488,8 @@ namespace Home_Sweet_Hell
         public void Nextlevel()
         {
             level++; // increments level
-            enemyNum = (level + 1) * 10 / 2; //resets enemyNum       
-
-
+            enemyNum = (level + 1) * 10 / 2; //resets enemyNum   
+            enemiesKilled = 0;    
         }
 
 
