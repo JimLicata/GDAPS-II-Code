@@ -253,22 +253,26 @@ namespace Home_Sweet_Hell
                         {
                             // JAMES LEFT OFF HERE. PLEASE CONTINUE FROM HERE BEFORE YOU FORGET YOU GOON
                             tp = new TowerPlacement(currentMouseState.X, currentMouseState.Y, mapGraph);
-                            towers.Add(new Knight_Good_(currentMouseState.X, currentMouseState.Y));
-                            tp.Done = tp.checkPosition(mapTile, towers, currentMouseState.X, currentMouseState.Y);
+                                                  
+                            tp.Done = tp.checkPosition();
 
                             if (tp.Done == true) // if player clicks on proper tile, breaks out of loop
+                            {
+                                Knight_Good_ tmpKnight = new Knight_Good_(currentMouseState.X, currentMouseState.Y);
+                                towers.Add(tmpKnight);
                                 isBought = false;
+                            }
                         }
                         // if mouseclick on tower in shop
                         if (currentMouseState.X >= 460 && currentMouseState.X <= 537 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590 && isBought == false) // compares mouseposition to the position of the new tower button
                         {
                             // checks if you have enough money
-                            if (money >= towers[0].Cost)
+                            if (money >= 100)
                             {
                                 mX = currentMouseState.X;
                                 mY = currentMouseState.Y;
                                 // towerTemp = new Knight_Good_(mX, mY);
-                                money -= towers[0].Cost;
+                                money -= 100;
                                 isBought = true;
                             }
                         }
@@ -323,7 +327,7 @@ namespace Home_Sweet_Hell
                         enemyGraph.Update(gameTime);
                         for (int u = 0; u < towers.Count; u++)
                         {
-                            // enemies[i].TakeDamage(towers[u].Attack(enemies[i].Position), player);
+                            enemies[i].TakeDamage(towers[u].Attack(enemies[i].Position), player);
                         }
 
 
