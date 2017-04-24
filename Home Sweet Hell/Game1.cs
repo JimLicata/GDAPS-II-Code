@@ -49,6 +49,7 @@ namespace Home_Sweet_Hell
 
 
         private GUI_StatGraphics mapGraph;
+        private GUI_StatGraphics menuScreen;
         private GUI_Anim towerGraph;
         private GUI_Anim enemyGraph;
         private GUI_StatGraphics listing1;
@@ -124,6 +125,10 @@ namespace Home_Sweet_Hell
             //font
             font = Content.Load<SpriteFont>("Arial"); //TEMP FONT
 
+            //menu screen
+            Texture2D menuImage = Content.Load<Texture2D>("GUI_Assets/menuscreen.png");
+            menuScreen = new GUI_StatGraphics(menuImage, new Point(750, 500), 1, 1, 1, new Vector2(0, 0));
+
             //map                                                                                          
             Texture2D mapImage = Content.Load<Texture2D>("GUI_Assets/mapassets3type.png");
             mapGraph = new GUI_StatGraphics(mapImage, new Point(150, 50), 3, 1, 3, "newExampleMap1.txt");
@@ -131,12 +136,12 @@ namespace Home_Sweet_Hell
             //tower                                                                                        
             Texture2D towerImage = Content.Load<Texture2D>("GUI_Assets/towerplaceholder");
             //tower position vector should be tower position property from tower class                     
-            towerGraph = new GUI_Anim(towerImage, new Point(150, 50), 3, 1, 3, 1000);
+            towerGraph = new GUI_Anim(towerImage, new Point(150, 50), 3, 1, 3, 1000, 0);
 
             //enemy                                                                                        
             Texture2D enemyImage = Content.Load<Texture2D>("GUI_Assets/enemyplaceholder");
             //enemy position vector should be enemy position property from enemy class                     
-            enemyGraph = new GUI_Anim(enemyImage, new Point(150, 50), 1, 1, 3, 1000);
+            enemyGraph = new GUI_Anim(enemyImage, new Point(150, 50), 1, 1, 3, 1000, 1);
 
 
             //listing                                                                                     
@@ -269,7 +274,7 @@ namespace Home_Sweet_Hell
                                 towers.Add(tmpKnight);
                                 isBought = false;
                             }
-                        }
+                        }else
                         // if mouseclick on tower in shop
                         if (currentMouseState.X >= 460 && currentMouseState.X <= 537 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590 && isBought == false) // compares mouseposition to the position of the new tower button
                         {
@@ -347,7 +352,15 @@ namespace Home_Sweet_Hell
 
                     }
 
-
+                    //each tower in towers
+                    foreach (Tower tow in towers)
+                    {//currently doesn't check if tower is alive, need tower.alive property, and to actually assign a value to Alive at some point (currently not returning anything)
+                     //if (tow.Alive == true)
+                     //{
+                        if (enemies.Count != 0)
+                        { towerGraph.switchAnim(enemies[0]); } //should pass in closest tower
+                        //}
+                    }
 
                     // beat the level
                     if (enemiesKilled == enemyNum) 
@@ -414,7 +427,7 @@ namespace Home_Sweet_Hell
             {
                 case GameState.Title:
 
-                    spriteBatch.DrawString(font, "Home Sweet Hell\nClick anywhere to start", new Vector2(GraphicsDevice.Viewport.Width / 2 - 100, GraphicsDevice.Viewport.Height / 2), Color.Red);
+                    menuScreen.StaticImage(1, 1, spriteBatch);
                     break;
 
                 case GameState.Game:
@@ -438,9 +451,14 @@ namespace Home_Sweet_Hell
                         }
                     }
 
-
-                    // towerGraph.Draw(gameTime, spriteBatch, new Vector2(towers[0].Position.X, towers[0].Position.Y));
-
+                    //each tower in towers
+                    foreach (Tower tow in towers)
+                    {//currently doesn't check if tower is alive, need tower.alive property, and to actually assign a value to Alive at some point (currently not returning anything)
+                     //if (tow.Alive == true)
+                     //{
+                        towerGraph.Draw(gameTime, spriteBatch, new Vector2(tow.Position.X, tow.Position.Y));
+                        //}
+                    }
 
                     //storedrawing                                                                                        
                     storeBack.StaticImage(0, 1f, spriteBatch);
