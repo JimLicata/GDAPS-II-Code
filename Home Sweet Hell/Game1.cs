@@ -269,7 +269,7 @@ namespace Home_Sweet_Hell
                                 towers.Add(tmpKnight);
                                 isBought = false;
                             }
-                        }
+                        }else
                         // if mouseclick on tower in shop
                         if (currentMouseState.X >= 460 && currentMouseState.X <= 537 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590 && isBought == false) // compares mouseposition to the position of the new tower button
                         {
