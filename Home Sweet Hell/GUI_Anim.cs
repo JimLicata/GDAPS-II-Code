@@ -18,9 +18,12 @@ namespace Home_Sweet_Hell
         private int frame; // current frame number
         private int timeSinceLastFrame; // elapsed time since frame was drawn
         private int millisecondsPerFrame; // millisec to display a frame
+        private Vector2 oldPos; //saves old position for directional movement
+        private int moveType; //save type of movement. 0=non-directional, 1 = directional
+        private SpriteEffects flip; //is sprite flipped
 
         //-constructor
-        public GUI_Anim(Vector2 pPos, Texture2D img, Point pSpriteSize, int pNumSprites, int pRows, int pCols, int msPerFrame)
+        public GUI_Anim(Vector2 pPos, Texture2D img, Point pSpriteSize, int pNumSprites, int pRows, int pCols, int msPerFrame, int moveType)
         {
             position = pPos;
             image = img;
@@ -31,9 +34,10 @@ namespace Home_Sweet_Hell
             millisecondsPerFrame = msPerFrame;
             currentFrame.X = 0;
             currentFrame.Y = 0;
+            this.moveType = moveType;
         }
         //-constructor
-        public GUI_Anim(Texture2D img, Point pSpriteSize, int pNumSprites, int pRows, int pCols, int msPerFrame)
+        public GUI_Anim(Texture2D img, Point pSpriteSize, int pNumSprites, int pRows, int pCols, int msPerFrame, int moveType)
         {
             image = img;
             spriteSize = pSpriteSize;
@@ -43,6 +47,7 @@ namespace Home_Sweet_Hell
             millisecondsPerFrame = msPerFrame;
             currentFrame.X = 0;
             currentFrame.Y = 0;
+            this.moveType = moveType;
         }
 
         //methods
@@ -62,31 +67,108 @@ namespace Home_Sweet_Hell
                     frame = 0; // restart
                 }
 
-                // set location of frame to display
-                switch (frame)
+                if (moveType == 1)
                 {
-                    case 0:
-                        currentFrame.X = 0;
-                        currentFrame.Y = 0;
-                        break;
-                    case 1:
-                        currentFrame.X = (spriteSize.X / rows) *1;
-                        currentFrame.Y = (spriteSize.Y / cols) * 1;
-                        break;
-                    case 2:
-                        currentFrame.X = (spriteSize.X / rows) *2;
-                        currentFrame.Y = (spriteSize.Y / cols) * 2;
-                        break;
+                    if (oldPos.Y != position.Y) //y movemenr
+                    {
+                        flip = SpriteEffects.None;
+                        switch (frame)
+                        {
+                            case 0:
+                                currentFrame.X = frame * (spriteSize.X / cols);
+                                currentFrame.Y = 0;
+                                break;
+                            case 1:
+                                currentFrame.X = frame * (spriteSize.X / cols);
+                                currentFrame.Y = 0;
+                                break;
+                        }
+                    }
+                    else if (oldPos.X < position.X)
+                    {
+                        flip = SpriteEffects.None;
+                        switch (frame)
+                        {
+                            case 0:
+                                currentFrame.X = (frame * (spriteSize.X / cols)) + 2;
+                                currentFrame.Y = 0;
+                                break;
+                            case 1:
+                                currentFrame.X = (frame * (spriteSize.X / cols)) + 2;
+                                currentFrame.Y = 0;
+                                break;
+                        }
+                    }
+                    else if (oldPos.X > position.X)
+                    {
+                        flip = SpriteEffects.FlipHorizontally; //flip image
+                        switch (frame)
+                        {
+                            case 0:
+                                currentFrame.X = (frame * (spriteSize.X / cols)) + 2;
+                                currentFrame.Y = 0;
+                                break;
+                            case 1:
+                                currentFrame.X = (frame * (spriteSize.X / cols)) + 2;
+                                currentFrame.Y = 0;
+                                break;
+                        }
+                    }
+                }
+                else
+                {
+                    // set location of frame to display
+                    switch (frame)
+                    {
+                        case 0:
+                            currentFrame.X = frame * (spriteSize.X / cols);
+                            currentFrame.Y = 0;
+                            break;
+                        case 1:
+                            currentFrame.X = frame * (spriteSize.X / cols);
+                            currentFrame.Y = 0;
+                            break;
+                        case 2:
+                            currentFrame.X = frame * (spriteSize.X / cols);
+                            currentFrame.Y = 0;
+                            break;
+                    }
                 }
             }
+        }
+
+        public void switchAnim(Enemy enem)
+        {
+            //if nearest enemy.position.Y > position.Y
+            if (enem.Position.Y >= position.Y + 25)
+            {
+                currentFrame.X = 0 * (spriteSize.X / cols);
+                currentFrame.Y = 0;
+            }
+            else
+            {
+                currentFrame.X = 1 * (spriteSize.X / cols);
+                currentFrame.Y = 0;
+            }
+            //face up
+            //else face down
+            //until then 
+
         }
 
         //draw
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 pPos)
         {
-            position = pPos;
+            if (position != pPos)
+            {
+                oldPos = position; //so it doesn't save over and over
+                position = pPos;
+            }
+
+
+
             spriteBatch.Draw(image, position, new Rectangle(currentFrame.X, currentFrame.Y, (spriteSize.X / cols), (spriteSize.Y / rows)), // draws image based on given size and frame num
-                Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 1);
+                Color.White, 0, Vector2.Zero, 1f, flip, 1);
 
 
         }

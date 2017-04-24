@@ -154,3 +154,19 @@ Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\bin\Deskto
 Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\bin\DesktopGL\x86\Debug\NVorbis.dll
 Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\bin\DesktopGL\x86\Debug\OpenTK.dll
 Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.csprojResolveAssemblyReference.cache
+Z:\IGMProfile\local_Baker\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.exe
+Z:\IGMProfile\local_Baker\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.pdb
+Z:\IGMProfile\local_Baker\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.csprojResolveAssemblyReference.cache
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\enemyplaceholder.png
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\mapassets3type.png
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\storebackplaceholder.png
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\storelistingplaceholder.png
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\towerplaceholder.png
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\OpenTK.dll.config
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\mainFont.xnb
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\Arial.xnb
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\Home Sweet Hell.exe
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\Home Sweet Hell.pdb
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\MonoGame.Framework.dll
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\NVorbis.dll
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\OpenTK.dll
