@@ -21,6 +21,7 @@ namespace Home_Sweet_Hell
         public int[] MapInts
         {
             get { return mapInts; }
+            set { mapInts = value; }
         }
 
         //constructor
@@ -112,7 +113,7 @@ namespace Home_Sweet_Hell
             //If MapArray is replaced with another int[] retrieval option in consolidating the programs, MapDraw() will need to either
             //a) take a int[] as a parameter
             //b) run the other method
-            int[] mapInts = MapArray(); //run mapArray
+            mapInts = MapArray(); //run mapArray
             double pointFive = 0.5; //makes sure i converts to double when adding .5
 
             for (int i = 0; i < mapInts.Length; i++)

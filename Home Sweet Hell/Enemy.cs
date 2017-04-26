@@ -21,9 +21,10 @@ namespace Home_Sweet_Hell
         private int positionY;
         private Rectangle position;
         private bool alive;
-        private Texture2D image;
         private int score;
         private int control = 0;
+        private int spawnRate = 0;
+
 
         //properties for attributes
         public int Health
@@ -88,6 +89,13 @@ namespace Home_Sweet_Hell
 
             set { alive = value; }
         }
+
+        public int SpawnRate
+        {
+            get { return spawnRate; }
+        }
+
+
         //constructor
         public Enemy(int hp, int sp, int w, int h, int x, int y, int scr)
         {
@@ -118,69 +126,54 @@ namespace Home_Sweet_Hell
 
         }
 
-        //override draw method so it only draws alive enemies
-        public void Draw(SpriteBatch spriteBatch)
+        public void Move(Tile[,] map, Player p1)//method to cause enemies to move toward the base
         {
             if (alive == true)
             {
-                spriteBatch.Draw(image);
-            }
-            else if (alive == false)
-            {
+                control++;
 
-            }
-        }
-
-        public void Move(Tile[,] map)//method to cause enemies to move toward the base
-        {
-            control++;
-
-            if (control % 60 == 0)
-            {
-                foreach (Tile obj in map)
+                if (control % 60 == 0)
                 {
-
-                    if (position.X == obj.Position.Y * 50 && position.Y == obj.Position.X * 50)
+                    foreach (Tile obj in map)
                     {
-                        obj.GetNeighbors(map);
-                        
-                        foreach (Tile next in obj.Neighbors)
+
+                        if (position.X == obj.Position.Y * 50 && position.Y == obj.Position.X * 50)
                         {
-                            if (next != null)
+                            if (obj.TileValue == 6)
                             {
-                                if (next.Walkable == true)
+                                alive = false;
+                                p1.Health = p1.Health - 1;
+                            }
+                            obj.GetNeighbors(map);
+
+                            foreach (Tile next in obj.Neighbors)
+                            {
+                                if (next != null)
                                 {
-                                    position = new Rectangle(new Point(next.Position.Y * 50, next.Position.X * 50), new Point(50, 50));
-                                    obj.Walkable = false;
-                                    return;
+                                    if (next.Walkable == true)
+                                    {
+                                        position = new Rectangle(new Point(next.Position.Y * 50, next.Position.X * 50), new Point(50, 50));
+
+                                        next.Walkable = false;
+                                        obj.Walkable = false;
+                                        return;
+                                    }
                                 }
+
                             }
 
                         }
 
-                    }
-                }
 
-            }
-        }
 
-        public void Breach(Player p1, Tile[,] map, int[,] tiles)//if the enemy isn't killed in time it damages the player
-        {
-            for (int row = 0; row < tiles.GetLength(0); row++)
-            {
-                for (int column = 0; column < tiles.GetLength(1); column++)
-                {
-                    if (position.Intersects(map[row, column].Position) == true)
-                    {
-                        if (map[row, column].TileValue == 6)
-                        {
-                            alive = false;
-                            p1.Health = p1.Health - 1;
-
-                        }
                     }
                 }
             }
+            
+
+
         }
+
     }
+
 }

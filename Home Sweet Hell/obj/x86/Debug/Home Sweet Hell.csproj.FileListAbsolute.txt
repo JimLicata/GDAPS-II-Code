@@ -106,3 +106,70 @@ Z:\IGMProfile\Documents\JamesLicataGDAPS-II\Home Sweet Hell\obj\x86\Debug\Home S
 =======
 Z:\IGMProfile\Documents\HSH Laptop\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.exe
 Z:\IGMProfile\Documents\HSH Laptop\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.pdb
+<<<<<<< HEAD
+=======
+Z:\IGMProfile\HOME SWEET HELL\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.exe
+Z:\IGMProfile\HOME SWEET HELL\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.pdb
+Z:\IGMProfile\HOME SWEET HELL\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\enemyplaceholder.png
+Z:\IGMProfile\HOME SWEET HELL\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\mapassets3type.png
+Z:\IGMProfile\HOME SWEET HELL\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\storebackplaceholder.png
+Z:\IGMProfile\HOME SWEET HELL\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\storelistingplaceholder.png
+Z:\IGMProfile\HOME SWEET HELL\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\towerplaceholder.png
+Z:\IGMProfile\HOME SWEET HELL\Home Sweet Hell\bin\DesktopGL\x86\Debug\OpenTK.dll.config
+Z:\IGMProfile\HOME SWEET HELL\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\mainFont.xnb
+Z:\IGMProfile\HOME SWEET HELL\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\Arial.xnb
+Z:\IGMProfile\HOME SWEET HELL\Home Sweet Hell\bin\DesktopGL\x86\Debug\Home Sweet Hell.exe
+Z:\IGMProfile\HOME SWEET HELL\Home Sweet Hell\bin\DesktopGL\x86\Debug\Home Sweet Hell.pdb
+Z:\IGMProfile\HOME SWEET HELL\Home Sweet Hell\bin\DesktopGL\x86\Debug\MonoGame.Framework.dll
+Z:\IGMProfile\HOME SWEET HELL\Home Sweet Hell\bin\DesktopGL\x86\Debug\NVorbis.dll
+Z:\IGMProfile\HOME SWEET HELL\Home Sweet Hell\bin\DesktopGL\x86\Debug\OpenTK.dll
+Z:\IGMProfile\HOME SWEET HELL\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.csprojResolveAssemblyReference.cache
+Z:\IGMProfile\Documents\This will be the final one\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.exe
+Z:\IGMProfile\Documents\This will be the final one\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.pdb
+Z:\IGMProfile\Documents\This will be the final one\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\enemyplaceholder.png
+Z:\IGMProfile\Documents\This will be the final one\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\mapassets3type.png
+Z:\IGMProfile\Documents\This will be the final one\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\storebackplaceholder.png
+Z:\IGMProfile\Documents\This will be the final one\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\storelistingplaceholder.png
+Z:\IGMProfile\Documents\This will be the final one\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\towerplaceholder.png
+Z:\IGMProfile\Documents\This will be the final one\Home Sweet Hell\bin\DesktopGL\x86\Debug\OpenTK.dll.config
+Z:\IGMProfile\Documents\This will be the final one\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\mainFont.xnb
+Z:\IGMProfile\Documents\This will be the final one\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\Arial.xnb
+Z:\IGMProfile\Documents\This will be the final one\Home Sweet Hell\bin\DesktopGL\x86\Debug\Home Sweet Hell.exe
+Z:\IGMProfile\Documents\This will be the final one\Home Sweet Hell\bin\DesktopGL\x86\Debug\Home Sweet Hell.pdb
+Z:\IGMProfile\Documents\This will be the final one\Home Sweet Hell\bin\DesktopGL\x86\Debug\MonoGame.Framework.dll
+Z:\IGMProfile\Documents\This will be the final one\Home Sweet Hell\bin\DesktopGL\x86\Debug\NVorbis.dll
+Z:\IGMProfile\Documents\This will be the final one\Home Sweet Hell\bin\DesktopGL\x86\Debug\OpenTK.dll
+Z:\IGMProfile\Documents\This will be the final one\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.csprojResolveAssemblyReference.cache
+Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.exe
+Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.pdb
+Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\enemyplaceholder.png
+Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\mapassets3type.png
+Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\storebackplaceholder.png
+Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\storelistingplaceholder.png
+Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\towerplaceholder.png
+Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\bin\DesktopGL\x86\Debug\OpenTK.dll.config
+Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\mainFont.xnb
+Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\Arial.xnb
+Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\bin\DesktopGL\x86\Debug\Home Sweet Hell.exe
+Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\bin\DesktopGL\x86\Debug\Home Sweet Hell.pdb
+Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\bin\DesktopGL\x86\Debug\MonoGame.Framework.dll
+Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\bin\DesktopGL\x86\Debug\NVorbis.dll
+Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\bin\DesktopGL\x86\Debug\OpenTK.dll
+Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.csprojResolveAssemblyReference.cache
+Z:\IGMProfile\local_Baker\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.exe
+Z:\IGMProfile\local_Baker\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.pdb
+Z:\IGMProfile\local_Baker\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.csprojResolveAssemblyReference.cache
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\enemyplaceholder.png
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\mapassets3type.png
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\storebackplaceholder.png
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\storelistingplaceholder.png
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\towerplaceholder.png
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\OpenTK.dll.config
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\mainFont.xnb
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\Arial.xnb
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\Home Sweet Hell.exe
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\Home Sweet Hell.pdb
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\MonoGame.Framework.dll
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\NVorbis.dll
+Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\OpenTK.dll
+>>>>>>> 16efc1bd509c90fc0860844994f5fc7bfe275236

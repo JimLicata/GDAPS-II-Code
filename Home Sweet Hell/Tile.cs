@@ -123,7 +123,7 @@ namespace Home_Sweet_Hell
 
             try
             {
-                nList.Add(map[position.X =1, position.Y ]);
+                nList.Add(map[position.X +1, position.Y ]);
             }
             catch (IndexOutOfRangeException)
             {
