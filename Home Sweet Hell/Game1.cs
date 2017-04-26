@@ -49,6 +49,7 @@ namespace Home_Sweet_Hell
 
 
         private GUI_StatGraphics mapGraph;
+        private GUI_StatGraphics mapGraph2;
         private GUI_StatGraphics menuScreen;
         private GUI_Anim towerGraph;
         private GUI_Anim enemyGraph;
@@ -132,6 +133,7 @@ namespace Home_Sweet_Hell
             //map                                                                                          
             Texture2D mapImage = Content.Load<Texture2D>("GUI_Assets/mapassets3type.png");
             mapGraph = new GUI_StatGraphics(mapImage, new Point(150, 50), 3, 1, 3, "newExampleMap1.txt");
+            mapGraph2 = new GUI_StatGraphics(mapImage, new Point(150, 50), 3, 1, 3, "FinalExampleMap2.txt");
 
             //tower                                                                                        
             Texture2D towerImage = Content.Load<Texture2D>("GUI_Assets/towerplaceholder");
@@ -203,13 +205,14 @@ namespace Home_Sweet_Hell
                     startTile = obj;
                 }
             }
-
+            
 
             // values for first stage
             if (level == 1)
             {
                 enemyNum = (level + 1) * 10 / 2;
                 money = 1000;
+
             }
 
 
@@ -270,7 +273,7 @@ namespace Home_Sweet_Hell
 
                             if (tp.Done == true) // if player clicks on proper tile, places tower and breaks out of loop
                             {
-                                Knight_Good_ tmpKnight = new Knight_Good_(currentMouseState.X, currentMouseState.Y);
+                                Knight_Good_ tmpKnight = new Knight_Good_(currentMouseState.X-26, currentMouseState.Y-25);
                                 towers.Add(tmpKnight);
                                 isBought = false;
                             }
@@ -464,11 +467,11 @@ namespace Home_Sweet_Hell
                     listing2.StaticImage(1, .66f, spriteBatch);
                     listing3.StaticImage(1, .66f, spriteBatch);
 
-                    spriteBatch.DrawString(font, "Knight \n Price: 100",
+                    spriteBatch.DrawString(font, "Knight \n Price: $100",
                         new Vector2(465, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);
-                    spriteBatch.DrawString(font, "Tower Name \n Price: " + 150, //replace with price variable later       
+                    spriteBatch.DrawString(font, "Tower Name \n Price: $" + 150, //replace with price variable later       
                         new Vector2(565, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);
-                    spriteBatch.DrawString(font, "Tower Name \n Price: " + 100, //replace with price variable later       
+                    spriteBatch.DrawString(font, "Tower Name \n Price: $" + 100, //replace with price variable later       
                         new Vector2(665, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);
 
                     spriteBatch.DrawString(font, "Level: " + level,
@@ -490,8 +493,7 @@ namespace Home_Sweet_Hell
                     spriteBatch.DrawString(font, "Results:", new Vector2(GraphicsDevice.Viewport.Width / 2 - 100, 100), Color.Black);
                     spriteBatch.DrawString(font, "Total Enemies Killed: " + totalEnemiesKilled, new Vector2(GraphicsDevice.Viewport.Width / 2 - 100, 150), Color.Black);
                     spriteBatch.DrawString(font, "Total Points: " + player.Points, new Vector2(GraphicsDevice.Viewport.Width / 2 - 100, 200), Color.Black);
-                    spriteBatch.DrawString(font, "Current Money: " + money, new Vector2(GraphicsDevice.Viewport.Width / 2 - 100, 250), Color.Black);
-                    spriteBatch.DrawString(font, "Level 2 Coming Soon!", new Vector2(GraphicsDevice.Viewport.Width / 2 - 100, 500), Color.Black);
+                    spriteBatch.DrawString(font, "Current Money: $" + money, new Vector2(GraphicsDevice.Viewport.Width / 2 - 100, 250), Color.Black);                   
                     break;
             }
 
