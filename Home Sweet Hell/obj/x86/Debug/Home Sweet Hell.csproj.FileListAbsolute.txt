@@ -106,8 +106,6 @@ Z:\IGMProfile\Documents\JamesLicataGDAPS-II\Home Sweet Hell\obj\x86\Debug\Home S
 =======
 Z:\IGMProfile\Documents\HSH Laptop\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.exe
 Z:\IGMProfile\Documents\HSH Laptop\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.pdb
-<<<<<<< HEAD
-=======
 Z:\IGMProfile\HOME SWEET HELL\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.exe
 Z:\IGMProfile\HOME SWEET HELL\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.pdb
 Z:\IGMProfile\HOME SWEET HELL\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\enemyplaceholder.png
@@ -172,7 +170,6 @@ Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\Home Sweet Hel
 Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\MonoGame.Framework.dll
 Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\NVorbis.dll
 Z:\IGMProfile\local_Baker\Home Sweet Hell\bin\DesktopGL\x86\Debug\OpenTK.dll
-<<<<<<< HEAD
 Z:\IGMProfile\Documents\I can't do this anymore\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.exe
 Z:\IGMProfile\Documents\I can't do this anymore\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.pdb
 Z:\IGMProfile\Documents\I can't do this anymore\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\enemyplaceholder.png
@@ -189,6 +186,3 @@ Z:\IGMProfile\Documents\I can't do this anymore\Home Sweet Hell\bin\DesktopGL\x8
 Z:\IGMProfile\Documents\I can't do this anymore\Home Sweet Hell\bin\DesktopGL\x86\Debug\NVorbis.dll
 Z:\IGMProfile\Documents\I can't do this anymore\Home Sweet Hell\bin\DesktopGL\x86\Debug\OpenTK.dll
 Z:\IGMProfile\Documents\I can't do this anymore\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.csprojResolveAssemblyReference.cache
-=======
->>>>>>> 16efc1bd509c90fc0860844994f5fc7bfe275236
->>>>>>> 577eb19e2a1926ccb0666263dac1988dcf8b70c1

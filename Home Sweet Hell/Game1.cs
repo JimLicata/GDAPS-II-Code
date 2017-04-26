@@ -49,6 +49,7 @@ namespace Home_Sweet_Hell
 
 
         private GUI_StatGraphics mapGraph;
+        private GUI_StatGraphics mapGraph2;
         private GUI_StatGraphics menuScreen;
         private GUI_Anim towerGraph;
         private GUI_Anim enemyGraph;
@@ -132,6 +133,7 @@ namespace Home_Sweet_Hell
             //map                                                                                          
             Texture2D mapImage = Content.Load<Texture2D>("GUI_Assets/mapassets3type.png");
             mapGraph = new GUI_StatGraphics(mapImage, new Point(150, 50), 3, 1, 3, "newExampleMap1.txt");
+            mapGraph2 = new GUI_StatGraphics(mapImage, new Point(150, 50), 3, 1, 3, "FinalExampleMap2.txt");
 
             //tower                                                                                        
             Texture2D towerImage = Content.Load<Texture2D>("GUI_Assets/towerplaceholder");
@@ -203,7 +205,7 @@ namespace Home_Sweet_Hell
                     startTile = obj;
                 }
             }
-
+            
 
             // values for first stage
             if (level == 1)
