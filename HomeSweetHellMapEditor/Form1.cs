@@ -12,7 +12,6 @@ using System.Windows.Forms;
  * Nicholas Mercadante
  * Section 2(?)
  * B(ee) Team [team 12] Tower Defense Map Editor
- * current issues: cannot load a map if a grid is already present onscreen
  */
 namespace HomeSweetHellMapEditor
 {
