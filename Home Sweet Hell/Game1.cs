@@ -335,7 +335,32 @@ namespace Home_Sweet_Hell
                     // runs all enemy methods for each enemy
                     for (int i = 0; i < enemies.Count; i++)
                     {
+                        
                         enemies[i].Move(mapTile, player);
+
+                        if (enemies[i].Previous != null)
+                        {
+                            Tile[] neighbors = enemies[i].Previous.GetNeighbors(mapTile);
+                            foreach (Tile obj in neighbors)
+                            {
+                                if (obj != null)
+                                {
+                                    if (obj.Walkable == false && obj.TileValue == 3)
+                                    {
+                                        obj.Refresh(mapTile);
+                                    }
+                                    else if (obj.Walkable == false && obj.TileValue == 6)
+                                    {
+                                        obj.Refresh(mapTile);
+                                    }
+                                    else if (obj.Walkable == false && obj.TileValue == 2)
+                                    {
+                                        obj.Refresh(mapTile);
+                                    }
+                                }
+                            }
+                        }
+
                         enemyGraph.Update(gameTime);
                         for (int u = 0; u < towers.Count; u++)
                         {

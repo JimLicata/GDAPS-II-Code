@@ -24,6 +24,7 @@ namespace Home_Sweet_Hell
         private int score;
         private int control = 0;
         private int spawnRate = 0;
+        private Tile previous = null;
 
 
         //properties for attributes
@@ -95,7 +96,10 @@ namespace Home_Sweet_Hell
             get { return spawnRate; }
         }
 
-
+        public Tile Previous
+        {
+            get { return previous; }
+        }
         //constructor
         public Enemy(int hp, int sp, int w, int h, int x, int y, int scr)
         {
@@ -142,6 +146,7 @@ namespace Home_Sweet_Hell
                             if (obj.TileValue == 6)
                             {
                                 alive = false;
+                                previous = obj;
                                 p1.Health = p1.Health - 1;
                             }
                             obj.GetNeighbors(map);
@@ -156,6 +161,7 @@ namespace Home_Sweet_Hell
 
                                         next.Walkable = false;
                                         obj.Walkable = false;
+                                        previous = obj;
                                         return;
                                     }
                                 }

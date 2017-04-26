@@ -96,10 +96,6 @@ namespace Home_Sweet_Hell
         }
 
         //gets adjacent tiles
-        //neighbor[0] = up
-        //neighbor[1] = down 
-        //neighbor[2] = left
-        //neighbor[3] = right
         public Tile[] GetNeighbors(Tile[,] map)
         {
             List<Tile> nList = new List<Tile>();
@@ -140,6 +136,17 @@ namespace Home_Sweet_Hell
             }
             neighbors = nList.ToArray();
             return neighbors;
+        }
+
+        public void Refresh(Tile[,] map)//makes a tile walkable again
+        {
+            foreach (Tile obj in map)
+            {
+                if (obj == this)
+                {
+                    walkable = true;
+                }
+            }
         }
         
     }
