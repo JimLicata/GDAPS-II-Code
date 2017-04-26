@@ -314,8 +314,6 @@ namespace Home_Sweet_Hell
 
                     }
 
-                    //spawns enemies
-
                     // adds enemyNum enemy knights to the enemies list
                     if (enemyCount < enemyNum)
                     {
@@ -334,12 +332,12 @@ namespace Home_Sweet_Hell
                     // runs all enemy methods for each enemy
                     for (int i = 0; i < enemies.Count; i++)
                     {
-
                         enemies[i].Move(mapTile, player);
                         enemyGraph.Update(gameTime);
                         for (int u = 0; u < towers.Count; u++)
                         {
-                            enemies[i].TakeDamage(towers[u].Attack(enemies[i].Position), player);
+                            Enemy close = towers[u].IsClosest(enemies); 
+                            close.TakeDamage(towers[u].Attack(close.Position),player);
                         }
 
 
