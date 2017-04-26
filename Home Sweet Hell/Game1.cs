@@ -37,7 +37,6 @@ namespace Home_Sweet_Hell
         static int enemyCount = 0;//control variable to help enemy spawning
         static int enemyOnBoard = 0;
         bool isBought = false; // checks whether a tower is waiting to be placed or not
-        GameTime gameTime;
         private int enemiesKilled = 0; // counts number of enemies killed
         private int totalEnemiesKilled = 0; // total number of killed enemies
 
