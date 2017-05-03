@@ -253,7 +253,7 @@ namespace Home_Sweet_Hell
             }
 
 
-<<<<<<< HEAD
+
             //converts recieved int array into tile array
             for (int row = 0; row < level2Tiles.GetLength(0); row++)
             {
@@ -262,9 +262,7 @@ namespace Home_Sweet_Hell
                     level2MapTile[row, column] = new Tile(row, column, 50, 50, level2Tiles[row, column]);
                 }
             }
-=======
-            
->>>>>>> 73af65ef0fb82a9e5c2225df239831878334cc38
+
 
             //finds the start tile for the enemies 
             foreach (Tile obj in level2MapTile)
@@ -338,13 +336,13 @@ namespace Home_Sweet_Hell
 
                         if (isBought == true)
                         {
-<<<<<<< HEAD
+
                             tp = new TowerPlacement(currentMouseState.X, currentMouseState.Y, mapGraph);
-=======
+
                             tp.MX = currentMouseState.X;
                             tp.MY = currentMouseState.Y;
                             
->>>>>>> 73af65ef0fb82a9e5c2225df239831878334cc38
+
 
                             tp.Done = tp.checkPosition();
 
