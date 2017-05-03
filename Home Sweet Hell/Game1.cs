@@ -32,7 +32,8 @@ namespace Home_Sweet_Hell
         List<Enemy> enemies = new List<Enemy>(); // list of all enemies
         List<Tower> towers = new List<Tower>(); // list of all towers
         Player player = new Player(); // create player object
-        private Tile startTile = null;//the tile that enemies spawn on
+        private Tile startTile1 = null;//the tile that enemies spawn on for level 1
+        private Tile startTile2 = null;//the tile that enemies spawn on for level 2
         private TowerPlacement tp;
         static int enemyCount = 0;//control variable to help enemy spawning
         static int enemyOnBoard = 0;
@@ -57,8 +58,10 @@ namespace Home_Sweet_Hell
         private GUI_StatGraphics listing3;
         private GUI_StatGraphics storeBack;
 
-        public int[,] tiles;
-        Tile[,] mapTile;
+        public int[,] level1Tiles;
+        public int[,] level2Tiles;
+        Tile[,] level1MapTile;
+        Tile[,] level2MapTile;
 
 
         // Mouse states used to track Mouse button press
@@ -154,57 +157,58 @@ namespace Home_Sweet_Hell
             Texture2D backStoreImage = Content.Load<Texture2D>("GUI_Assets/storebackplaceholder");
             storeBack = new GUI_StatGraphics(backStoreImage, new Point(750, 100), 1, 1, 1, new Vector2(0, 500));
 
-            StreamReader load = new StreamReader("newExampleMap1.txt");
-            string line;
-            int tileRow = 0;
-            int tileColumn = 0;
-            tiles = new int[10, 15];
-            mapTile = new Tile[10, 15];
-            while ((line = load.ReadLine()) != null)
+            #region Load Map 1
+            StreamReader load1 = new StreamReader("newExampleMap1.txt");
+            string line1;
+            int tile1Row = 0;
+            int tile1Column = 0;
+            level1Tiles = new int[10, 15];
+            level1MapTile = new Tile[10, 15];
+            while ((line1 = load1.ReadLine()) != null)
             {
-                if (line == "")//ignores the \n commands to split up rows in the array
+                if (line1 == "")//ignores the \n commands to split up rows in the array
                 {
                     continue;
                 }
                 else
                 {
-                    char[] rowTiles = line.ToCharArray();
+                    char[] rowTiles = line1.ToCharArray();
                     foreach (char tile in rowTiles)
                     {
                         int type = 0;
                         string tileStr = tile.ToString();
                         int.TryParse(tileStr, out type);
-                        tiles[tileRow, tileColumn] = type;
-                        tileColumn++;
+                        level1Tiles[tile1Row, tile1Column] = type;
+                        tile1Column++;
                     }
-                    tileRow++;
-                    if (tileRow > 9) //autobreaks if the loop exceeds number of rows in array
+                    tile1Row++;
+                    if (tile1Row > 9) //autobreaks if the loop exceeds number of rows in array
                     {
                         break;
                     }
-                    tileColumn = 0;
+                    tile1Column = 0;
                 }
             }
 
 
             //converts recieved int array into tile array
-            for (int row = 0; row < tiles.GetLength(0); row++)
+            for (int row = 0; row < level1Tiles.GetLength(0); row++)
             {
-                for (int column = 0; column < tiles.GetLength(1); column++)
+                for (int column = 0; column < level1Tiles.GetLength(1); column++)
                 {
-                    mapTile[row, column] = new Tile(row, column, 50, 50, tiles[row, column]);
+                    level1MapTile[row, column] = new Tile(row, column, 50, 50, level1Tiles[row, column]);
                 }
             }
 
             //finds the start tile for the enemies 
-            foreach (Tile obj in mapTile)
+            foreach (Tile obj in level1MapTile)
             {
                 if (obj.TileValue == 2)
                 {
-                    startTile = obj;
+                    startTile1 = obj;
                 }
             }
-            
+
 
             // values for first stage
             if (level == 1)
@@ -213,8 +217,70 @@ namespace Home_Sweet_Hell
                 money = 1000;
 
             }
+            #endregion
+            
+            #region Load Map 2
+            StreamReader load2 = new StreamReader("FinalExampleMap2.txt");
+            string line2;
+            int tile2Row = 0;
+            int tile2Column = 0;
+            level2Tiles = new int[10, 15];
+            level2MapTile = new Tile[10, 15];
+            while ((line2 = load2.ReadLine()) != null)
+            {
+                if (line2 == "")//ignores the \n commands to split up rows in the array
+                {
+                    continue;
+                }
+                else
+                {
+                    char[] rowTiles = line2.ToCharArray();
+                    foreach (char tile in rowTiles)
+                    {
+                        int type = 0;
+                        string tileStr = tile.ToString();
+                        int.TryParse(tileStr, out type);
+                        level2Tiles[tile2Row, tile2Column] = type;
+                        tile2Column++;
+                    }
+                    tile2Row++;
+                    if (tile2Row > 9) //autobreaks if the loop exceeds number of rows in array
+                    {
+                        break;
+                    }
+                    tile2Column = 0;
+                }
+            }
 
 
+            //converts recieved int array into tile array
+            for (int row = 0; row < level2Tiles.GetLength(0); row++)
+            {
+                for (int column = 0; column < level2Tiles.GetLength(1); column++)
+                {
+                    level2MapTile[row, column] = new Tile(row, column, 50, 50, level2Tiles[row, column]);
+                }
+            }
+
+            //finds the start tile for the enemies 
+            foreach (Tile obj in level2MapTile)
+            {
+                if (obj.TileValue == 2)
+                {
+                    startTile2 = obj;
+                }
+            }
+
+
+            // values for second stage
+            if (level == 2)
+            {
+                enemyNum = (level + 1) * 10 / 2;
+                money = 1000;
+
+            }
+            #endregion
+            
         }
 
         /// <summary>
@@ -265,18 +331,19 @@ namespace Home_Sweet_Hell
                         // additional if statement here checking if mouse is within the coordinates of a clickable object
 
                         if (isBought == true)
-                        {                           
+                        {
                             tp = new TowerPlacement(currentMouseState.X, currentMouseState.Y, mapGraph);
-                                                  
+
                             tp.Done = tp.checkPosition();
 
                             if (tp.Done == true) // if player clicks on proper tile, places tower and breaks out of loop
                             {
-                                Knight_Good_ tmpKnight = new Knight_Good_(currentMouseState.X-26, currentMouseState.Y-25);
+                                Knight_Good_ tmpKnight = new Knight_Good_(currentMouseState.X - 26, currentMouseState.Y - 25);
                                 towers.Add(tmpKnight);
                                 isBought = false;
                             }
-                        }else
+                        }
+                        else
                         // if mouseclick on tower in shop
                         if (currentMouseState.X >= 460 && currentMouseState.X <= 537 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590 && isBought == false) // compares mouseposition to the position of the new tower button
                         {
@@ -316,13 +383,30 @@ namespace Home_Sweet_Hell
 
                     }
 
+                    // runs all enemy methods for each enemy
+                    Tile[,] mapTile = new Tile[0, 0];
+                    Tile startTile = null;
+                    switch (level)
+                    {
+                        case 1:
+                            mapTile = level1MapTile;
+                            startTile = startTile1;
+                            break;
+                        case 2:
+                            mapTile = level2MapTile;
+                            startTile = startTile2;
+                            break;
+                        default:
+                            break;
+                    }
+
                     // adds enemyNum enemy knights to the enemies list
                     if (enemyCount < enemyNum)
                     {
                         Enemy e1 = new Knight_Bad_(startTile.Position.Y * 50, startTile.Position.X * 50);
                         int test = enemies.Count;
                         player.SpawnEnemies(enemies, e1);
-                        
+
                         if (enemies.Count == test + 1)
                         {
                             enemyOnBoard++;
@@ -331,10 +415,9 @@ namespace Home_Sweet_Hell
 
                     }
 
-                    // runs all enemy methods for each enemy
                     for (int i = 0; i < enemies.Count; i++)
                     {
-                        
+
                         enemies[i].Move(mapTile, player);
 
                         if (enemies[i].Previous != null)
@@ -363,8 +446,8 @@ namespace Home_Sweet_Hell
                         enemyGraph.Update(gameTime);
                         for (int u = 0; u < towers.Count; u++)
                         {
-                            Enemy close = towers[u].IsClosest(enemies); 
-                            close.TakeDamage(towers[u].Attack(close.Position),player);
+                            Enemy close = towers[u].IsClosest(enemies);
+                            close.TakeDamage(towers[u].Attack(close.Position), player);
                         }
 
 
@@ -388,13 +471,13 @@ namespace Home_Sweet_Hell
                     }
 
                     // beat the level
-                    if (enemiesKilled == enemyNum) 
+                    if (enemiesKilled == enemyNum)
                     {
                         totalEnemiesKilled += enemiesKilled;
                         gameState = GameState.Results; // shows current money and score
                         Nextlevel();
                     }
-                    
+
                     // you lose
                     if (player.Health <= 0)
                     {
@@ -405,12 +488,12 @@ namespace Home_Sweet_Hell
 
                 // code for Results screen after successful level completion
                 case GameState.Results: // commented out until level 2 is completed
-                    /*
+
                     if (currentMouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released)
                     {
                         gameState = GameState.Game;
                     }
-                    */
+
                     break;
 
                 // code for Game Over
@@ -464,8 +547,18 @@ namespace Home_Sweet_Hell
                     spriteBatch.DrawString(font, "Bought: " + isBought, new Vector2(800, 200), Color.Black);
                     spriteBatch.DrawString(font, "EnemyNum: " + enemyNum, new Vector2(800, 250), Color.Black);
                     spriteBatch.DrawString(font, "EnemyCount: " + enemyCount, new Vector2(800, 300), Color.Black);
-                    //map drawing                                                                                         
-                    mapGraph.MapDraw(spriteBatch);
+                    //map drawing
+                    switch (level)
+                    {
+                        case 1:
+                            mapGraph.MapDraw(spriteBatch);
+                            break;
+                        case 2:
+                            mapGraph2.MapDraw(spriteBatch);
+                            break;
+                        default:
+                            break;
+                    }
 
                     //enemies+towers drawing  
                     if (enemies.Count != 0)
@@ -517,7 +610,7 @@ namespace Home_Sweet_Hell
                     spriteBatch.DrawString(font, "Results:", new Vector2(GraphicsDevice.Viewport.Width / 2 - 100, 100), Color.Black);
                     spriteBatch.DrawString(font, "Total Enemies Killed: " + totalEnemiesKilled, new Vector2(GraphicsDevice.Viewport.Width / 2 - 100, 150), Color.Black);
                     spriteBatch.DrawString(font, "Total Points: " + player.Points, new Vector2(GraphicsDevice.Viewport.Width / 2 - 100, 200), Color.Black);
-                    spriteBatch.DrawString(font, "Current Money: $" + money, new Vector2(GraphicsDevice.Viewport.Width / 2 - 100, 250), Color.Black);                   
+                    spriteBatch.DrawString(font, "Current Money: $" + money, new Vector2(GraphicsDevice.Viewport.Width / 2 - 100, 250), Color.Black);
                     break;
             }
 
@@ -531,7 +624,7 @@ namespace Home_Sweet_Hell
         {
             level++; // increments level
             enemyNum = (level + 1) * 10 / 2; //resets enemyNum   
-            enemiesKilled = 0;    
+            enemiesKilled = 0;
         }
 
 
