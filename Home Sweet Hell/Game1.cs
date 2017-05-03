@@ -253,6 +253,7 @@ namespace Home_Sweet_Hell
             }
 
 
+<<<<<<< HEAD
             //converts recieved int array into tile array
             for (int row = 0; row < level2Tiles.GetLength(0); row++)
             {
@@ -261,6 +262,9 @@ namespace Home_Sweet_Hell
                     level2MapTile[row, column] = new Tile(row, column, 50, 50, level2Tiles[row, column]);
                 }
             }
+=======
+            
+>>>>>>> 73af65ef0fb82a9e5c2225df239831878334cc38
 
             //finds the start tile for the enemies 
             foreach (Tile obj in level2MapTile)
@@ -318,13 +322,15 @@ namespace Home_Sweet_Hell
                     if (currentMouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released)
                     {
                         // additional if statement here checking if mouse is within the coordinates of a button
+                        
                         gameState = GameState.Game;
                     }
                     break;
 
                 // code for main game -------------------------------------------------------------------
                 case GameState.Game:
-
+                    if(towers.Count == 0)
+                        tp = new TowerPlacement(currentMouseState.X, currentMouseState.Y, mapGraph);
                     // mouse coordinate code
                     if (currentMouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released)
                     {
@@ -332,7 +338,13 @@ namespace Home_Sweet_Hell
 
                         if (isBought == true)
                         {
+<<<<<<< HEAD
                             tp = new TowerPlacement(currentMouseState.X, currentMouseState.Y, mapGraph);
+=======
+                            tp.MX = currentMouseState.X;
+                            tp.MY = currentMouseState.Y;
+                            
+>>>>>>> 73af65ef0fb82a9e5c2225df239831878334cc38
 
                             tp.Done = tp.checkPosition();
 
@@ -453,9 +465,30 @@ namespace Home_Sweet_Hell
 
                         if (enemies[i].Alive == false)
                         {
+                            enemies[i].Previous.Refresh(mapTile);
+                            Tile[] neighbors = enemies[i].Previous.GetNeighbors(mapTile);
+                            foreach (Tile obj in neighbors)
+                            {
+                                if (obj != null)
+                                {
+                                    if (obj.Walkable == false && obj.TileValue == 3)
+                                    {
+                                        obj.Refresh(mapTile);
+                                    }
+                                    else if (obj.Walkable == false && obj.TileValue == 6)
+                                    {
+                                        obj.Refresh(mapTile);
+                                    }
+                                    else if (obj.Walkable == false && obj.TileValue == 2)
+                                    {
+                                        obj.Refresh(mapTile);
+                                    }
+                                }
+                            }
                             enemies.Remove(enemies[i]);
                             enemyOnBoard--;
                             enemiesKilled++;
+                            money = money + 50;
                         }
 
                     }
@@ -586,9 +619,9 @@ namespace Home_Sweet_Hell
 
                     spriteBatch.DrawString(font, "Knight \n Price: $100",
                         new Vector2(465, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);
-                    spriteBatch.DrawString(font, "Tower Name \n Price: $" + 150, //replace with price variable later       
+                    spriteBatch.DrawString(font, "Unavailable \n Price: $" + 150, //replace with price variable later       
                         new Vector2(565, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);
-                    spriteBatch.DrawString(font, "Tower Name \n Price: $" + 100, //replace with price variable later       
+                    spriteBatch.DrawString(font, "Unavailable \n Price: $" + 100, //replace with price variable later       
                         new Vector2(665, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);
 
                     spriteBatch.DrawString(font, "Level: " + level,
