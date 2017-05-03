@@ -594,11 +594,11 @@ namespace Home_Sweet_Hell
                     }
 
                     //enemies+towers drawing  
-                    if (enemies.Count != 0)
-                    {
-                        if (enemies[0].Alive == true)
+                    foreach (Enemy enem in enemies)
+                    {//currently doesn't check if tower is alive, need tower.alive property, and to actually assign a value to Alive at some point (currently not returning anything)
+                        if (enem.Alive == true)
                         {
-                            enemyGraph.Draw(gameTime, spriteBatch, new Vector2(enemies[0].Position.X, enemies[0].Position.Y));
+                            enemyGraph.Draw(gameTime, spriteBatch, new Vector2(enem.Position.X, enem.Position.Y));
                         }
                     }
 
