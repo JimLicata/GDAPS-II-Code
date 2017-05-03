@@ -251,7 +251,6 @@ namespace Home_Sweet_Hell
                     tile2Column = 0;
                 }
             }
-
             //converts recieved int array into tile array
             for (int row = 0; row < level2Tiles.GetLength(0); row++)
             {
@@ -327,14 +326,22 @@ namespace Home_Sweet_Hell
                         {
                             tp.MX = currentMouseState.X;
                             tp.MY = currentMouseState.Y;
-
-                            tp.Done = tp.checkPosition();
-
-                            if (tp.Done == true) // if player clicks on proper tile, places tower and breaks out of loop
                             {
-                                Knight_Good_ tmpKnight = new Knight_Good_(currentMouseState.X - 26, currentMouseState.Y - 25);
-                                towers.Add(tmpKnight);
-                                isBought = false;
+
+                                tp.MX = currentMouseState.X;
+                                tp.MY = currentMouseState.Y;
+
+
+
+
+                                tp.Done = tp.checkPosition();
+
+                                if (tp.Done == true) // if player clicks on proper tile, places tower and breaks out of loop
+                                {
+                                    Knight_Good_ tmpKnight = new Knight_Good_(currentMouseState.X - 26, currentMouseState.Y - 25);
+                                    towers.Add(tmpKnight);
+                                    isBought = false;
+                                }
                             }
                         }
                         else
@@ -576,11 +583,11 @@ namespace Home_Sweet_Hell
                     }
 
                     //enemies+towers drawing  
-                    if (enemies.Count != 0)
-                    {
-                        if (enemies[0].Alive == true)
+                    foreach (Enemy enem in enemies)
+                    {//currently doesn't check if tower is alive, need tower.alive property, and to actually assign a value to Alive at some point (currently not returning anything)
+                        if (enem.Alive == true)
                         {
-                            enemyGraph.Draw(gameTime, spriteBatch, new Vector2(enemies[0].Position.X, enemies[0].Position.Y));
+                            enemyGraph.Draw(gameTime, spriteBatch, new Vector2(enem.Position.X, enem.Position.Y));
                         }
                     }
 
