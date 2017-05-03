@@ -376,6 +376,25 @@ namespace Home_Sweet_Hell
                         if (enemies[i].Alive == false)
                         {
                             enemies[i].Previous.Refresh(mapTile);
+                            Tile[] neighbors = enemies[i].Previous.GetNeighbors(mapTile);
+                            foreach (Tile obj in neighbors)
+                            {
+                                if (obj != null)
+                                {
+                                    if (obj.Walkable == false && obj.TileValue == 3)
+                                    {
+                                        obj.Refresh(mapTile);
+                                    }
+                                    else if (obj.Walkable == false && obj.TileValue == 6)
+                                    {
+                                        obj.Refresh(mapTile);
+                                    }
+                                    else if (obj.Walkable == false && obj.TileValue == 2)
+                                    {
+                                        obj.Refresh(mapTile);
+                                    }
+                                }
+                            }
                             enemies.Remove(enemies[i]);
                             enemyOnBoard--;
                             enemiesKilled++;
