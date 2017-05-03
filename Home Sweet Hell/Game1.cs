@@ -214,6 +214,7 @@ namespace Home_Sweet_Hell
 
             }
 
+            
 
         }
 
@@ -252,22 +253,26 @@ namespace Home_Sweet_Hell
                     if (currentMouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released)
                     {
                         // additional if statement here checking if mouse is within the coordinates of a button
+                        
                         gameState = GameState.Game;
                     }
                     break;
 
                 // code for main game -------------------------------------------------------------------
                 case GameState.Game:
-
+                    if(towers.Count == 0)
+                        tp = new TowerPlacement(currentMouseState.X, currentMouseState.Y, mapGraph);
                     // mouse coordinate code
                     if (currentMouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released)
                     {
                         // additional if statement here checking if mouse is within the coordinates of a clickable object
 
                         if (isBought == true)
-                        {                           
-                            tp = new TowerPlacement(currentMouseState.X, currentMouseState.Y, mapGraph);
-                                                  
+                        {
+                            tp.MX = currentMouseState.X;
+                            tp.MY = currentMouseState.Y;
+                            
+
                             tp.Done = tp.checkPosition();
 
                             if (tp.Done == true) // if player clicks on proper tile, places tower and breaks out of loop
