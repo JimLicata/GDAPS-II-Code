@@ -500,9 +500,9 @@ namespace Home_Sweet_Hell
 
                     spriteBatch.DrawString(font, "Knight \n Price: $100",
                         new Vector2(465, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);
-                    spriteBatch.DrawString(font, "Tower Name \n Price: $" + 150, //replace with price variable later       
+                    spriteBatch.DrawString(font, "Unavailable \n Price: $" + 150, //replace with price variable later       
                         new Vector2(565, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);
-                    spriteBatch.DrawString(font, "Tower Name \n Price: $" + 100, //replace with price variable later       
+                    spriteBatch.DrawString(font, "Unavailable \n Price: $" + 100, //replace with price variable later       
                         new Vector2(665, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);
 
                     spriteBatch.DrawString(font, "Level: " + level,
