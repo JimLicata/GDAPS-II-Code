@@ -337,7 +337,7 @@ namespace Home_Sweet_Hell
                         if (isBought == true)
                         {
 
-                            tp = new TowerPlacement(currentMouseState.X, currentMouseState.Y, mapGraph);
+                           
 
                             tp.MX = currentMouseState.X;
                             tp.MY = currentMouseState.Y;
@@ -353,7 +353,7 @@ namespace Home_Sweet_Hell
                                 isBought = false;
                             }
                         }
-                        else
+                        
                         // if mouseclick on tower in shop
                         if (currentMouseState.X >= 460 && currentMouseState.X <= 537 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590 && isBought == false) // compares mouseposition to the position of the new tower button
                         {
@@ -422,12 +422,26 @@ namespace Home_Sweet_Hell
                             enemyOnBoard++;
                             enemyCount++;
                         }
+                    }
 
+                    for (int u = 0; u < towers.Count; u++)
+                    {
+                        Enemy close = null;
+
+                        if (enemies.Count != 0)
+                        {
+                            close = towers[u].IsClosest(enemies);
+                        }
+                        
+                        if (close != null)
+                        {
+                            close.TakeDamage(towers[u].Attack(close.Position), player);
+                        }
+                        
                     }
 
                     for (int i = 0; i < enemies.Count; i++)
                     {
-
                         enemies[i].Move(mapTile, player);
 
                         if (enemies[i].Previous != null)
@@ -454,12 +468,7 @@ namespace Home_Sweet_Hell
                         }
 
                         enemyGraph.Update(gameTime);
-                        for (int u = 0; u < towers.Count; u++)
-                        {
-                            Enemy close = towers[u].IsClosest(enemies);
-                            close.TakeDamage(towers[u].Attack(close.Position), player);
-                        }
-
+                       
 
                         if (enemies[i].Alive == false)
                         {
