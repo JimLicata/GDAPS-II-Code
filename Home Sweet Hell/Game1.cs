@@ -251,9 +251,6 @@ namespace Home_Sweet_Hell
                     tile2Column = 0;
                 }
             }
-
-
-
             //converts recieved int array into tile array
             for (int row = 0; row < level2Tiles.GetLength(0); row++)
             {
@@ -262,7 +259,6 @@ namespace Home_Sweet_Hell
                     level2MapTile[row, column] = new Tile(row, column, 50, 50, level2Tiles[row, column]);
                 }
             }
-
 
             //finds the start tile for the enemies 
             foreach (Tile obj in level2MapTile)
@@ -273,14 +269,6 @@ namespace Home_Sweet_Hell
                 }
             }
 
-
-            // values for second stage
-            if (level == 2)
-            {
-                enemyNum = (level + 1) * 10 / 2;
-                money = 1000;
-
-            }
             #endregion
             
         }
@@ -336,21 +324,30 @@ namespace Home_Sweet_Hell
 
                         if (isBought == true)
                         {
+<<<<<<< HEAD
 
                            
 
+=======
+>>>>>>> f85bafe83045df654fba1a1d3e506f3310ef9549
                             tp.MX = currentMouseState.X;
                             tp.MY = currentMouseState.Y;
-                            
-
-
-                            tp.Done = tp.checkPosition();
-
-                            if (tp.Done == true) // if player clicks on proper tile, places tower and breaks out of loop
                             {
-                                Knight_Good_ tmpKnight = new Knight_Good_(currentMouseState.X - 26, currentMouseState.Y - 25);
-                                towers.Add(tmpKnight);
-                                isBought = false;
+
+                                tp.MX = currentMouseState.X;
+                                tp.MY = currentMouseState.Y;
+
+
+
+
+                                tp.Done = tp.checkPosition();
+
+                                if (tp.Done == true) // if player clicks on proper tile, places tower and breaks out of loop
+                                {
+                                    Knight_Good_ tmpKnight = new Knight_Good_(currentMouseState.X - 26, currentMouseState.Y - 25);
+                                    towers.Add(tmpKnight);
+                                    isBought = false;
+                                }
                             }
                         }
                         
@@ -665,6 +662,11 @@ namespace Home_Sweet_Hell
             level++; // increments level
             enemyNum = (level + 1) * 10 / 2; //resets enemyNum   
             enemiesKilled = 0;
+            foreach(Tower obj in towers)
+            {
+                money = money + obj.Cost;
+            }
+            towers.Clear();
         }
 
 
