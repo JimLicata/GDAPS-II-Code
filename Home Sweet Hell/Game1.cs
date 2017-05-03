@@ -370,9 +370,11 @@ namespace Home_Sweet_Hell
 
                         if (enemies[i].Alive == false)
                         {
+                            enemies[i].Previous.Refresh(mapTile);
                             enemies.Remove(enemies[i]);
                             enemyOnBoard--;
                             enemiesKilled++;
+                            money = money + 50;
                         }
 
                     }

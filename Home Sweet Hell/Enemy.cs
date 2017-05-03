@@ -136,7 +136,7 @@ namespace Home_Sweet_Hell
             {
                 control++;
 
-                if (control % 60 == 0)
+                if (control % (60/speed) == 0)
                 {
                     foreach (Tile obj in map)
                     {

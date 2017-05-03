@@ -38,6 +38,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Bee.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GUI_Anim.cs" />
@@ -46,6 +47,7 @@
     <Compile Include="IStack.cs" />
     <Compile Include="Knight%28Bad%29.cs" />
     <Compile Include="Knight%28Good%29.cs" />
+    <Compile Include="Lancer.cs" />
     <Compile Include="MoveStack.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
