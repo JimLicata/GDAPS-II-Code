@@ -263,11 +263,9 @@ namespace Home_Sweet_Hell
                 }
             }
 
-<<<<<<< HEAD
-            
 
-=======
->>>>>>> 106fd0661ea3e6067b99767e046f8e96e14cbd87
+         
+
 
             //finds the start tile for the enemies 
             foreach (Tile obj in level2MapTile)
@@ -340,13 +338,7 @@ namespace Home_Sweet_Hell
                         // additional if statement here checking if mouse is within the coordinates of a clickable object
 
                         if (isBought == true)
-                        {
-<<<<<<< HEAD
-                            //tp = new TowerPlacement(currentMouseState.X, currentMouseState.Y, mapGraph);
-=======
-
-                            tp = new TowerPlacement(currentMouseState.X, currentMouseState.Y, mapGraph);
->>>>>>> 106fd0661ea3e6067b99767e046f8e96e14cbd87
+                        {                           
 
                             tp.MX = currentMouseState.X;
                             tp.MY = currentMouseState.Y;
