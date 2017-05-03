@@ -37,7 +37,6 @@ namespace Home_Sweet_Hell
         static int enemyCount = 0;//control variable to help enemy spawning
         static int enemyOnBoard = 0;
         bool isBought = false; // checks whether a tower is waiting to be placed or not
-        GameTime gameTime;
         private int enemiesKilled = 0; // counts number of enemies killed
         private int totalEnemiesKilled = 0; // total number of killed enemies
 
@@ -322,8 +321,6 @@ namespace Home_Sweet_Hell
 
                     }
 
-                    //spawns enemies
-
                     // adds enemyNum enemy knights to the enemies list
                     if (enemyCount < enemyNum)
                     {
@@ -342,12 +339,37 @@ namespace Home_Sweet_Hell
                     // runs all enemy methods for each enemy
                     for (int i = 0; i < enemies.Count; i++)
                     {
-
+                        
                         enemies[i].Move(mapTile, player);
+
+                        if (enemies[i].Previous != null)
+                        {
+                            Tile[] neighbors = enemies[i].Previous.GetNeighbors(mapTile);
+                            foreach (Tile obj in neighbors)
+                            {
+                                if (obj != null)
+                                {
+                                    if (obj.Walkable == false && obj.TileValue == 3)
+                                    {
+                                        obj.Refresh(mapTile);
+                                    }
+                                    else if (obj.Walkable == false && obj.TileValue == 6)
+                                    {
+                                        obj.Refresh(mapTile);
+                                    }
+                                    else if (obj.Walkable == false && obj.TileValue == 2)
+                                    {
+                                        obj.Refresh(mapTile);
+                                    }
+                                }
+                            }
+                        }
+
                         enemyGraph.Update(gameTime);
                         for (int u = 0; u < towers.Count; u++)
                         {
-                            enemies[i].TakeDamage(towers[u].Attack(enemies[i].Position), player);
+                            Enemy close = towers[u].IsClosest(enemies); 
+                            close.TakeDamage(towers[u].Attack(close.Position),player);
                         }
 
 

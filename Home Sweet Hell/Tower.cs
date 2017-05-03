@@ -112,10 +112,10 @@ namespace Home_Sweet_Hell
             Enemy closest = null;
             foreach (Enemy obj in list)
             {
-                if (position.X - obj.Position.X < closeX && position.Y - obj.Position.Y < closeY)
+                if (Math.Pow(Math.Pow(position.X,2)  - Math.Pow(obj.Position.X,2),(1/2)) < closeX && Math.Pow(Math.Pow(position.Y, 2) - Math.Pow(obj.Position.Y, 2), (1 / 2)) < closeY)
                 {
-                    closeX = obj.Position.X;
-                    closeX = obj.Position.Y;
+                    closeX = (int)Math.Pow(Math.Pow(position.X, 2) - Math.Pow(obj.Position.X, 2), (1 / 2));
+                    closeX = (int)Math.Pow(Math.Pow(position.Y, 2) - Math.Pow(obj.Position.Y, 2), (1 / 2));
                     closest = obj;
                 }
             }
@@ -127,33 +127,41 @@ namespace Home_Sweet_Hell
         //attack method - returns damage dealt as an int
         public int Attack(Rectangle enemyPos)
         {
-            if (enemyPos.X <= position.X + rangeX && enemyPos.Y <= position.Y + rangeY)
+            if (enemyPos.X <= position.X + rangeX && enemyPos.X >= position.X)//checks if enemy is in range
             {
-                //provides a period of time in between attacks
-                if (control % 60 == 0)
+                if (enemyPos.Y <= position.Y + rangeY && enemyPos.Y >= position.Y)
                 {
-                    control++;
-                    return damage;
+                    //provides a period of time in between attacks
+                    if (control % 60 == 0)
+                    {
+                        control++;
+                        return damage;
+                    }
+                    else
+                    {
+                        control++;
+                        return 0;
+                    }
                 }
-                else
-                {
-                    control++;
-                    return 0;
-                }
+                else { return 0; } 
             }
-            else if (enemyPos.X <= position.X - rangeX && enemyPos.Y <= position.Y - rangeY)
+            else if (enemyPos.X <= position.X - rangeX && enemyPos.X >= position.X)
             {
-                //provides a period of time in between attacks
-                if (control % 60 == 0)
+                if (enemyPos.Y <= position.Y - rangeY && enemyPos.Y >= position.Y)
                 {
-                    control++;
-                    return damage;
+                    //provides a period of time in between attacks
+                    if (control % 60 == 0)
+                    {
+                        control++;
+                        return damage;
+                    }
+                    else
+                    {
+                        control++;
+                        return 0;
+                    }
                 }
-                else
-                {
-                    control++;
-                    return 0;
-                }
+                else { return 0; }
             }
             else { return 0; }
         }

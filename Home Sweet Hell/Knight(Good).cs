@@ -13,7 +13,7 @@ namespace Home_Sweet_Hell
     class Knight_Good_ : Tower
     {
         //constructor
-        public Knight_Good_(int x, int y) : base(60, 60, x, y, 100, 100, 10,100)
+        public Knight_Good_(int x, int y) : base(60, 60, x, y, 150, 150, 10,100)
         {
 
         }
