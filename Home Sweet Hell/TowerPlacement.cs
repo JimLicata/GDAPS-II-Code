@@ -50,7 +50,7 @@ namespace Home_Sweet_Hell
                 {
                     if (mapInts[16] == 1) // is this a tower placeable tile?
                     {
-                        mapInts[16] = 0;
+                        mapInts[16] = 0; // changes it to an unplaceable tile
                         return true;
                     }
                     else return false;
