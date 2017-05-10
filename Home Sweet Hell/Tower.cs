@@ -112,7 +112,7 @@ namespace Home_Sweet_Hell
             Enemy closest = null;
             foreach (Enemy obj in list)
             {
-                if (Math.Pow(Math.Pow(position.X,2)  - Math.Pow(obj.Position.X,2),(1/2)) < closeX && Math.Pow(Math.Pow(position.Y, 2) - Math.Pow(obj.Position.Y, 2), (1 / 2)) < closeY)
+                if (Math.Pow(Math.Abs(Math.Pow(position.X,2)  - Math.Pow(obj.Position.X,2)),(1/2)) < closeX && Math.Pow(Math.Abs(Math.Pow(position.Y, 2) - Math.Pow(obj.Position.Y, 2)), (1 / 2)) < closeY)
                 {
                     closeX = (int)Math.Pow(Math.Pow(position.X, 2) - Math.Pow(obj.Position.X, 2), (1 / 2));
                     closeX = (int)Math.Pow(Math.Pow(position.Y, 2) - Math.Pow(obj.Position.Y, 2), (1 / 2));

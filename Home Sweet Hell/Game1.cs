@@ -93,7 +93,7 @@ namespace Home_Sweet_Hell
         {
             // TODO: Add your initialization logic here
             // initialize each enemy and tower
-            // towers.Add(new Knight_Good_(300, 100));
+            //towers.Add(new Knight_Good_(300, 100));
             level = 1;
             player.Health = 50;
             player.Points = 0;
@@ -324,12 +324,6 @@ namespace Home_Sweet_Hell
 
                         if (isBought == true)
                         {
-<<<<<<< HEAD
-
-                           
-
-=======
->>>>>>> f85bafe83045df654fba1a1d3e506f3310ef9549
                             tp.MX = currentMouseState.X;
                             tp.MY = currentMouseState.Y;
                             {
@@ -421,7 +415,7 @@ namespace Home_Sweet_Hell
                         }
                     }
 
-                    for (int u = 0; u < towers.Count; u++)
+                  /*  for (int u = 0; u < towers.Count; u++)
                     {
                         Enemy close = null;
 
@@ -435,7 +429,7 @@ namespace Home_Sweet_Hell
                             close.TakeDamage(towers[u].Attack(close.Position), player);
                         }
                         
-                    }
+                    }*/
 
                     for (int i = 0; i < enemies.Count; i++)
                     {
@@ -463,7 +457,10 @@ namespace Home_Sweet_Hell
                                 }
                             }
                         }
-
+                        for (int u = 0; u < towers.Count; u++)
+                        {
+                            enemies[i].TakeDamage(towers[u].Attack(enemies[i].Position), player);
+                        }
                         enemyGraph.Update(gameTime);
                        
 
