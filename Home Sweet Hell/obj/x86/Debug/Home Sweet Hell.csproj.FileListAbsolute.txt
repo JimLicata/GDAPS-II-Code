@@ -203,3 +203,5 @@ Z:\IGMProfile\GDAPS2_Baker_5917\Home Sweet Hell\bin\DesktopGL\x86\Debug\NVorbis.
 Z:\IGMProfile\GDAPS2_Baker_5917\Home Sweet Hell\bin\DesktopGL\x86\Debug\OpenTK.dll
 Z:\IGMProfile\GDAPS2_Baker_5917\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.csprojResolveAssemblyReference.cache
 Z:\IGMProfile\GDAPS2_Baker_5917\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\lv1_overlay.png
+Z:\IGMProfile\GDAPS2_Baker_5917\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\htp2.png
+Z:\IGMProfile\GDAPS2_Baker_5917\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\htp1.png

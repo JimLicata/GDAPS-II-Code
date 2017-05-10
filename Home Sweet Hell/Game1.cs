@@ -46,11 +46,15 @@ namespace Home_Sweet_Hell
 
         bool isThisPushing = true; //checks to see if sourceTree was being cooperative
 
+        bool howToMenu = false; //is how to menu up?
+        int howToPage = 1; //page should start at 1
 
 
         private GUI_StatGraphics mapGraph;
         private GUI_StatGraphics mapGraph2;
         private GUI_StatGraphics menuScreen;
+        private GUI_StatGraphics howTo1;
+        private GUI_StatGraphics howTo2;
         private GUI_Anim towerGraph;
         private GUI_Anim enemyGraph;
         private GUI_StatGraphics listing1;
@@ -131,6 +135,12 @@ namespace Home_Sweet_Hell
             //menu screen
             Texture2D menuImage = Content.Load<Texture2D>("GUI_Assets/menuscreen.png");
             menuScreen = new GUI_StatGraphics(menuImage, new Point(750, 500), 1, 1, 1, new Vector2(0, 0));
+
+            //how to
+            Texture2D howToImg1 = Content.Load<Texture2D>("GUI_Assets/htp1.png");
+            howTo1 = new GUI_StatGraphics(howToImg1, new Point(600, 400), 1, 1, 1, new Vector2(75, 50));
+            Texture2D howToImg2 = Content.Load<Texture2D>("GUI_Assets/htp2.png");
+            howTo2 = new GUI_StatGraphics(howToImg2, new Point(600, 400), 1, 1, 1, new Vector2(75, 50));
 
             //map                                                                                          
             Texture2D mapImage = Content.Load<Texture2D>("GUI_Assets/mapassets3type.png");
@@ -308,9 +318,47 @@ namespace Home_Sweet_Hell
 
                     if (currentMouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released)
                     {
-                        // additional if statement here checking if mouse is within the coordinates of a button
-                        
-                        gameState = GameState.Game;
+                        //check to see if how-to screen is up
+                        //if true 
+                        //check to see if within coordinates of exit button
+                        //else check if within coordinates of triangle
+                        if (howToMenu == true)
+                        {
+                            if (currentMouseState.X >= 553 && currentMouseState.X <= 605 && currentMouseState.Y >= 65 && currentMouseState.Y <= 115)
+                            {
+                                howToMenu = false; //exit out of how-to
+                            }
+                            else if (currentMouseState.X >= 573 && currentMouseState.X <= 606 && currentMouseState.Y >= 393 && currentMouseState.Y <= 430)
+                            {
+                                if (howToPage == 1)
+                                { howToPage = 2; /*switch */}
+                                else
+                                { howToPage = 1; }
+                                    
+                            }
+                        }
+
+                        //if false
+                        // additional if statement here checking if mouse is within the coordinates of play button
+                        // Another condition, for coordinates of how-to button
+                        //
+                        else
+                        {
+                            if (currentMouseState.X >= 475 && currentMouseState.X <= 700) //same x coordinates for each
+                            {
+                                if (currentMouseState.Y >= 318 && currentMouseState.Y <= 434)
+                                {
+                                    gameState = GameState.Game; //game start
+                                }
+                                else if (currentMouseState.Y >= 180 && currentMouseState.Y <= 291)
+                                {
+                                    howToMenu = true; //open how to menu
+                                }
+                            }
+                        }
+
+
+                       
                     }
                     break;
 
@@ -568,6 +616,20 @@ namespace Home_Sweet_Hell
                 case GameState.Title:
 
                     menuScreen.StaticImage(1, 1, spriteBatch);
+
+                    if (howToMenu == true)
+                    {
+                        if (howToPage == 1)
+                        {
+                            howTo1.StaticImage(1, 1, spriteBatch);
+                        }
+                        else if (howToPage == 2)
+                        {
+                            howTo2.StaticImage(1, 1, spriteBatch);
+                        }
+
+                    }
+
                     break;
 
                 case GameState.Game:
