@@ -172,6 +172,14 @@ namespace Home_Sweet_Hell
 
 
         }
+        public void SizeChangeDraw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 pPos, float scale)
+        {
+            
+            spriteBatch.Draw(image, pPos, new Rectangle(1, 0, (spriteSize.X / cols), (spriteSize.Y / rows)), // draws image based on given size and frame num
+                Color.White, 0, Vector2.Zero, scale, flip, 1);
+
+
+        }
 
 
     }

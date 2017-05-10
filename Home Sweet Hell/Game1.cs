@@ -678,6 +678,8 @@ namespace Home_Sweet_Hell
                     listing2.StaticImage(1, .66f, spriteBatch);
                     listing3.StaticImage(1, .66f, spriteBatch);
 
+                    towerGraph.SizeChangeDraw(gameTime, spriteBatch, new Vector2(485, 555), 0.66f);
+
                     spriteBatch.DrawString(font, "Knight \n Price: $100",
                         new Vector2(465, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);
                     spriteBatch.DrawString(font, "Unavailable \n Price: $" + 150, //replace with price variable later       
