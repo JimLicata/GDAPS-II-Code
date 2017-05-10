@@ -134,8 +134,9 @@ namespace Home_Sweet_Hell
 
             //map                                                                                          
             Texture2D mapImage = Content.Load<Texture2D>("GUI_Assets/mapassets3type.png");
-            mapGraph = new GUI_StatGraphics(mapImage, new Point(150, 50), 3, 1, 3, "newExampleMap1.txt");
-            mapGraph2 = new GUI_StatGraphics(mapImage, new Point(150, 50), 3, 1, 3, "FinalExampleMap2.txt");
+            Texture2D mapOverlay1 = Content.Load<Texture2D>("GUI_Assets/lv1_overlay.png");
+            mapGraph = new GUI_StatGraphics(mapImage, mapOverlay1, new Point(150, 50), 3, 1, 3, "newExampleMap1.txt");
+            mapGraph2 = new GUI_StatGraphics(mapImage, mapOverlay1, new Point(150, 50), 3, 1, 3, "FinalExampleMap2.txt");
 
             //tower                                                                                        
             Texture2D towerImage = Content.Load<Texture2D>("GUI_Assets/towerplaceholder");
@@ -324,12 +325,6 @@ namespace Home_Sweet_Hell
 
                         if (isBought == true)
                         {
-<<<<<<< HEAD
-
-                           
-
-=======
->>>>>>> f85bafe83045df654fba1a1d3e506f3310ef9549
                             tp.MX = currentMouseState.X;
                             tp.MY = currentMouseState.Y;
                             {

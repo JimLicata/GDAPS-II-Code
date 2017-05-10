@@ -11,11 +11,14 @@ namespace Home_Sweet_Hell
 {
     //Sophia Baker, Group 12, GUI-centric code 3/22/17
     //Loads static images: map tiles. 
+
     class GUI_StatGraphics : GUI_Graphics
     {
         //attributes
         string mapPath;
         int[] mapInts;
+
+        Texture2D overlay;
 
         // properties
         public int[] MapInts
@@ -51,10 +54,11 @@ namespace Home_Sweet_Hell
         /// <param name="pRows">Rows of sprites</param>
         /// <param name="pCols">Columns of sprites</param>
         /// <param name="pMapPath">Path to map text file</param>
-        public GUI_StatGraphics(Texture2D pImage, Point pSpriteSize, int pNumSprites, int pRows, int pCols, string pMapPath)
+        public GUI_StatGraphics(Texture2D pImage, Texture2D pOverlay, Point pSpriteSize, int pNumSprites, int pRows, int pCols, string pMapPath)
         {
             image = pImage; //graph parent class
-            spriteSize = pSpriteSize;
+            overlay = pOverlay;
+            spriteSize = pSpriteSize;//graph parent class V
             numSprites = pNumSprites;
             rows = pRows;
             cols = pCols;
@@ -72,7 +76,7 @@ namespace Home_Sweet_Hell
             //put map 
             //take file path and set up reader
             graphReader = new StreamReader(mapPath);
-            
+
             //read map file to int[]
             int[] mapResult = new int[150]; //maps always 10x15
             //skip blank lines and save ints to int[]
@@ -91,10 +95,10 @@ namespace Home_Sweet_Hell
                     if (c != ' ') //don't handle spaces, they don't matter/shouldn't exist
                     {
                         parsedInt = (int)char.GetNumericValue(c);
-                        mapResult[((((int)lineCount/2)-1) * 15) + (inRowCount-1)] = parsedInt;
-                        
+                        mapResult[((((int)lineCount / 2) - 1) * 15) + (inRowCount - 1)] = parsedInt;
+
                     }
-                    
+
                 }
 
                 //set row back to 0 after in row loop
@@ -116,6 +120,9 @@ namespace Home_Sweet_Hell
             mapInts = MapArray(); //run mapArray
             double pointFive = 0.5; //makes sure i converts to double when adding .5
 
+            //draw overlay
+            Overlay(spriteBatch);
+
             for (int i = 0; i < mapInts.Length; i++)
             {
                 //coordinates on a 15x10 grid
@@ -124,6 +131,9 @@ namespace Home_Sweet_Hell
                 //y 0-9
                 //x 0-14
 
+
+
+                //draw path
                 MapTile(X, Y, mapInts[i], spriteBatch); //send each individual tile coordinate and type to MapTile
             }
         }
@@ -137,7 +147,7 @@ namespace Home_Sweet_Hell
         public void MapTile(int x, int y, int type, SpriteBatch spritebatch)
         {
             //50x150 spritesheet
-            //0 bg default
+            //0 bg defaul
             //1 tower
             //2 path start
             //3-5 path
@@ -158,7 +168,11 @@ namespace Home_Sweet_Hell
             position.X = (x * 50);
             position.Y = (y * 50);
 
-            spritebatch.Draw(image, position, new Rectangle((type * 50), 0, 50, 50), Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0);
+            if (type == 2)
+            {
+                spritebatch.Draw(image, position, new Rectangle((type * 50), 0, 50, 50), Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            }
+
 
         }
 
@@ -166,6 +180,12 @@ namespace Home_Sweet_Hell
         {
             spritebatch.Draw(image, position, new Rectangle(0, 0, spriteSize.X, spriteSize.Y), Color.White, 0, Vector2.Zero, size, SpriteEffects.None, layer);
 
+        }
+
+        public void Overlay(SpriteBatch spritebatch)
+        {
+            //draw overlay
+            spritebatch.Draw(overlay, new Vector2(0, 0), new Rectangle(0, 0, 750, 500), Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0.9f);
         }
 
     }
