@@ -229,7 +229,7 @@ namespace Home_Sweet_Hell
 
             }
             #endregion
-            
+
             #region Load Map 2
             StreamReader load2 = new StreamReader("FinalExampleMap2.txt");
             string line2;
@@ -281,7 +281,7 @@ namespace Home_Sweet_Hell
             }
 
             #endregion
-            
+
         }
 
         /// <summary>
@@ -334,7 +334,7 @@ namespace Home_Sweet_Hell
                                 { howToPage = 2; /*switch */}
                                 else
                                 { howToPage = 1; }
-                                    
+
                             }
                         }
 
@@ -358,14 +358,21 @@ namespace Home_Sweet_Hell
                         }
 
 
-                       
+
                     }
                     break;
 
                 // code for main game -------------------------------------------------------------------
                 case GameState.Game:
-                    if(towers.Count == 0)
-                        tp = new TowerPlacement(currentMouseState.X, currentMouseState.Y, mapGraph);
+                    if (towers.Count == 0)
+                        if (level == 1)
+                        {
+                            tp = new TowerPlacement(currentMouseState.X, currentMouseState.Y, mapGraph);
+                        }
+                        else if (level > 1)
+                        {
+                            tp = new TowerPlacement(currentMouseState.X, currentMouseState.Y, mapGraph2);
+                        }
                     // mouse coordinate code
                     if (currentMouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released)
                     {
@@ -393,7 +400,7 @@ namespace Home_Sweet_Hell
                                 }
                             }
                         }
-                        
+
                         // if mouseclick on tower in shop
                         if (currentMouseState.X >= 460 && currentMouseState.X <= 537 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590 && isBought == false) // compares mouseposition to the position of the new tower button
                         {
@@ -464,21 +471,21 @@ namespace Home_Sweet_Hell
                         }
                     }
 
-                  /*  for (int u = 0; u < towers.Count; u++)
-                    {
-                        Enemy close = null;
+                    /*  for (int u = 0; u < towers.Count; u++)
+                      {
+                          Enemy close = null;
 
-                        if (enemies.Count != 0)
-                        {
-                            close = towers[u].IsClosest(enemies);
-                        }
-                        
-                        if (close != null)
-                        {
-                            close.TakeDamage(towers[u].Attack(close.Position), player);
-                        }
-                        
-                    }*/
+                          if (enemies.Count != 0)
+                          {
+                              close = towers[u].IsClosest(enemies);
+                          }
+
+                          if (close != null)
+                          {
+                              close.TakeDamage(towers[u].Attack(close.Position), player);
+                          }
+
+                      }*/
 
                     for (int i = 0; i < enemies.Count; i++)
                     {
@@ -511,7 +518,7 @@ namespace Home_Sweet_Hell
                             enemies[i].TakeDamage(towers[u].Attack(enemies[i].Position), player);
                         }
                         enemyGraph.Update(gameTime);
-                       
+
 
                         if (enemies[i].Alive == false)
                         {
@@ -724,7 +731,7 @@ namespace Home_Sweet_Hell
             level++; // increments level
             enemyNum = (level + 1) * 10 / 2; //resets enemyNum   
             enemiesKilled = 0;
-            foreach(Tower obj in towers)
+            foreach (Tower obj in towers)
             {
                 money = money + obj.Cost;
             }

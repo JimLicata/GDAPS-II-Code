@@ -205,3 +205,6 @@ Z:\IGMProfile\GDAPS2_Baker_5917\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.cs
 Z:\IGMProfile\GDAPS2_Baker_5917\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\lv1_overlay.png
 Z:\IGMProfile\GDAPS2_Baker_5917\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\htp2.png
 Z:\IGMProfile\GDAPS2_Baker_5917\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\htp1.png
+Z:\IGMProfile\Documents\JamesLicataGDAPS-II\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\htp2.png
+Z:\IGMProfile\Documents\JamesLicataGDAPS-II\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\htp1.png
+Z:\IGMProfile\Documents\JamesLicataGDAPS-II\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\lv1_overlay.png
