@@ -15,7 +15,7 @@ namespace Home_Sweet_Hell
       
 
         //constructor
-        public Knight_Bad_(int x, int y) : base(100, 1, 50, 50, x, y, 100)
+        public Knight_Bad_(int x, int y) : base(60, 1, 50, 50, x, y, 100)
         {
         }
 

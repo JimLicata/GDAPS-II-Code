@@ -229,7 +229,7 @@ namespace Home_Sweet_Hell
 
             }
             #endregion
-            
+
             #region Load Map 2
             StreamReader load2 = new StreamReader("FinalExampleMap2.txt");
             string line2;
@@ -281,7 +281,7 @@ namespace Home_Sweet_Hell
             }
 
             #endregion
-            
+
         }
 
         /// <summary>
@@ -334,7 +334,7 @@ namespace Home_Sweet_Hell
                                 { howToPage = 2; /*switch */}
                                 else
                                 { howToPage = 1; }
-                                    
+
                             }
                         }
 
@@ -358,14 +358,25 @@ namespace Home_Sweet_Hell
                         }
 
 
-                       
+
                     }
                     break;
 
                 // code for main game -------------------------------------------------------------------
                 case GameState.Game:
-                    if(towers.Count == 0)
-                        tp = new TowerPlacement(currentMouseState.X, currentMouseState.Y, mapGraph);
+                    if (towers.Count == 0)
+                    {
+                        if (level == 1)
+                        {
+                            tp = new TowerPlacement(currentMouseState.X, currentMouseState.Y, mapGraph);
+                        } else
+                        if (level >= 2)
+                        {
+                            tp = new TowerPlacement(currentMouseState.X, currentMouseState.Y, mapGraph2);
+                        }
+                        
+                    }
+                        
                     // mouse coordinate code
                     if (currentMouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released)
                     {
@@ -393,7 +404,7 @@ namespace Home_Sweet_Hell
                                 }
                             }
                         }
-                        
+
                         // if mouseclick on tower in shop
                         if (currentMouseState.X >= 460 && currentMouseState.X <= 537 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590 && isBought == false) // compares mouseposition to the position of the new tower button
                         {
@@ -436,19 +447,20 @@ namespace Home_Sweet_Hell
                     // runs all enemy methods for each enemy
                     Tile[,] mapTile = new Tile[0, 0];
                     Tile startTile = null;
-                    switch (level)
+
+                    if (level == 1)
                     {
-                        case 1:
-                            mapTile = level1MapTile;
-                            startTile = startTile1;
-                            break;
-                        case 2:
-                            mapTile = level2MapTile;
-                            startTile = startTile2;
-                            break;
-                        default:
-                            break;
+
+                        mapTile = level1MapTile;
+                        startTile = startTile1;
                     }
+                    if (level >= 2)
+                    {
+
+                        mapTile = level2MapTile;
+                        startTile = startTile2;
+                    }
+                    
 
                     // adds enemyNum enemy knights to the enemies list
                     if (enemyCount < enemyNum)
@@ -464,21 +476,21 @@ namespace Home_Sweet_Hell
                         }
                     }
 
-                  /*  for (int u = 0; u < towers.Count; u++)
-                    {
-                        Enemy close = null;
+                    /*  for (int u = 0; u < towers.Count; u++)
+                      {
+                          Enemy close = null;
 
-                        if (enemies.Count != 0)
-                        {
-                            close = towers[u].IsClosest(enemies);
-                        }
-                        
-                        if (close != null)
-                        {
-                            close.TakeDamage(towers[u].Attack(close.Position), player);
-                        }
-                        
-                    }*/
+                          if (enemies.Count != 0)
+                          {
+                              close = towers[u].IsClosest(enemies);
+                          }
+
+                          if (close != null)
+                          {
+                              close.TakeDamage(towers[u].Attack(close.Position), player);
+                          }
+
+                      }*/
 
                     for (int i = 0; i < enemies.Count; i++)
                     {
@@ -511,7 +523,7 @@ namespace Home_Sweet_Hell
                             enemies[i].TakeDamage(towers[u].Attack(enemies[i].Position), player);
                         }
                         enemyGraph.Update(gameTime);
-                       
+
 
                         if (enemies[i].Alive == false)
                         {
@@ -549,7 +561,10 @@ namespace Home_Sweet_Hell
                      //if (tow.Alive == true)
                      //{
                         if (enemies.Count != 0)
-                        { towerGraph.switchAnim(enemies[0]); } //should pass in closest tower
+                        {
+                            towerGraph.switchAnim(enemies[0]);
+                        } //should pass in closest tower
+
                         //}
                     }
 
@@ -645,17 +660,19 @@ namespace Home_Sweet_Hell
                     spriteBatch.DrawString(font, "EnemyNum: " + enemyNum, new Vector2(800, 250), Color.Black);
                     spriteBatch.DrawString(font, "EnemyCount: " + enemyCount, new Vector2(800, 300), Color.Black);
                     //map drawing
-                    switch (level)
+                    if (level == 1)
                     {
-                        case 1:
-                            mapGraph.MapDraw(spriteBatch);
-                            break;
-                        case 2:
-                            mapGraph2.MapDraw(spriteBatch);
-                            break;
-                        default:
-                            break;
+                        mapGraph.MapDraw(spriteBatch);
                     }
+
+
+                    if (level >= 2)
+                    {
+                        mapGraph2.MapDraw(spriteBatch);
+                    }
+
+
+
 
                     //enemies+towers drawing  
                     foreach (Enemy enem in enemies)
@@ -722,9 +739,10 @@ namespace Home_Sweet_Hell
         public void Nextlevel()
         {
             level++; // increments level
-            enemyNum = (level + 1) * 10 / 2; //resets enemyNum   
+            enemyNum = (level) * 10; //resets enemyNum   
             enemiesKilled = 0;
-            foreach(Tower obj in towers)
+            enemyCount = 0;
+            foreach (Tower obj in towers)
             {
                 money = money + obj.Cost;
             }
