@@ -37,7 +37,7 @@ namespace Home_Sweet_Hell
         //constructor 
         public Player()
         {
-            health = 50;
+            health = 25;
             points = 0;
         }
 

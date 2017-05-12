@@ -99,7 +99,7 @@ namespace Home_Sweet_Hell
             // initialize each enemy and tower
             //towers.Add(new Knight_Good_(300, 100));
             level = 1;
-            player.Health = 50;
+            player.Health = 25;
             player.Points = 0;
             totalEnemiesKilled = 0;
             enemyNum = 10;
@@ -366,11 +366,11 @@ namespace Home_Sweet_Hell
                 case GameState.Game:
                     if (towers.Count == 0)
                     {
-                        if (level == 1)
+                        if (level <= 5)
                         {
                             tp = new TowerPlacement(currentMouseState.X, currentMouseState.Y, mapGraph);
                         } else
-                        if (level >= 2)
+                        if (level > 5)
                         {
                             tp = new TowerPlacement(currentMouseState.X, currentMouseState.Y, mapGraph2);
                         }
@@ -448,33 +448,62 @@ namespace Home_Sweet_Hell
                     Tile[,] mapTile = new Tile[0, 0];
                     Tile startTile = null;
 
-                    if (level == 1)
+                    if (level <= 5)
                     {
 
                         mapTile = level1MapTile;
                         startTile = startTile1;
                     }
-                    if (level >= 2)
+                    if (level > 5)
                     {
 
                         mapTile = level2MapTile;
                         startTile = startTile2;
                     }
-                    
 
-                    // adds enemyNum enemy knights to the enemies list
-                    if (enemyCount < enemyNum)
-                    {
-                        Enemy e1 = new Knight_Bad_(startTile.Position.Y * 50, startTile.Position.X * 50);
-                        int test = enemies.Count;
-                        player.SpawnEnemies(enemies, e1);
-
-                        if (enemies.Count == test + 1)
+                  //  if (level <= 5)
+                    //{
+                        // adds enemyNum enemy knights to the enemies list
+                        if (enemyCount < enemyNum)
                         {
-                            enemyOnBoard++;
-                            enemyCount++;
+                            Enemy e1 = new Knight_Bad_(startTile.Position.Y * 50, startTile.Position.X * 50);
+                            int test = enemies.Count;
+                            player.SpawnEnemies(enemies, e1);
+
+                            if (enemies.Count == test + 1)
+                            {
+                                enemyOnBoard++;
+                                enemyCount++;
+                            }
                         }
-                    }
+                    //}
+                 /*   else if (level > 5)//spawns bees and knights 
+                    {
+                        if (enemyCount < enemyNum)
+                        {
+                            Enemy e1 = new Knight_Bad_(startTile.Position.Y * 50, startTile.Position.X * 50);
+                            Enemy e2 = new Bee(startTile.Position.Y * 50, startTile.Position.X * 50);
+                            int test = enemies.Count;
+                            player.SpawnEnemies(enemies, e1);
+
+                            if (enemies.Count == test + 1)
+                            {
+                                enemyOnBoard++;
+                                enemyCount++;
+                            }
+
+                            test = enemies.Count;
+                            player.SpawnEnemies(enemies, e2);
+
+                            if (enemies.Count == test + 1)
+                            {
+                                enemyOnBoard++;
+                                enemyCount++;
+                            }
+                        }
+                    }*/
+                   
+                   
 
                     /*  for (int u = 0; u < towers.Count; u++)
                       {
@@ -599,7 +628,7 @@ namespace Home_Sweet_Hell
 
                     if (currentMouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released)
                     {
-                        player.Health = 50;
+                        player.Health = 25;
                         enemyNum = 10;
                         gameState = GameState.Title;
                     }
@@ -660,13 +689,13 @@ namespace Home_Sweet_Hell
                     spriteBatch.DrawString(font, "EnemyNum: " + enemyNum, new Vector2(800, 250), Color.Black);
                     spriteBatch.DrawString(font, "EnemyCount: " + enemyCount, new Vector2(800, 300), Color.Black);
                     //map drawing
-                    if (level == 1)
+                    if (level <= 5)
                     {
                         mapGraph.MapDraw(spriteBatch);
                     }
 
 
-                    if (level >= 2)
+                    if (level > 5)
                     {
                         mapGraph2.MapDraw(spriteBatch);
                     }
