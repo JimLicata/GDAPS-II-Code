@@ -139,21 +139,30 @@ namespace Home_Sweet_Hell
 
         public void switchAnim(Enemy enem)
         {
-            //if nearest enemy.position.Y > position.Y
-            if (enem.Position.Y >= position.Y + 25)
-            {
-                currentFrame.X = 0 * (spriteSize.X / cols);
-                currentFrame.Y = 0;
-            }
-            else
-            {
-                currentFrame.X = 1 * (spriteSize.X / cols);
-                currentFrame.Y = 0;
-            }
-            //face up
-            //else face down
-            //until then 
 
+            try
+            {
+                //if nearest enemy.position.Y > position.Y
+                if (enem.Position.Y >= position.Y + 25)
+                {
+                    currentFrame.X = 0 * (spriteSize.X / cols);
+                    currentFrame.Y = 0;
+                }
+                else
+                {
+                    currentFrame.X = 1 * (spriteSize.X / cols);
+                    currentFrame.Y = 0;
+                }
+                //face up
+                //else face down
+                //until then 
+
+
+            }
+            catch(Exception all)
+            {
+
+            }
         }
 
         //draw
