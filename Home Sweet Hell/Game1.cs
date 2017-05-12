@@ -41,6 +41,10 @@ namespace Home_Sweet_Hell
         private int enemiesKilled = 0; // counts number of enemies killed
         private int totalEnemiesKilled = 0; // total number of killed enemies
 
+        // is the tower bought a knight or a lancer
+        private bool isKnight; 
+        private bool isLancer;
+
         private int mX; // mouse x position
         private int mY; // mouse y position
 
@@ -390,45 +394,53 @@ namespace Home_Sweet_Hell
 
                                 tp.MX = currentMouseState.X;
                                 tp.MY = currentMouseState.Y;
-
-
-
-
                                 tp.Done = tp.checkPosition();
 
-                                if (tp.Done == true) // if player clicks on proper tile, places tower and breaks out of loop
+                                if (tp.Done == true && isKnight == true) // if player clicks on proper tile, places tower and breaks out of loop
                                 {
                                     Knight_Good_ tmpKnight = new Knight_Good_(currentMouseState.X - 26, currentMouseState.Y - 25);
                                     towers.Add(tmpKnight);
                                     isBought = false;
+                                    isKnight = false;
+                                }
+
+                                else if (tp.Done == true && isLancer == true)
+                                {
+                                    Lancer tmpLancer = new Lancer(currentMouseState.X - 26, currentMouseState.Y - 25);
+                                    towers.Add(tmpLancer);
+                                    isBought = false;
+                                    isLancer = false;
                                 }
                             }
                         }
 
-                        // if mouseclick on tower in shop
+                        // if mouseclick on knight tower in shop
                         if (currentMouseState.X >= 460 && currentMouseState.X <= 537 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590 && isBought == false) // compares mouseposition to the position of the new tower button
                         {
                             // checks if you have enough money
                             if (money >= 100)
                             {
                                 mX = currentMouseState.X;
-                                mY = currentMouseState.Y;
-                                // towerTemp = new Knight_Good_(mX, mY);
+                                mY = currentMouseState.Y;                              
                                 money -= 100;
                                 isBought = true;
+                                isKnight = true;
                             }
                         }
 
-                        /*
-                         * if (currentMouseState.X >= 562 && currentMouseState.X <= 637 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590 && isBought == false)
+                        // if mouseclick on lancer tower in shop
+                        if (currentMouseState.X >= 562 && currentMouseState.X <= 637 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590 && isBought == false)
                         {
-                            if (money >= towers[1].Cost)
+                            if (money >= 150)
                             {
-                                towers.Add(towers[1]);
-                                money -= towers[1].Cost;
+                                mX = currentMouseState.X;
+                                mY = currentMouseState.Y;
+                                money -= 150;
+                                isBought = true;
+                                isLancer = true;
                             }
                         }
-                        */
+                        
 
                         /*
                         if (currentMouseState.X >= 661 && currentMouseState.X <= 736 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590 && isBought == false)
@@ -731,7 +743,7 @@ namespace Home_Sweet_Hell
 
                     spriteBatch.DrawString(font, "Knight \n Price: $100",
                         new Vector2(465, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);
-                    spriteBatch.DrawString(font, "Unavailable \n Price: $" + 150, //replace with price variable later       
+                    spriteBatch.DrawString(font, "Lancer \n Price: $" + 150, //replace with price variable later       
                         new Vector2(565, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);
                     spriteBatch.DrawString(font, "Unavailable \n Price: $" + 100, //replace with price variable later       
                         new Vector2(665, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);

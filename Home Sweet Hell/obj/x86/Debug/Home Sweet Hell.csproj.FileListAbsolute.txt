@@ -208,3 +208,6 @@ Z:\IGMProfile\GDAPS2_Baker_5917\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\
 Z:\IGMProfile\Documents\GDAPS-II-Code\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\htp2.png
 Z:\IGMProfile\Documents\GDAPS-II-Code\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\htp1.png
 Z:\IGMProfile\Documents\GDAPS-II-Code\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\lv1_overlay.png
+Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\htp2.png
+Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\htp1.png
+Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\lv1_overlay.png
