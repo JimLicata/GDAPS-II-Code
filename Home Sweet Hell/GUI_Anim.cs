@@ -21,6 +21,7 @@ namespace Home_Sweet_Hell
         private Vector2 oldPos; //saves old position for directional movement
         private int moveType; //save type of movement. 0=non-directional, 1 = directional
         private SpriteEffects flip; //is sprite flipped
+        private bool attacking = false;
 
         //-constructor
         public GUI_Anim(Vector2 pPos, Texture2D img, Point pSpriteSize, int pNumSprites, int pRows, int pCols, int msPerFrame, int moveType)
@@ -69,6 +70,7 @@ namespace Home_Sweet_Hell
 
                 if (moveType == 1)
                 {
+
                     if (oldPos.Y != position.Y) //y movemenr
                     {
                         flip = SpriteEffects.None;
@@ -115,6 +117,21 @@ namespace Home_Sweet_Hell
                         }
                     }
                 }
+                else if (moveType == 0)
+                {
+                    if (attacking == true)
+                    {
+                        if (currentFrame.Y < 99)
+                        {
+                            currentFrame.Y += 50;
+                        }
+                        else
+                        {
+                            currentFrame.Y = 0;
+                            attacking = false;
+                        }
+                    }
+                }
                 else
                 {
                     // set location of frame to display
@@ -146,12 +163,10 @@ namespace Home_Sweet_Hell
                 if (enem.Position.Y >= position.Y + 25)
                 {
                     currentFrame.X = 0 * (spriteSize.X / cols);
-                    currentFrame.Y = 0;
                 }
                 else
                 {
                     currentFrame.X = 1 * (spriteSize.X / cols);
-                    currentFrame.Y = 0;
                 }
                 //face up
                 //else face down
@@ -190,6 +205,11 @@ namespace Home_Sweet_Hell
 
         }
 
+        public void AttackAnim()
+        {
+            attacking = true;
+            
+        }
 
     }
 }

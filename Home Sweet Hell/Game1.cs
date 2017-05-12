@@ -593,7 +593,13 @@ namespace Home_Sweet_Hell
                         }
                         for (int u = 0; u < towers.Count; u++)
                         {
-                            enemies[i].TakeDamage(towers[u].Attack(enemies[i].Position), player);
+                            int dmg = towers[u].Attack(enemies[i].Position);
+                            enemies[i].TakeDamage(dmg, player);
+                            if (dmg != 0)
+                            {
+                                towerGraphs[u].AttackAnim();
+                            }
+
                         }
 
 
@@ -604,6 +610,10 @@ namespace Home_Sweet_Hell
 
                                 enemyGraphs[j].Update(gameTime);
                             }
+                        }
+                        for (int j = 0; j < towers.Count(); j++)
+                        {
+                            towerGraphs[j].Update(gameTime);
                         }
 
 
