@@ -258,3 +258,6 @@ Z:\IGMProfile\freemeinfinity\Home Sweet Hell\bin\DesktopGL\x86\Debug\MonoGame.Fr
 Z:\IGMProfile\freemeinfinity\Home Sweet Hell\bin\DesktopGL\x86\Debug\NVorbis.dll
 Z:\IGMProfile\freemeinfinity\Home Sweet Hell\bin\DesktopGL\x86\Debug\OpenTK.dll
 Z:\IGMProfile\freemeinfinity\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.csprojResolveAssemblyReference.cache
+Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\bees.png
+Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\bought.png
+Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\lancer.png

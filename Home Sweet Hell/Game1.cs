@@ -449,7 +449,7 @@ namespace Home_Sweet_Hell
                         }
 
                         // if mouseclick on lancer tower in shop
-                        if (currentMouseState.X >= 562 && currentMouseState.X <= 637 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590 && isBought == false)
+                        if (currentMouseState.X >= 562 && currentMouseState.X <= 637 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590 && isBought == false && level > 5)
                         {
                             if (money >= 150)
                             {
