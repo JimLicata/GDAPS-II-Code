@@ -284,3 +284,4 @@ Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\bin\DesktopGL\x86\Debug\M
 Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\bin\DesktopGL\x86\Debug\NVorbis.dll
 Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\bin\DesktopGL\x86\Debug\OpenTK.dll
 Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.csprojResolveAssemblyReference.cache
+Z:\IGMProfile\Documents\GDAPS-II-Code\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\menuscreen.png
