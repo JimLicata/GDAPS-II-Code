@@ -233,3 +233,6 @@ Z:\IGMProfile\free me26\Home Sweet Hell\bin\DesktopGL\x86\Debug\NVorbis.dll
 Z:\IGMProfile\free me26\Home Sweet Hell\bin\DesktopGL\x86\Debug\OpenTK.dll
 Z:\IGMProfile\free me26\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.csprojResolveAssemblyReference.cache
 Z:\IGMProfile\free me26\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\bought.png
+Z:\IGMProfile\Documents\GDAPS-II-Code\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\bees.png
+Z:\IGMProfile\Documents\GDAPS-II-Code\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\bought.png
+Z:\IGMProfile\Documents\GDAPS-II-Code\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\lancer.png

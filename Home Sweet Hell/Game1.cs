@@ -799,13 +799,13 @@ namespace Home_Sweet_Hell
                     spriteBatch.DrawString(font, "Advance to\nunlock\ntowers!", //replace with price variable later       
                         new Vector2(665, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);
 
-                    if (level > 1)
+                    if (level > 5)
                     {
                         towerGraphsPlaceholders[1].SizeChangeDraw(gameTime, spriteBatch, new Vector2(505, 555), 0.66f);
                     }
                     else
                     {
-                        spriteBatch.DrawString(font, " Unlock at \n lv.2",      
+                        spriteBatch.DrawString(font, " Unlock at \n lv.5",      
                         new Vector2(565, 545), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);
                     }
 
