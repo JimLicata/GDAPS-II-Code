@@ -95,6 +95,9 @@
     <Content Include="Content\mapassets3type.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\menuscreen.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\storebackplaceholder.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

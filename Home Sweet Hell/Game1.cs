@@ -90,8 +90,8 @@ namespace Home_Sweet_Hell
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-            graphics.PreferredBackBufferWidth = 1050;
-            graphics.PreferredBackBufferHeight = 750;
+            graphics.PreferredBackBufferWidth = 750;
+            graphics.PreferredBackBufferHeight = 600;
             graphics.ApplyChanges();
 
             IsMouseVisible = true;
@@ -153,7 +153,7 @@ namespace Home_Sweet_Hell
 
             //menu screen
             Texture2D menuImage = Content.Load<Texture2D>("GUI_Assets/menuscreen.png");
-            menuScreen = new GUI_StatGraphics(menuImage, new Point(750, 500), 1, 1, 1, new Vector2(0, 0));
+            menuScreen = new GUI_StatGraphics(menuImage, new Point(750, 600), 1, 1, 1, new Vector2(0, 0));
 
             //how to
             Texture2D howToImg1 = Content.Load<Texture2D>("GUI_Assets/htp1.png");
@@ -368,11 +368,11 @@ namespace Home_Sweet_Hell
                         {
                             if (currentMouseState.X >= 475 && currentMouseState.X <= 700) //same x coordinates for each
                             {
-                                if (currentMouseState.Y >= 318 && currentMouseState.Y <= 434)
+                                if (currentMouseState.Y >= 368 && currentMouseState.Y <= 484)
                                 {
                                     gameState = GameState.Game; //game start
                                 }
-                                else if (currentMouseState.Y >= 180 && currentMouseState.Y <= 291)
+                                else if (currentMouseState.Y >= 230 && currentMouseState.Y <= 341)
                                 {
                                     howToMenu = true; //open how to menu
                                 }
@@ -752,12 +752,12 @@ namespace Home_Sweet_Hell
                     }
 
                     //spriteBatch.DrawString(font, "Position: " + currentMouseState.X + ", " + currentMouseState.Y, new Vector2(800, 0), Color.Black); // displays current mouse position
-                    spriteBatch.DrawString(font, "Towers: " + towers.Count, new Vector2(800, 50), Color.Black); // displays current number of towers
-                    spriteBatch.DrawString(font, "Enemies: " + enemies.Count, new Vector2(800, 100), Color.Black); // displays current number of enemies
-                    spriteBatch.DrawString(font, "Health: " + player.Health, new Vector2(800, 150), Color.Black);//displays Current Health
-                    spriteBatch.DrawString(font, "Bought: " + isBought, new Vector2(800, 200), Color.Black);
-                    spriteBatch.DrawString(font, "EnemyNum: " + enemyNum, new Vector2(800, 250), Color.Black);
-                    spriteBatch.DrawString(font, "EnemyCount: " + enemyCount, new Vector2(800, 300), Color.Black);
+                    //spriteBatch.DrawString(font, "Towers: " + towers.Count, new Vector2(800, 50), Color.Black); // displays current number of towers
+                    //s//priteBatch.DrawString(font, "Enemies: " + enemies.Count, new Vector2(800, 100), Color.Black); // displays current number of enemies
+                    
+                    //spriteBatch.DrawString(font, "Bought: " + isBought, new Vector2(800, 200), Color.Black);
+                    //.DrawString(font, "EnemyNum: " + enemyNum, new Vector2(800, 250), Color.Black);
+                    //spriteBatch.DrawString(font, "EnemyCount: " + enemyCount, new Vector2(800, 300), Color.Black);
                     //map drawing
                     if (level <= 5)
                     {
@@ -815,6 +815,7 @@ namespace Home_Sweet_Hell
 
                     spriteBatch.DrawString(font, "Level: " + level,
                         new Vector2(665, 15), Color.White, 0, Vector2.Zero, 0.7f, SpriteEffects.None, 1);
+                    spriteBatch.DrawString(font, "Health: " + player.Health, new Vector2(600, 470), Color.White);//displays Current Health
                     spriteBatch.DrawString(font, "Funds available: " + money,
                         new Vector2(10, 510), Color.Black, 0, Vector2.Zero, 0.7f, SpriteEffects.None, 1);
                     spriteBatch.DrawString(font, "Score: " + player.Points,

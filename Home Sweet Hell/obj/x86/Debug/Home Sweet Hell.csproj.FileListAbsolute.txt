@@ -261,3 +261,26 @@ Z:\IGMProfile\freemeinfinity\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.cspro
 Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\bees.png
 Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\bought.png
 Z:\IGMProfile\Documents\This is the last time I swear\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\lancer.png
+Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.exe
+Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.pdb
+Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\htp2.png
+Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\bees.png
+Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\bought.png
+Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\enemyplaceholder.png
+Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\htp1.png
+Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\lancer.png
+Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\lv1_overlay.png
+Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\mapassets3type.png
+Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\menuscreen.png
+Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\storebackplaceholder.png
+Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\storelistingplaceholder.png
+Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\towerplaceholder.png
+Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\bin\DesktopGL\x86\Debug\OpenTK.dll.config
+Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\mainFont.xnb
+Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\bin\DesktopGL\x86\Debug\Content\Arial.xnb
+Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\bin\DesktopGL\x86\Debug\Home Sweet Hell.exe
+Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\bin\DesktopGL\x86\Debug\Home Sweet Hell.pdb
+Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\bin\DesktopGL\x86\Debug\MonoGame.Framework.dll
+Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\bin\DesktopGL\x86\Debug\NVorbis.dll
+Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\bin\DesktopGL\x86\Debug\OpenTK.dll
+Z:\IGMProfile\againtoinfinityandbeyond\Home Sweet Hell\obj\x86\Debug\Home Sweet Hell.csprojResolveAssemblyReference.cache
