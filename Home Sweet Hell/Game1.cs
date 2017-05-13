@@ -172,7 +172,7 @@ namespace Home_Sweet_Hell
             lancerImage = Content.Load<Texture2D>("GUI_Assets/lancer");
             //enemy
             enemyImage = Content.Load<Texture2D>("GUI_Assets/enemyplaceholder");
-            Texture2D beeImage = Content.Load<Texture2D>("GUI_Assets/bees");
+            beeImage = Content.Load<Texture2D>("GUI_Assets/bees");
 
             towerGraphsPlaceholders[0] = new GUI_Anim(towerImage, new Point(100, 150), 6, 3, 2, 1000, 0);
             towerGraphsPlaceholders[1] = new GUI_Anim(lancerImage, new Point(100, 150), 6, 3, 2, 1000, 0);
