@@ -794,7 +794,7 @@ namespace Home_Sweet_Hell
                     listing2.StaticImage(1, .66f, spriteBatch);
                     listing3.StaticImage(1, .66f, spriteBatch);
 
-                    towerGraphsPlaceholders[0].SizeChangeDraw(gameTime, spriteBatch, new Vector2(485, 555), 0.66f);
+                    towerGraphsPlaceholders[0].SizeChangeDraw(gameTime, spriteBatch, new Vector2(483, 555), 0.66f);
 
                     spriteBatch.DrawString(font, "Knight \n Price: $100",
                         new Vector2(465, 515), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);
@@ -805,7 +805,7 @@ namespace Home_Sweet_Hell
 
                     if (level > 5)
                     {
-                        towerGraphsPlaceholders[1].SizeChangeDraw(gameTime, spriteBatch, new Vector2(505, 555), 0.66f);
+                        towerGraphsPlaceholders[1].SizeChangeDraw(gameTime, spriteBatch, new Vector2(584, 555), 0.66f);
                     }
                     else
                     {
