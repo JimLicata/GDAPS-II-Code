@@ -42,7 +42,7 @@ namespace Home_Sweet_Hell
         private int totalEnemiesKilled = 0; // total number of killed enemies
 
         // is the tower bought a knight or a lancer
-        private bool isKnight; 
+        private bool isKnight;
         private bool isLancer;
 
         private int mX; // mouse x position
@@ -118,7 +118,7 @@ namespace Home_Sweet_Hell
             enemyNum = 10;
             enemies.Clear();
             towers.Clear();
-            
+
 
             gameState = GameState.Title;
 
@@ -391,14 +391,15 @@ namespace Home_Sweet_Hell
                         if (level <= 5)
                         {
                             tp = new TowerPlacement(currentMouseState.X, currentMouseState.Y, mapGraph);
-                        } else
+                        }
+                        else
                         if (level > 5)
                         {
                             tp = new TowerPlacement(currentMouseState.X, currentMouseState.Y, mapGraph2);
                         }
-                        
+
                     }
-                        
+
                     // mouse coordinate code
                     if (currentMouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released)
                     {
@@ -413,14 +414,14 @@ namespace Home_Sweet_Hell
                                 tp.MX = currentMouseState.X;
                                 tp.MY = currentMouseState.Y;
                                 tp.Done = tp.checkPosition();
-                                
+
                                 if (tp.Done == true && isKnight == true) // if player clicks on proper tile, places tower and breaks out of loop
                                 {
                                     Knight_Good_ tmpKnight = new Knight_Good_(currentMouseState.X - 26, currentMouseState.Y - 25);
                                     towers.Add(tmpKnight);
                                     isBought = false;
                                     isKnight = false;
-                                    towerGraphs[towers.Count-1] = new GUI_Anim(towerImage, new Point(100, 150), 6, 3, 2, 1000, 0);
+                                    towerGraphs[towers.Count - 1] = new GUI_Anim(towerImage, new Point(100, 150), 6, 3, 2, 1000, 0);
                                 }
 
                                 else if (tp.Done == true && isLancer == true)
@@ -429,7 +430,7 @@ namespace Home_Sweet_Hell
                                     towers.Add(tmpLancer);
                                     isBought = false;
                                     isLancer = false;
-                                    towerGraphs[towers.Count-1] = new GUI_Anim(lancerImage, new Point(100, 150), 6, 3, 2, 1000, 0);
+                                    towerGraphs[towers.Count - 1] = new GUI_Anim(lancerImage, new Point(100, 150), 6, 3, 2, 1000, 0);
                                 }
                             }
                         }
@@ -441,7 +442,7 @@ namespace Home_Sweet_Hell
                             if (money >= 100)
                             {
                                 mX = currentMouseState.X;
-                                mY = currentMouseState.Y;                              
+                                mY = currentMouseState.Y;
                                 money -= 100;
                                 isBought = true;
                                 isKnight = true;
@@ -460,7 +461,7 @@ namespace Home_Sweet_Hell
                                 isLancer = true;
                             }
                         }
-                        
+
 
                         /*
                         if (currentMouseState.X >= 661 && currentMouseState.X <= 736 && currentMouseState.Y >= 505 && currentMouseState.Y <= 590 && isBought == false)
@@ -495,17 +496,17 @@ namespace Home_Sweet_Hell
 
 
 
-                    
+
                     //enemy position vector should be enemy position property from enemy class                     
                     //enemyGraph = new GUI_Anim(enemyImage, new Point(150, 50), 1, 1, 3, 1000, 1);
                     //beeGraph = new GUI_Anim(beeImage, new Point(150, 50), 1, 1, 3, 1000, 1);
 
 
 
-                      if (level <= 5)
+                    if (level <= 5)
                     {
-                    // adds enemyNum enemy knights to the enemies list
-                    if (enemyCount < enemyNum)
+                        // adds enemyNum enemy knights to the enemies list
+                        if (enemyCount < enemyNum)
                         {
                             Enemy e1 = new Knight_Bad_(startTile.Position.Y * 50, startTile.Position.X * 50);
                             int test = enemies.Count;
@@ -515,11 +516,11 @@ namespace Home_Sweet_Hell
                             {
                                 enemyOnBoard++;
                                 enemyCount++;
-                                enemyGraphs[enemyCount-1] = new GUI_Anim(enemyImage, new Point(150, 50), 1, 1, 3, 1000, 1);
-                        }
+                                enemyGraphs[enemyCount - 1] = new GUI_Anim(enemyImage, new Point(150, 50), 1, 1, 3, 1000, 1);
+                            }
                         }
                     }
-                   else if (level > 5)//spawns bees and knights 
+                    else if (level > 5)//spawns bees and knights 
                     {
                         if (enemyCount < enemyNum)
                         {
@@ -546,8 +547,8 @@ namespace Home_Sweet_Hell
                             }
                         }
                     }
-                   
-                   
+
+
 
                     /*  for (int u = 0; u < towers.Count; u++)
                       {
@@ -646,7 +647,7 @@ namespace Home_Sweet_Hell
                         }
 
                     }
-                    
+
                     //each tower in towers
                     for (int i = 0; i < towers.Count(); i++)
                     {//currently doesn't check if tower is alive, need tower.alive property, and to actually assign a value to Alive at some point (currently not returning anything)
@@ -669,6 +670,8 @@ namespace Home_Sweet_Hell
                     // you lose
                     if (player.Health <= 0)
                     {
+                        enemies.Clear();
+                        towers.Clear();
                         gameState = GameState.GameOver;
                     }
                     break;
@@ -691,6 +694,7 @@ namespace Home_Sweet_Hell
                     {
                         player.Health = 25;
                         enemyNum = 10;
+                        level = 1;
                         gameState = GameState.Title;
                     }
                     break;
@@ -805,7 +809,7 @@ namespace Home_Sweet_Hell
                     }
                     else
                     {
-                        spriteBatch.DrawString(font, " Unlock at \n lv.5",      
+                        spriteBatch.DrawString(font, " Unlock at \n lv.5",
                         new Vector2(565, 545), Color.Black, 0, Vector2.Zero, 0.45f, SpriteEffects.None, 1);
                     }
 
@@ -820,7 +824,9 @@ namespace Home_Sweet_Hell
 
                 case GameState.GameOver:
 
-                    spriteBatch.DrawString(font, "Game Over", new Vector2(GraphicsDevice.Viewport.Width / 2 - 100, GraphicsDevice.Viewport.Height / 2), Color.Black);
+                    spriteBatch.DrawString(font, "Game Over", new Vector2(GraphicsDevice.Viewport.Width / 2 - 100, GraphicsDevice.Viewport.Height / 2-100), Color.Black);
+                    spriteBatch.DrawString(font, "Score: "+player.Points, new Vector2(GraphicsDevice.Viewport.Width / 2 - 100, GraphicsDevice.Viewport.Height / 2 - 50), Color.Black);
+                    spriteBatch.DrawString(font, "Total Enemies Killed: " + enemiesKilled, new Vector2(GraphicsDevice.Viewport.Width / 2-100, GraphicsDevice.Viewport.Height / 2), Color.Black);
                     break;
 
                 case GameState.Results:
